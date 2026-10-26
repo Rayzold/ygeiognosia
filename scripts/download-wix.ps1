@@ -130,8 +130,8 @@ if (-not $SkipMedia) {
   # -------------------------------------------------------------- 3. images
   Log '== 3/6 Images (original resolution) ==' Cyan
   $ids = @()
-  $ids += [regex]::Matches($all, '[0-9a-f]{6}_[0-9a-f]{32}(?:f000|~mv2(?:_d_\d+_\d+_s_\d+)?)?\.(?:png|jpe?g|gif|webp|svg|avif)', 'IgnoreCase') | ForEach-Object { $_.Value }
-  $ids += [regex]::Matches($all, 'nsplsh_[0-9A-Za-z]+~mv2(?:_d_\d+_\d+_s_\d+)?\.(?:png|jpe?g|webp)', 'IgnoreCase') | ForEach-Object { $_.Value }
+  $ids += [regex]::Matches($all, '[0-9a-f]{6}_[0-9a-f]{32}(?:f000|~mv2(?:_d_\d+_\d+_s(?:_\d+)+)?)?\.(?:png|jpe?g|gif|webp|svg|avif)', 'IgnoreCase') | ForEach-Object { $_.Value }
+  $ids += [regex]::Matches($all, 'nsplsh_[0-9A-Za-z]+~mv2(?:_d_\d+_\d+_s(?:_\d+)+)?\.(?:png|jpe?g|webp)', 'IgnoreCase') | ForEach-Object { $_.Value }
   $ids = $ids | Sort-Object -Unique
   Log "  $($ids.Count) image ids found"
   # Wix repeats the id with the output format as file name (id~mv2.jpg/v1/fill/.../id~mv2.webp):
