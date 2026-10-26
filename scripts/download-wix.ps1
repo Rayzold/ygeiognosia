@@ -134,14 +134,44 @@ if (-not $SkipMedia) {
   $ids += [regex]::Matches($all, 'nsplsh_[0-9A-Za-z]+~mv2(?:_d_\d+_\d+_s_\d+)?\.(?:png|jpe?g|webp)', 'IgnoreCase') | ForEach-Object { $_.Value }
   $ids = $ids | Sort-Object -Unique
   Log "  $($ids.Count) image ids found"
-  $ok = 0; $skip = 0; $fail = @(); $i = 0
-  foreach ($id in $ids) {
+  # Wix repeats the id with the output format as file name (id~mv2.jpg/v1/fill/.../id~mv2.webp):
+  # group by stem (id without extension) and try the real formats before .webp.
+  $groups = $ids | Group-Object { $_ -replace '\.[A-Za-z]+$', '' }
+  $have = @{}
+  Get-ChildItem $D.media -File | ForEach-Object { $have[($_.Name -replace '\.[^.]+$', '' -replace '__w\d+h\d+$', '')] = $true }
+  $ok = 0; $skip = 0; $fb = 0; $fail = @(); $i = 0
+  foreach ($g in $groups) {
     $i++
-    $r = Get-File "https://static.wixstatic.com/media/$id" (Join-Path $D.media ($id -replace '~', '_'))
-    if ($r -eq 'ok') { $ok++ } elseif ($r -eq 'skip') { $skip++ } else { $fail += $id }
-    if ($i % 50 -eq 0) { Write-Host "  ... $i / $($ids.Count)" }
+    $stem = $g.Name
+    $local = $stem -replace '~', '_'
+    if ($have.ContainsKey($local)) { $skip++; continue }
+    $cands = @($g.Group | Sort-Object { if ($_ -match '\.webp$') { 1 } else { 0 } })
+    $got = $false
+    foreach ($id in $cands) {
+      if ((Get-File "https://static.wixstatic.com/media/$id" (Join-Path $D.media ($id -replace '~', '_'))) -eq 'ok') { $got = $true; break }
+    }
+    if ($got) { $ok++ }
+    else {
+      # original refused (403): take the largest non-blurred variant Wix serves on the page
+      $best = $null; $bestArea = 0
+      $pat = 'https://static\.wixstatic\.com/media/' + [regex]::Escape($stem) + '\.[A-Za-z]+/v1/(?:fill|fit|crop)/w_(\d+),h_(\d+)[^"''&\s\\]*'
+      foreach ($m in [regex]::Matches($all, $pat)) {
+        if ($m.Value -match 'blur_') { continue }
+        $area = [int]$m.Groups[1].Value * [int]$m.Groups[2].Value
+        if ($area -gt $bestArea) { $bestArea = $area; $best = $m }
+      }
+      if ($best) {
+        $ext = [IO.Path]::GetExtension($best.Value)
+        $out = Join-Path $D.media ("{0}__w{1}h{2}{3}" -f $local, $best.Groups[1].Value, $best.Groups[2].Value, $ext)
+        $src = $best.Value -replace ',enc_avif', '' -replace ',quality_auto', ''
+        if ((Get-File $src $out) -ne 'fail') { $fb++; Log "  fallback $stem -> w$($best.Groups[1].Value) h$($best.Groups[2].Value)" Yellow }
+        else { $fail += $stem }
+      }
+      else { $fail += $stem }
+    }
+    if ($i % 50 -eq 0) { Write-Host "  ... $i / $($groups.Count)" }
   }
-  Log "  $ok downloaded, $skip already there, $($fail.Count) failed" Green
+  Log "  $ok downloaded, $skip already there, $fb fallback (largest Wix variant), $($fail.Count) failed" Green
   $fail | ForEach-Object { Log "  FAIL $_" Yellow }
 
   # -------------------------------------------------------------- 4. PDFs, videos, fonts
