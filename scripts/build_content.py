@@ -48,6 +48,10 @@ def build_rules():
             rules[r["Όπως είναι"].strip()] = ("spell", r["Διόρθωση"].strip())
     # Already approved in CLAUDE.md (appears in menu/link labels, not only in body text)
     rules.setdefault("Ελιξήρια", ("spell", "Ελιξίρια"))
+    rules.setdefault("ελιξήρια", ("spell", "ελιξίρια"))  # menu «τα ελιξήρια μας», same approved fix
+    # site chrome (header/footer) was outside the review corpus; same approved fix 8 (Latin look-alikes)
+    rules.setdefault("Kαλάθι", ("latin", "Καλάθι"))
+    rules.setdefault("Bυζαντίου", ("latin", "Βυζαντίου"))
     return rules
 
 

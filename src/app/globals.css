@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/*
+ * Fonts (self-hosted, OFL; licences in public/fonts).
+ * Wix uses two commercial uploads: PF DinText Pro (body, menu) and Black Diamond (script titles).
+ * Interim free replacements until the owner decides (see archive/design-tokens.md):
+ *   --font-body   Roboto Condensed  (PF DinText Pro, Brandon Grotesque, DIN Next)
+ *   --font-script Mynerve           (Black Diamond)
+ * To switch fonts, change only the @font-face blocks and the two variables below.
+ */
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 300; font-display: swap; src: url("/fonts/roboto-condensed-greek-300-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 300; font-display: swap; src: url("/fonts/roboto-condensed-latin-300-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 300; font-display: swap; src: url("/fonts/roboto-condensed-latin-ext-300-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto-condensed-greek-400-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto-condensed-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/roboto-condensed-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/roboto-condensed-greek-700-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/roboto-condensed-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/roboto-condensed-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Mynerve"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/mynerve-greek-400-normal.woff2") format("woff2"); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; }
+@font-face { font-family: "Mynerve"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/mynerve-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Mynerve"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/mynerve-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* Wix theme palette (archive/design-tokens.md). Names follow the Wix colour slots. */
+@theme {
+  --font-body: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-script: "Mynerve", "Segoe Print", cursive;
+
+  --color-green-1: #eaf7d7; /* color_16 */
+  --color-green-2: #c5dda4; /* color_17: menu hover */
+  --color-green-3: #a0cc62; /* color_18: accent, active menu, buttons */
+  --color-green-4: #6b8841; /* color_19: menu bar, footer panel (44%) */
+  --color-green-5: #354421; /* color_20 */
+  --color-yellow-1: #ffeeaa;
+  --color-yellow-3: #ffcc00;
+  --color-brown-3: #ba6c2d;
+  --color-grey-2: #bfbfbf;
+  --color-grey-4: #4c4c4c;
+
+  --breakpoint-desk: 1000px; /* Wix desktop layout (980px column) from here up; mobile layout below */
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: #10140a; /* shows only while the background photo loads */
+  }
+  body {
+    font-family: var(--font-body);
+    color: #fff;
+    min-width: 320px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-green-3);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

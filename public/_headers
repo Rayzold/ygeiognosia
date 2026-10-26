@@ -1,0 +1,27 @@
+# Cloudflare Pages response headers.
+# HSTS: HTTPS only for a year (no includeSubDomains until the domain is fully on Cloudflare).
+# CSP: only our own files. 'unsafe-inline' is required by the static Next.js export (inline bootstrap
+# scripts) and inline styles. Cloudflare Web Analytics allowed. Phase 5β adds YouTube embeds (frame-src),
+# Phase 5γ the Viva checkout redirect, Phase 6 Jotform: extend only what each needs.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Build output with hashed file names never changes: cache for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images, video and files keep their names when replaced, so cache for a week only.
+/images/*
+  Cache-Control: public, max-age=604800
+/video/*
+  Cache-Control: public, max-age=604800
+/files/*
+  Cache-Control: public, max-age=604800

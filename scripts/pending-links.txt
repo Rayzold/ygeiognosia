@@ -1,0 +1,8 @@
+# Internal links to pages that are built in a later phase. check-links.mjs reports them instead of failing.
+# Remove each line when its page exists. Must be empty before the release (Phase 7).
+/about-us
+/people
+/blog
+/exclusive-elixirs
+/wildolive
+/contact

@@ -6,5 +6,5 @@
 | dropped empty categories | 1 |
 | dropped placeholder info sections | 2 |
 | invisible | 122 |
-| latin | 521 |
-| spell | 455 |
+| latin | 524 |
+| spell | 457 |

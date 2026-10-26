@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects. Wix URLs that are intentionally not migrated (OWNER-CHANGES.md).
+# Wix template dummy products «I'm a product» (approved fix 11)
+/product-page/i-m-a-product-1 /shop 301
+/product-page/i-m-a-product-2 /shop 301
+/product-page/i-m-a-product-3 /shop 301
+/product-page/i-m-a-product-4 /shop 301
+/product-page/i-m-a-product-5 /shop 301
+/product-page/i-m-a-product-6 /shop 301
+/product-page/i-m-a-product-7 /shop 301
+/product-page/i-m-a-product-8 /shop 301
+/product-page/i-m-a-product-9 /shop 301
+/product-page/i-m-a-product-10 /shop 301
+/product-page/i-m-a-product-11 /shop 301
+# empty category «Ερωτική Επιθυμία» (approved fix 12)
+/blank-11 /shop2 301
+# Wix also served the home page at /home
+/home / 301

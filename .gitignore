@@ -60,3 +60,6 @@ archive/_pages_transfer.tgz
 /archive/sitemaps/
 /archive/urls.json
 /archive/download-log.txt
+
+# responsive width variants are generated on every build (scripts/image-variants.mjs)
+/public/images/**/*-w[0-9]*.webp
