@@ -53,8 +53,23 @@ Background, facts, lessons and the domain runbook: `docs/ygeiognosia-playbook.md
 - Wix serves `<html lang="en">` on Greek pages: the rebuild uses `lang="el"` (list in OWNER-CHANGES.md).
 - Blog posts contain buttons and links to aesthlos.com, 14 YouTube embeds, 3 single-image galleries.
 
+## Approved fixes vs. Wix (Markos, 2026-10-26) — exceptions to "verbatim"
+1. `<html lang="el">` everywhere.
+2. All UI in Greek: store (Προσθήκη στο καλάθι, Γρήγορη προβολή, Τιμή, Ποσότητα…), blog (Όλα τα άρθρα, Πρόσφατα άρθρα, «N λεπτά ανάγνωσης», Greek dates e.g. «15 Φεβ 2025»), contact form labels/placeholders/button, pagination, aria-labels. Drop the Wix «More» menu item.
+3. Greek page titles; home title + description in Greek (current English: «Health food store | Ygeiognosia | Greece», «Ygeiognosia offers natural…»).
+4. Unique title per page (6 wild-olive pages, 6 `/orders-*` pages share one title today) from each page's own heading.
+5. Meta description on every page, generated from content (product description, post excerpt, first paragraph); og:image on every page.
+6. LocalBusiness JSON-LD (health food store: Βυζαντίου 23, Νέα Σμύρνη 17121, +30 213 014 4422, opening hours from `/contact`).
+7. Alt text for every image: product name / post title / page heading when Wix alt is empty or a file name.
+8. Greek words typed with Latin look-alike letters (79 words, 370 places, e.g. `Kαλλυντικά`, `Aυτοφαγία`) → Greek letters, **in visible text only; URLs/slugs never change**.
+9. Typos: «Κυταρρική» → «Κυτταρική», «Ελιξήρια» → «Ελιξίρια». A full spell-check list goes to Markos for approval; only approved items change.
+10. Phone shown as «+30 213 014 4422» with `tel:+302130144422`.
+11. `i-m-a-product-1…11` (Wix dummies) are not migrated: 301 → `/shop`, not in sitemap.
+12. `/blank-11` (empty category) is not migrated: 301 → `/shop2`.
+13. `/product-page/immune-c`: drop the Wix placeholder sections «RETURN & REFUND POLICY» and «SHIPPING INFO» (keep «ΠΛΗΡΟΦΟΡΙΕΣ»).
+Every item is listed in OWNER-CHANGES.md.
+
 ## Open questions (resolve in or after Phase 1)
-- Template dummies `i-m-a-product-N`: proposal = do not migrate, 301 to `/shop`. Confirm with the owner.
 - Fonts: PF DinText Pro and Black Diamond are commercial uploads (see `archive/design-tokens.md`); ask whether the owner holds web licences.
 - Languages: Greek only (no `hreflang`/`?lang=` found).
 - Wix members/login pages: not migrated (static site, no accounts). Confirm none are in use.
