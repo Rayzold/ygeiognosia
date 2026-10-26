@@ -1,0 +1,64 @@
+# Ygeiognosia — project rules
+
+PROJECT: Rebuild https://www.ygeiognosia.com (currently on Wix: Wix Stores + Wix Blog + pages) as a self-owned site on Cloudflare Pages: a static Next.js export plus a small set of Cloudflare Pages Functions for checkout with Viva Smart Checkout.
+
+Background, facts, lessons and the domain runbook: `docs/ygeiognosia-playbook.md` (read it first). Reference repo for reusable scripts/patterns: `Rayzold/aesthlos`.
+
+## Non-negotiables
+- Faithful rebuild, not a redesign: keep every page, section order, layout, image and colour combination of the current site. Changes only where forced (e.g. commercial Wix fonts) or approved by the owner, and every change goes into OWNER-CHANGES.md.
+- Keep all Greek copy verbatim (pages, products, blog posts). Do not rewrite, shorten, translate or "fix" text unless the owner asks.
+- Keep every existing URL path identical so Google rankings and shared links survive: `/product-page/<slug>`, `/post/<slug>`, `/blog`, and all page paths. Many slugs are Greek (e.g. `/post/τα-φρούτα-που-σε-βάζουν-για-ύπνο`, `/product-page/ψευδάργυρος`): test early (Phase 2) that a Greek-slug page builds, is served by Cloudflare Pages with status 200 for both the raw and the percent-encoded URL, and appears correctly encoded in sitemap.xml and canonical tags.
+- No Wix dependencies at runtime: every image, PDF, icon and font is downloaded and served locally. No `static.wixstatic.com` (or any Wix host) URLs in the final build.
+- Product prices must match the Wix Stores export exactly.
+
+## Stack
+- Next.js (App Router) + TypeScript + Tailwind CSS, `output: "export"`, `trailingSlash: false` (Wix-style URLs).
+- Hosting: Cloudflare Pages (account `markos.stefanou@gmail.com`), auto-deploy on every `git push` to `main`. Preview on `https://<project>.pages.dev` before the domain cutover.
+- Checkout backend: Cloudflare Pages Functions in `/functions` (same origin, so no CORS). This is the only server-side code. Everything else is static.
+- Images: WebP + pre-generated width variants + custom `next/image` loader (as in aesthlos: `scripts/image-variants.mjs`, `src/lib/image-loader.ts`); widths must match `next.config.ts` deviceSizes/imageSizes. Lazy-load below the fold and give every image correct `sizes` (the store and blog have hundreds of images).
+- Content: typed `src/content/*.ts` for pages; products from the Wix Stores CSV export frozen into `src/content/products.json` (or `.ts`); blog posts as one Markdown/MDX file each in `src/content/posts/`.
+- Templates, not hand-built pages: one product template (106 products), one post template (81 posts), templates per content-page type (38 pages). Designed pages that ship their own JS get their own route folder.
+- `npm run build` = image variants + next build + `scripts/check-links.mjs` (fails the deploy on any broken link/asset/Wix URL) + a sitemap check that every URL of the Wix `sitemap.xml` exists in `out/`.
+- Known technical debt goes in README "Known limitations".
+
+## Store and checkout (owner decisions, 2026-10-26)
+- Own store in the site: product list, categories, product page, client-side cart (no customer accounts).
+- Payment: **Viva Smart Checkout via API**. The owner has an active Viva merchant account.
+  - Cart lives in the browser (localStorage, wrapped in try/catch; the cart must still work in memory if storage is unavailable).
+  - `POST /api/checkout` (Pages Function): receives product ids + quantities + customer/shipping details, **recomputes the total server-side from the product catalog** (never trust prices sent by the browser), adds shipping, creates a Viva payment order and returns the redirect to the Viva checkout page.
+  - Viva webhook (Pages Function) confirms the payment; the success page alone is never proof of payment.
+  - Credentials (client id/secret, source code, webhook key) only as Cloudflare Pages secrets/env vars. Never in the repo, never in client code.
+  - Develop and test against the Viva **demo/sandbox** environment; switch to production only at cutover, with the owner.
+  - Verify every Viva endpoint, auth flow and webhook detail against the current official docs (developer.viva.com) at Phase 5, not from memory.
+- Shipping: **fixed cost** (amount and any free-shipping threshold taken from the current Wix Stores settings in Phase 1; confirm with the owner). **No inventory management**; availability is a manual flag per product (e.g. "εξαντλήθηκε").
+- JSON-LD `Product` + `Offer` (price, currency EUR, availability) on every product page.
+- CSP in `public/_headers` must allow the Viva checkout redirect/navigation and nothing more than needed.
+
+## Other decisions
+- Email: **no** professional email @ygeiognosia.com. The domain has no MX/SPF/DKIM/DMARC today, so the DNS move cannot break email. Use the no-email runbook (playbook section 6).
+- Contact form: Jotform (EU servers), notification to the owner's email, as in aesthlos.
+- Blog: same URLs `/post/<slug>`, original dates, cover image, categories if Wix has them, JSON-LD `BlogPosting`.
+- Fonts: commercial Wix fonts → free Google Fonts look-alikes with Greek support; show the owner a comparison before deciding.
+- Motion: only the restrained aesthlos patterns (Reveal, PageFade) and only where they do not change the faithful look. Respect `prefers-reduced-motion` everywhere.
+- Lighthouse targets (mobile, median of 3 runs): Performance >= 90, Accessibility >= 95, Best Practices >= 95, SEO 100.
+
+## Open questions (resolve in or after Phase 1)
+- `/product-page/i-m-a-product-N`, `/blank-N` and other Wix template leftovers: real or not? Ask the owner before migrating them.
+- Languages: Greek only? Check for `?lang=` variants in the archive.
+- Wix members/login pages: not migrated (static site, no accounts). Confirm none are in use.
+- Order notification: where the owner receives new orders (email via which provider, or the Viva dashboard only) and whether orders need to be stored (e.g. Cloudflare D1/KV).
+- Invoices/receipts and myDATA: how the owner issues them today; the checkout must not break that process.
+- E-shop legal pages (terms, returns, privacy/cookies): carry over verbatim from Wix; flag to the owner if any are missing.
+- Domain expires **15/12/2026**: Markos renews it at papaki before the cutover.
+- Before cancelling Wix: export orders, customers, products CSV, blog/newsletter subscribers, form messages, invoices.
+
+## Owner changelog
+- `OWNER-CHANGES.md` (Greek) records every change/fix vs. the live Wix site for the owner. Update it whenever something differs from Wix.
+
+## Workflow
+- Communicate with Markos in Greek; keep technical terms, names, commands and code in English.
+- Work phase by phase (playbook section 4) and stop after each phase for review.
+- `/archive` holds the capture of the live Wix site (HTML, text, meta, image lists, screenshots, design tokens). It is the source of truth for layout and copy.
+- CSV files: UTF-8 with BOM, delimiter `^`, quote any field that contains `^`, `"` or a newline (double the inner quotes).
+- Claude's safety checks may block some DNS/domain changes (e.g. nameservers at papaki): give Markos exact click-by-click instructions instead of insisting.
+- Run a code review before the release (`/engineering:code-review`), with extra attention to the checkout functions.
