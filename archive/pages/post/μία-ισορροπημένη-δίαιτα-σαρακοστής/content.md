@@ -9,7 +9,7 @@ title: Μία Ισορροπημένη Δίαιτα Σαρακοστής
 
 ![](media/nsplsh_f0cb1dcc27924f9f9dd32ac530b46236_mv2.jpg) _#1 5184x3888_
 
-![](media/nsplsh_67795f444e303833333655~mv2_d_3264_4896_s_4_2.jpg) _#2 3264x4896_
+![](media/nsplsh_67795f444e303833333655_mv2_d_3264_4896_s_4_2.jpg) _#2 3264x4896_
 
 ![](media/nsplsh_2c46d033bb0b4f2bbc3c950ea828640a_mv2.jpg) _#3 6000x4000_
 

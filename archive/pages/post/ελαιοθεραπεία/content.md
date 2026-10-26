@@ -7,7 +7,7 @@ title: Ελαιοθεραπεία
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_79754f416379706f463149~mv2_d_2624_3936_s_4_2.jpg) _#1 2624x3936_
+![](media/nsplsh_79754f416379706f463149_mv2_d_2624_3936_s_4_2.jpg) _#1 2624x3936_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

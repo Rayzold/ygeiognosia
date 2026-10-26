@@ -9,7 +9,7 @@ title: Κλεισμένοι στα σπίτια μας έχουμε μια ευ�
 
 ![](media/21375d_65c449774cfa4abba4797359615c8633_mv2.jpg) _#1 1080x1080_
 
-![](media/nsplsh_70656e6168657655675341~mv2_d_5304_7618_s_4_2.jpg) _#2 5304x7618_
+![](media/nsplsh_70656e6168657655675341_mv2_d_5304_7618_s_4_2.jpg) _#2 5304x7618_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

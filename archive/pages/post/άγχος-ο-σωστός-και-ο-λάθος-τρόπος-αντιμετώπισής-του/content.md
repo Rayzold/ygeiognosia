@@ -7,7 +7,7 @@ title: Άγχος - Ο σωστός και ο λάθος τρόπος αντιμ
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_4f4b43434362796f6e3238~mv2_d_5760_3840_s_4_2.jpg) _#1 5760x3840_
+![](media/nsplsh_4f4b43434362796f6e3238_mv2_d_5760_3840_s_4_2.jpg) _#1 5760x3840_
 
 ![](media/nsplsh_5181f48c7aed4bd69f2bdfbba8ee2d5f_mv2.jpg) _#2 2202x2560_
 

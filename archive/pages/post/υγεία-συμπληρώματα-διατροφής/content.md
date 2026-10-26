@@ -9,7 +9,7 @@ title: Υγεία & Συμπληρώματα Διατροφής
 
 ![](media/nsplsh_ee414be2a410484289349b6eec84f853_mv2.jpg) _#1 2175x3262_
 
-![](media/nsplsh_7a6a4f37786b436f675a4d~mv2_d_3535_5713_s_4_2.jpg) _#2 3535x5713_
+![](media/nsplsh_7a6a4f37786b436f675a4d_mv2_d_3535_5713_s_4_2.jpg) _#2 3535x5713_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

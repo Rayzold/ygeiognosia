@@ -7,9 +7,9 @@ title: Το ζήτημα της σωστής αναπνοής (Μέρος B)
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_657a4f4b5a68594a41466f~mv2_d_3979_5969_s_4_2.jpg) _#1 3979x5969_
+![](media/nsplsh_657a4f4b5a68594a41466f_mv2_d_3979_5969_s_4_2.jpg) _#1 3979x5969_
 
-![](media/nsplsh_53617651664c526d34446f~mv2_d_3744_5616_s_4_2.jpg) _#2 3744x5616_
+![](media/nsplsh_53617651664c526d34446f_mv2_d_3744_5616_s_4_2.jpg) _#2 3744x5616_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

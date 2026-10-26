@@ -7,7 +7,7 @@ title: Ο Μύθος της Πρωτεΐνης
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_416744364f424e58463051~mv2_d_3694_5597_s_4_2.jpg) _#1 3694x5597_
+![](media/nsplsh_416744364f424e58463051_mv2_d_3694_5597_s_4_2.jpg) _#1 3694x5597_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

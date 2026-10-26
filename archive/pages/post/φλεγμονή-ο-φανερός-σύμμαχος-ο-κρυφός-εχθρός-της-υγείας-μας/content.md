@@ -7,7 +7,7 @@ title: Φλεγμονή -  Ο φανερός σύμμαχος & ο κρυφός 
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_4c2d736167773366785a6f~mv2_d_3922_5883_s_4_2.jpg) _#1 3922x5883_
+![](media/nsplsh_4c2d736167773366785a6f_mv2_d_3922_5883_s_4_2.jpg) _#1 3922x5883_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

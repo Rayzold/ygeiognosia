@@ -1,0 +1,633 @@
+[
+  {
+    "path": "/blank-14",
+    "widget": "initialData_default_TPASection_kig1rjbt_default",
+    "categoryId": "698e432f-3bfd-c0f2-ce8f-785f18fefae8",
+    "name": "Οδοντόκρεμες",
+    "visible": true,
+    "totalCount": 9,
+    "products": [
+      "οδοντόκρεμα-veradent-essential",
+      "οδοντόκρεμα-veradent-whitening",
+      "οδοντόκρεμα-veradent-sensitive",
+      "jason-οδοντόκρεμα-χωρίς-φθόριο-sea-fresh-με-δύοσμο",
+      "jason-οδοντόκρεμα-ηealthy-mouth-με-τεϊόδεντρο-κανέλα",
+      "jason-στοματικό-διάλυμα-healthy-mouth-με-κανέλα-γαρύφαλλο-τεϊόδεντρο",
+      "jason-οδοντόκρεμα-χωρίς-φθόριο-με-μέντα",
+      "jason-στοματικό-διάλυμα-με-μέντα",
+      "jason-στοματικό-διάλυμα-seafresh-με-δυόσμο"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "07b41",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "3a026",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "dc414",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-1",
+    "widget": "initialData_default_TPASection_kiejpjvo_default",
+    "categoryId": "f7bfeccc-90ef-6cde-1ecb-59a5122696e4",
+    "name": "Συμπληρώματα  για παιδιά",
+    "visible": true,
+    "totalCount": 3,
+    "products": [
+      "μέλι-δρυός-βελανιδιάς-με-βασιλικό-πολτό-γύρη",
+      "epid-junior",
+      "vital-vits"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "75834",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "3ea9e",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "7249a",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-8",
+    "widget": "initialData_default_TPASection_kiet3b65_default",
+    "categoryId": "bdf13b53-efac-0b4b-a06f-6355bb88689d",
+    "name": "Ουροποιητικό",
+    "visible": true,
+    "totalCount": 3,
+    "products": [
+      "χυμός-cranberry-χωρίς-ζάχαρη",
+      "intimate-nocist-καθαρισμός-ευαίσθητης-περιοχής",
+      "nocist-prevent"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "73540",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "0c845",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "20097",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-3",
+    "widget": "initialData_default_TPASection_kiem9x53_default",
+    "categoryId": "b890e5af-88c7-5866-e151-688ca8843de6",
+    "name": "Αδυνάτισμα",
+    "visible": true,
+    "totalCount": 3,
+    "products": [
+      "χυμός-νόνι",
+      "προβιοτικά-ferzym-βio",
+      "cotipsilium-kinetic"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "e2d4c",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "f5ad1",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "8490c",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-7",
+    "widget": "initialData_default_TPASection_kiespr04_default",
+    "categoryId": "5b922b72-0a50-4c12-bcf5-45797739f7e2",
+    "name": "Δυσκοιλιότητα",
+    "visible": true,
+    "totalCount": 3,
+    "products": [
+      "προβιοτικά-ferzym-βio",
+      "cotipsilium-kinetic",
+      "cotidierbe"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "aff5d",
+        "show": true,
+        "selected": [
+          {
+            "id": "b890e5af-88c7-5866-e151-688ca8843de6"
+          }
+        ],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "ad8b0",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "55f00",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/shop",
+    "widget": "initialData_default_TPASection_ki69fma2_default",
+    "categoryId": "00000000-000000-000000-000000000001",
+    "name": "All Products",
+    "visible": true,
+    "totalCount": 106,
+    "products": [
+      "yasumi-σχεδιαστικός-γρίφος",
+      "slide-15-γρίφος",
+      "snake-cube-γρίφος",
+      "the-secret-γρίφος-λογικής",
+      "crazy-four-γρίφος",
+      "fonzo-γρίφος",
+      "star-puzzle-γρίφος",
+      "tg-5844-parquet",
+      "tg-4800-mahjong",
+      "b-701-abalon",
+      "jason-στοματικό-διάλυμα-healthy-mouth-με-κανέλα-γαρύφαλλο-τεϊόδεντρο",
+      "jason-στοματικό-διάλυμα-με-μέντα",
+      "jason-στοματικό-διάλυμα-seafresh-με-δυόσμο",
+      "jason-οδοντόκρεμα-ηealthy-mouth-με-τεϊόδεντρο-κανέλα",
+      "jason-οδοντόκρεμα-χωρίς-φθόριο-sea-fresh-με-δύοσμο",
+      "jason-οδοντόκρεμα-χωρίς-φθόριο-με-μέντα",
+      "οδοντόκρεμα-veradent-whitening",
+      "οδοντόκρεμα-veradent-sensitive",
+      "οδοντόκρεμα-veradent-essential",
+      "ενυδατική-κρέμα-χεριών-με-οργανικό-ελαιόλαδο-καλέντουλα"
+    ],
+    "complete": false,
+    "filters": [
+      {
+        "show": true,
+        "filterType": "CATEGORY",
+        "selected": [
+          {
+            "id": "88c83537-e91e-8121-4fef-40ab414e7c2b"
+          }
+        ],
+        "id": "2b8b8",
+        "filterTitle": ""
+      },
+      {
+        "id": "04f4d",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "9e1ce",
+        "show": true,
+        "filterType": "OPTIONS"
+      },
+      {
+        "show": true,
+        "custom": true,
+        "filterType": "OPTION_LIST",
+        "selected": [
+          {
+            "id": "88c83537-e91e-8121-4fef-40ab414e7c2b"
+          }
+        ],
+        "id": "3020e"
+      }
+    ]
+  },
+  {
+    "path": "/blank-9",
+    "widget": "initialData_default_TPASection_kietf34i_default",
+    "categoryId": "e5d0003f-8640-eb3a-6fee-1f93dfe78a8c",
+    "name": "Φυσικά Αντιβιοτικά",
+    "visible": true,
+    "totalCount": 4,
+    "products": [
+      "difesal",
+      "infuepid-plus",
+      "κολλοειδής-άργυρος",
+      "citrubiomax"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "2bc8d",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "796c4",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "2f3fe",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-5",
+    "widget": "initialData_default_TPASection_kierei9o_default",
+    "categoryId": "65a95dde-3696-57b6-aa35-e1b5f2a57ef6",
+    "name": "Υπερτροφές",
+    "visible": true,
+    "totalCount": 7,
+    "products": [
+      "σπιρουλίνα-σερρών",
+      "γκουαρανά-σε-σκόνη",
+      "baobab-σε-σκόνη",
+      "ασαΐ-μπέρι-σε-σκόνη",
+      "suma-root-powder",
+      "ashwagandha-σε-σκόνη",
+      "φύλλα-moringa-σε-σκόνη"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "c494e",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "a76f9",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "ee120",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-4",
+    "widget": "initialData_default_TPASection_kieqeeso_default",
+    "categoryId": "fe89f3cf-406a-e3fe-9559-3f23cf106988",
+    "name": "Ελιξίρια",
+    "visible": true,
+    "totalCount": 3,
+    "products": [
+      "mumijο-δισκία",
+      "αγριέλαιο-υγειογνωσίας",
+      "original-schweden-bitter"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "a7205",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "9c061",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "30241",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-6",
+    "widget": "initialData_default_TPASection_kies4tco_default",
+    "categoryId": "7504f59c-1262-5e62-b2a1-df302e4e9875",
+    "name": "Ενίσχυση / Προστασία Ανοσοποιητικού",
+    "visible": true,
+    "totalCount": 7,
+    "products": [
+      "immune-c",
+      "τριπλό-φίλτρο-tensa",
+      "φίλτρο-tensa",
+      "kανάτα-tensa",
+      "immunepid-adult",
+      "μέλι-δρυός-βελανιδιάς",
+      "καναβιδιόλη-enecta-10"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "a3fca",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "29a56",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "51222",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-12",
+    "widget": "initialData_default_TPASection_kig0idnd_default",
+    "categoryId": "13ddb9fa-edaf-11a0-56b0-23af13539fc2",
+    "name": "Καλλυντικά / Πρόσωπο",
+    "visible": true,
+    "totalCount": 19,
+    "products": [
+      "hyaluronic-serum-nεανικό-και-λαμπερό-δέρμα",
+      "rich-cream-kρέμα-ματιών-κατά-των-ρυτίδων",
+      "κρέμα-ματιών-με-οργανικό-ελαιόλαδο-υαλουρονικό-οξύ",
+      "αντιγηραντική-κρέμα-ημέρας-με-οργανικό-ελαιόλαδο-εκχύλισμα-μαστίχας",
+      "ορός-για-πρόσωπο-λαιμό-με-οργανικό-ελαιόλαδο-πρόπολη",
+      "αναπλαστική-κρέμα-ημέρας-με-εκχύλισμα-βρώμης-για-ενυδάτωση-επανόρθωση",
+      "καταπραϋντικό-γαλάκτωμα-after-shave",
+      "αντιρυτιδική-κρέμα-ματιών-προσώπου-ανδρική",
+      "θρεπτικό-λάδι-για-πρ-όσωπο-μαλλιά",
+      "αντιγηραντική-κρέμα-ματι-ών-με-οργανικό-ελαιόλαδο",
+      "γαλάκτωμα-προσώπου-με-οργανικό-ελαιόλαδο-λωτό",
+      "σαπούνι-καθαρισμού-για-πρόσωπο-χέρια",
+      "αντιγηραντικός-ορός-για-το-πρόσωπο-και-τον-λαιμό-με-οργανικό-ελαιόλαδο",
+      "κρέμα-απολέπισης-καθαρισμού",
+      "θρεπτική-συσφικτική-κρέμα-ημέρας-με-οργανικό-ελαιόλαδο",
+      "ενυδατική-εξισορροπιστική-κρέμα-ημέρας-νύχτας-με-οργανικό-ελαιόλαδο-μαύρο-τ",
+      "επανορθωτική-αντιρυτιδική-κρέμα-νύχτας-με-οργανικό-ελαιόλαδο",
+      "24ωρη-κρέμα-ημέρας-με-οργανικό-ελαιόλαδο-ρόδι-βιταμίνη-ε",
+      "ενυδατική-μάσκα-για-όλους-τους-τύπους-μαλλιών"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "f117c",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "70436",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "08ddd",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank",
+    "widget": "initialData_default_TPASection_kieh0a37_default",
+    "categoryId": "88c83537-e91e-8121-4fef-40ab414e7c2b",
+    "name": "Συμπληρώματα Διατροφής",
+    "visible": true,
+    "totalCount": 8,
+    "products": [
+      "ferrogreen-plus",
+      "σελήνιο",
+      "bιταμίνη-d3",
+      "σίδηρος",
+      "ψευδάργυρος",
+      "thyroid-support-formula",
+      "starflower-oil",
+      "optimum"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "68530",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "7ce21",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "c8be4",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-2",
+    "widget": "initialData_default_TPASection_kiekw7tm_default",
+    "categoryId": "c49ebb7b-f6b8-cd6e-6970-54eeb2b2ac85",
+    "name": "Αντιοξείδωση - Ενδυνάμωση",
+    "visible": true,
+    "totalCount": 5,
+    "products": [
+      "πρόπολη-epid",
+      "χυμός-νόνι",
+      "χυμός-μelegrana",
+      "χυμός-aloe-ferox",
+      "antioxidant"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "8339f",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "376ee",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "e60cc",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/a",
+    "widget": "initialData_default_TPASection_kieuv6sk_default",
+    "categoryId": "35598fd2-057b-c926-a91e-c1438ee1b335",
+    "name": "Αναπνευστικό",
+    "visible": true,
+    "totalCount": 2,
+    "products": [
+      "εισπνευστήρας-αλάτων",
+      "expettoral-sedi-tuss-σιρόπι-για-τον-βήχα"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "7546c",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "6ffb7",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "3b898",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-15",
+    "widget": "initialData_default_TPASection_kig944sh_default",
+    "categoryId": "04ef0f74-530f-b60a-af52-b575452c8b6a",
+    "name": "Παιχνίδια",
+    "visible": true,
+    "totalCount": 10,
+    "products": [
+      "yasumi-σχεδιαστικός-γρίφος",
+      "slide-15-γρίφος",
+      "snake-cube-γρίφος",
+      "the-secret-γρίφος-λογικής",
+      "fonzo-γρίφος",
+      "crazy-four-γρίφος",
+      "star-puzzle-γρίφος",
+      "tg-5844-parquet",
+      "tg-4800-mahjong",
+      "b-701-abalon"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "f8c01",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "1278d",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "51518",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-10",
+    "widget": "initialData_default_TPASection_kietqy1y_default",
+    "categoryId": "225d7072-0049-fc7d-2564-2c01bba45ecc",
+    "name": "Άγχος - Ύπνος - Συναίσθημα",
+    "visible": true,
+    "totalCount": 5,
+    "products": [
+      "bonobo",
+      "σεροτονίνη-5htp",
+      "χάπια-βαλεριάνας",
+      "ansiolev-instant-drops",
+      "μελατονίνη"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "6fef6",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "aeaf1",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "55241",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  },
+  {
+    "path": "/blank-13",
+    "widget": "initialData_default_TPASection_kig1bgkk_default",
+    "categoryId": "8198352a-02ff-83d7-b101-d7b56d2c697f",
+    "name": "Καλλυντικά / Σώμα",
+    "visible": true,
+    "totalCount": 7,
+    "products": [
+      "ενυδατική-κρέμα-χεριών-με-οργανικό-ελαιόλαδο-καλέντουλα",
+      "spray-σώματος-με-οργανικό-ελαιόλαδο-ginseng",
+      "spray-σώματος-με-οργανικό-ελαιόλαδο-γιασεμί",
+      "αναζωογονητικό-spray-σώματος-με-οργανικό-ελαιόλαδο-εκχύλισμα-από-μαργαριτάρι",
+      "γλυκό-spray-σώματος-με-οργανικό-ελαιόλαδο-μήλο",
+      "ενυδατική-κρέμα-σώματος-με-οργανικό-ελαιόλαδο-αλόη",
+      "ενυδατικό-λάδι-σώματος-με-οργανικό-ελαιόλαδο-jojoba-oil"
+    ],
+    "complete": true,
+    "filters": [
+      {
+        "id": "15d72",
+        "show": true,
+        "selected": [],
+        "filterType": "CATEGORY"
+      },
+      {
+        "id": "d2cec",
+        "show": true,
+        "filterType": "PRICE"
+      },
+      {
+        "id": "c7a67",
+        "show": true,
+        "filterType": "OPTIONS"
+      }
+    ]
+  }
+]

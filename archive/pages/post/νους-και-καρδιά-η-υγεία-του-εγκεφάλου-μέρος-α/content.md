@@ -9,7 +9,7 @@ title: Νους και Καρδιά - Η υγεία του εγκεφάλου (�
 
 ![](media/21375d_a53c4a41374c49029bf1c1d8421de19d_mv2.gif) _#1 610x610_
 
-![](media/nsplsh_4c354c743065374b6a7863~mv2_d_4160_6240_s_4_2.jpg) _#2 4160x6240_
+![](media/nsplsh_4c354c743065374b6a7863_mv2_d_4160_6240_s_4_2.jpg) _#2 4160x6240_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

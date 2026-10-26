@@ -7,7 +7,7 @@ title: Η Aιτία των Ασθενειών (Μέρος Α)
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_7a38426b41376851613349~mv2_d_5017_3344_s_4_2.jpg) _#1 5017x3344_
+![](media/nsplsh_7a38426b41376851613349_mv2_d_5017_3344_s_4_2.jpg) _#1 5017x3344_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

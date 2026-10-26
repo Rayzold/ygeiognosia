@@ -7,7 +7,7 @@ title: O Επικίνδυνος Μύθος της Δίαιτας
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_576851415a793134785a55~mv2_d_6000_4000_s_4_2.jpg) _#1 6000x4000_
+![](media/nsplsh_576851415a793134785a55_mv2_d_6000_4000_s_4_2.jpg) _#1 6000x4000_
 
 ![](media/nsplsh_7db64933c6c1402a9cdd3309ba6de975_mv2.jpg) _#2 4000x2667_
 

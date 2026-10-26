@@ -7,7 +7,7 @@ title: Βιολογία και Εσωτερισμός
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_484c413354414651755173~mv2_d_3780_5439_s_4_2.jpg) _#1 3780x5439_
+![](media/nsplsh_484c413354414651755173_mv2_d_3780_5439_s_4_2.jpg) _#1 3780x5439_
 
 ![](media/nsplsh_d146461fa67c4f4fbe675e038ebc61d2_mv2.jpg) _#2 2103x3155_
 

@@ -7,7 +7,7 @@ title: Μικρόβια: Οι Αληθινοί Υποστηρικτές της �
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_393032766e59656f575334~mv2_d_5472_3648_s_4_2.jpg) _#1 5472x3648_
+![](media/nsplsh_393032766e59656f575334_mv2_d_5472_3648_s_4_2.jpg) _#1 5472x3648_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

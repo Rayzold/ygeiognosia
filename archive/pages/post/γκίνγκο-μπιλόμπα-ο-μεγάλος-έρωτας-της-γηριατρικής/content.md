@@ -9,7 +9,7 @@ title: Γκίνγκο Μπιλόμπα - Ο μεγάλος έρωτας της �
 
 ![](media/nsplsh_70484d34615f525a534c45_mv2_d_2048_1536_s_2.jpg) _#1 2048x1536_
 
-![](media/nsplsh_4948664f70417a7a6a484d~mv2_d_6000_3376_s_4_2.jpg) _#2 6000x3376_
+![](media/nsplsh_4948664f70417a7a6a484d_mv2_d_6000_3376_s_4_2.jpg) _#2 6000x3376_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

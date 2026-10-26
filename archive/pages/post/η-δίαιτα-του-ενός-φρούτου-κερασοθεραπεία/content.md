@@ -7,7 +7,7 @@ title: Η Δίαιτα του ενός Φρούτου - Κερασοθεραπε
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_6e714c58336c4956374330~mv2_d_5314_3543_s_4_2.jpg) _#1 5314x3543_
+![](media/nsplsh_6e714c58336c4956374330_mv2_d_5314_3543_s_4_2.jpg) _#1 5314x3543_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

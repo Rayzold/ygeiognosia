@@ -7,7 +7,7 @@ title: Νους & Καρδιά - Η αναμεταξύ τους σχέση (Μέ
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_6d4846575f52723269364d~mv2_d_3024_4032_s_4_2.jpg) _#1 3024x4032_
+![](media/nsplsh_6d4846575f52723269364d_mv2_d_3024_4032_s_4_2.jpg) _#1 3024x4032_
 
 ![](media/21375d_f9945d9fbb064a7daad138ff0bd11e2d_mv2.jpg) _#2 480x640_
 

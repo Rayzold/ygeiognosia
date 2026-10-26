@@ -9,7 +9,7 @@ title: Νους και Καρδιά - H υγεία της καρδιάς (Μέρ
 
 ![](media/21375d_70b66abcf0164a23940bd76846f3307f_mv2.gif) _#1 850x478_
 
-![](media/nsplsh_636872584b4e374a386963~mv2_d_4000_6000_s_4_2.jpg) _#2 4000x6000_
+![](media/nsplsh_636872584b4e374a386963_mv2_d_4000_6000_s_4_2.jpg) _#2 4000x6000_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

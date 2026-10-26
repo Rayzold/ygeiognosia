@@ -7,7 +7,7 @@ title: Η Yγεία Ξεκινά από το Νου
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_5147684f5969626838316f~mv2_d_5616_3744_s_4_2.jpg) _#1 5616x3744_
+![](media/nsplsh_5147684f5969626838316f_mv2_d_5616_3744_s_4_2.jpg) _#1 5616x3744_
 
 ![](media/nsplsh_e33d64d0e0524f289268e078a745022b_mv2.jpg) _#2 4000x2525_
 

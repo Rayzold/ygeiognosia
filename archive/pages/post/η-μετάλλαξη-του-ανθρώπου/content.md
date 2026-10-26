@@ -11,7 +11,7 @@ title: Η μετάλλαξη του ανθρώπου
 
 ![](media/a27d24_8aae42fa141d47b691a0920d007b3875_mv2.jpg) _#2 1643x1643_
 
-![](media/nsplsh_4d42313758493373355a77~mv2_d_4480_6720_s_4_2.jpg) _#3 4480x6720_
+![](media/nsplsh_4d42313758493373355a77_mv2_d_4480_6720_s_4_2.jpg) _#3 4480x6720_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

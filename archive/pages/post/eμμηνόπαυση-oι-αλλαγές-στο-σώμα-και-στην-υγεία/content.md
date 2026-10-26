@@ -7,9 +7,9 @@ title: Eμμηνόπαυση - Oι αλλαγές στο σώμα και στη�
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_784d4e656c5f6f74765773~mv2_d_2896_4344_s_4_2.jpg) _#1 2896x4344_
+![](media/nsplsh_784d4e656c5f6f74765773_mv2_d_2896_4344_s_4_2.jpg) _#1 2896x4344_
 
-![](media/nsplsh_4f632d6d64746a4a6f656f~mv2_d_4310_2877_s_4_2.jpg) _#2 4310x2877_
+![](media/nsplsh_4f632d6d64746a4a6f656f_mv2_d_4310_2877_s_4_2.jpg) _#2 4310x2877_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 

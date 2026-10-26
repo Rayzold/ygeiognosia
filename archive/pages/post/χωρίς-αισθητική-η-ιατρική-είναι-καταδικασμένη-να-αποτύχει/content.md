@@ -7,7 +7,7 @@ title: Χωρίς αισθητική, η ιατρική είναι καταδι�
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_76486e56744c4b38724363~mv2_d_4806_3124_s_4_2.jpg) _#1 4806x3124_
+![](media/nsplsh_76486e56744c4b38724363_mv2_d_4806_3124_s_4_2.jpg) _#1 4806x3124_
 
 ![](media/nsplsh_abf078c2018b46268d6a374be9519fe2_mv2.jpg) _#2 5815x3666_
 

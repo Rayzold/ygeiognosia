@@ -1,0 +1,312 @@
+{
+  "menu": [
+    {
+      "text": "αρχική",
+      "href": "https://www.ygeiognosia.com",
+      "submenu": false
+    },
+    {
+      "text": "το κατάστημα",
+      "href": "https://www.ygeiognosia.com/about-us",
+      "submenu": false
+    },
+    {
+      "text": "οι άνθρωποι",
+      "href": "https://www.ygeiognosia.com/people",
+      "submenu": false
+    },
+    {
+      "text": "άρθρα",
+      "href": "https://www.ygeiognosia.com/blog",
+      "submenu": false
+    },
+    {
+      "text": "τα ελιξήρια μαςΑγριέλαιο Υγειογνωσίας",
+      "href": "https://www.ygeiognosia.com/exclusive-elixirs",
+      "submenu": true
+    },
+    {
+      "text": "Αγριέλαιο Υγειογνωσίας",
+      "href": "https://www.ygeiognosia.com/wildolive",
+      "submenu": false
+    },
+    {
+      "text": "επικοινωνία",
+      "href": "https://www.ygeiognosia.com/contact",
+      "submenu": false
+    },
+    {
+      "text": "More",
+      "href": null,
+      "submenu": false
+    }
+  ],
+  "headerLinks": [
+    {
+      "text": "Kαλάθι αγορών",
+      "href": "https://www.ygeiognosia.com"
+    },
+    {
+      "text": "Υγεία και Τέχνη",
+      "href": "https://www.ygeiognosia.com"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/Ygeiognosia"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/ygeiognosia"
+    },
+    {
+      "text": "αρχική",
+      "href": "https://www.ygeiognosia.com"
+    },
+    {
+      "text": "το κατάστημα",
+      "href": "https://www.ygeiognosia.com/about-us"
+    },
+    {
+      "text": "οι άνθρωποι",
+      "href": "https://www.ygeiognosia.com/people"
+    },
+    {
+      "text": "άρθρα",
+      "href": "https://www.ygeiognosia.com/blog"
+    },
+    {
+      "text": "τα ελιξήρια μας",
+      "href": "https://www.ygeiognosia.com/exclusive-elixirs"
+    },
+    {
+      "text": "Αγριέλαιο Υγειογνωσίας",
+      "href": "https://www.ygeiognosia.com/wildolive"
+    },
+    {
+      "text": "επικοινωνία",
+      "href": "https://www.ygeiognosia.com/contact"
+    }
+  ],
+  "headerTexts": [
+    "Kαλάθι αγορών",
+    "Υγεία και Τέχνη",
+    "Ακολουθήστε μας:"
+  ],
+  "footerLinks": [
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/Ygeiognosia"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/ygeiognosia"
+    }
+  ],
+  "footerTexts": [
+    "Ακολουθήστε μας:",
+    "+30 213014 4422",
+    "• Τηλεφωνικές Παραγγελίες:",
+    "• Δυνατότητα παραλαβής της παραγγελίας σας από το κατάστημα μας:",
+    "© 2026 by Ygeiognosia | Health food store",
+    "Bυζαντίου 23, Νέα Σμύρνη, 17121 Αθήνα",
+    "• Home Delivery για τηλεφωνικές παραγγελίες άνω των 20€\n(Νέα Σμύρνη, Νέος Κόσμος, Καλλιθέα, Άγιος Ιωάννης, Δάφνη, Παλαιό Φάληρο)"
+  ],
+  "pageIds": {
+    "b27hr": {
+      "title": "shop",
+      "path": "/shop2"
+    },
+    "fl60b": {
+      "title": "Παιχνίδια",
+      "path": "/blank-15"
+    },
+    "cw7em": {
+      "title": "Ενίσχυση \\/ Προστασία Ανοσοποιητικού",
+      "path": "/orders-immune-protection"
+    },
+    "icto9": {
+      "title": "My Account",
+      "path": "/my-account"
+    },
+    "htpm9": {
+      "title": "παραγγελίες",
+      "path": "/orders"
+    },
+    "f75od": {
+      "title": "gnorimia_me_to_dentro",
+      "path": "/gnorimia-me-to-dentro"
+    },
+    "k7z6p": {
+      "title": "Καλλυντικά \\/ Σαπούνια \\/ Οδοντόκρεμες",
+      "path": "/orders-cosmetics"
+    },
+    "g5tsj": {
+      "title": "Υπερτροφές",
+      "path": "/orders-superfoods"
+    },
+    "h53mx": {
+      "title": "Copy of agrielia_stin_arxaiotita",
+      "path": "/agrielia-stin-arxaiotita"
+    },
+    "r7gso": {
+      "title": "Aναπνευστικό",
+      "path": "/a"
+    },
+    "hrvpm": {
+      "title": "Φυσικά Αντιβιοτικά",
+      "path": "/blank-9"
+    },
+    "ky16f": {
+      "title": "Post",
+      "path": "/post"
+    },
+    "z3yd5": {
+      "title": "Αδυνάτισμα",
+      "path": "/blank-3"
+    },
+    "adfji": {
+      "title": "Copy of gnorimia_me_ton_karpo",
+      "path": "/gnorimia-me-ton-karpo"
+    },
+    "ww6qu": {
+      "title": "My Addresses",
+      "path": "/my-addresses"
+    },
+    "wsps8": {
+      "title": "Product Page",
+      "path": "/product-page"
+    },
+    "mr60z": {
+      "title": "οι άνθρωποι",
+      "path": "/people"
+    },
+    "hbceo": {
+      "title": "Καλλυντικά \\/ Σώμα",
+      "path": "/blank-13"
+    },
+    "ewcct": {
+      "title": "Checkout",
+      "path": "/checkout"
+    },
+    "b7m8i": {
+      "title": "Side Cart",
+      "path": "/popup-b7m8i"
+    },
+    "eb4nw": {
+      "title": "Άγχος - Ύπνος - Συναίσθημα",
+      "path": "/blank-10"
+    },
+    "bwapi": {
+      "title": "My Orders",
+      "path": "/my-orders"
+    },
+    "k353r": {
+      "title": "Eλιξίρια",
+      "path": "/orders-elixirs"
+    },
+    "ee5wo": {
+      "title": "Συμπληρώματα για παιδιά",
+      "path": "/blank-1"
+    },
+    "m50qe": {
+      "title": "Συμπληρώματα Διατροφής",
+      "path": "/orders-food-supplements"
+    },
+    "ao9h3": {
+      "title": "τα ελιξήρια μας",
+      "path": "/exclusive-elixirs"
+    },
+    "ik8ak": {
+      "title": "Ελιξίρια",
+      "path": "/blank-4"
+    },
+    "c14gp": {
+      "title": "αρχική",
+      "path": "/home"
+    },
+    "jbai0": {
+      "title": "Αντιοξείδωση - Ενδυνάμωση",
+      "path": "/blank-2"
+    },
+    "aurcr": {
+      "title": "My Wishlist",
+      "path": "/my-wishlist"
+    },
+    "hgwgy": {
+      "title": "Συμπληρώματα Διατροφής",
+      "path": "/blank"
+    },
+    "ikn6w": {
+      "title": "Αγριέλαιο Υγειογνωσίας",
+      "path": "/wildolive"
+    },
+    "efoq7": {
+      "title": "Δυσκοιλιότητα",
+      "path": "/blank-7"
+    },
+    "ev1j2": {
+      "title": "Shop",
+      "path": "/shop"
+    },
+    "pl48r": {
+      "title": "Copy of ofeli_posis",
+      "path": "/ofeli-posis"
+    },
+    "l6g0v": {
+      "title": "Thank You Page",
+      "path": "/thank-you-page"
+    },
+    "mvlul": {
+      "title": "Ερωτική Επιθυμία",
+      "path": "/blank-11"
+    },
+    "zvxsn": {
+      "title": "Copy of o_kipos_tis_gesthimanis",
+      "path": "/o-kipos-tis-gesthimanis"
+    },
+    "vakb1": {
+      "title": "Cart Page",
+      "path": "/cart-page"
+    },
+    "bm7at": {
+      "title": "Αesthlos",
+      "path": "/aesthlos"
+    },
+    "q8noc": {
+      "title": "Ουροποιητικό",
+      "path": "/blank-8"
+    },
+    "ppnx4": {
+      "title": "Υπερτροφές",
+      "path": "/blank-5"
+    },
+    "wgm08": {
+      "title": "My Wallet",
+      "path": "/my-wallet"
+    },
+    "zzzp0": {
+      "title": "Ενίσχυση \\/ Προστασία Ανοσοποιητικού",
+      "path": "/blank-6"
+    },
+    "e3bhs": {
+      "title": "Οδοντόκρεμες",
+      "path": "/blank-14"
+    },
+    "z3oc2": {
+      "title": "My Subscriptions",
+      "path": "/my-subscriptions"
+    },
+    "xw8tw": {
+      "title": "άρθρα",
+      "path": "/blog"
+    },
+    "j9yk3": {
+      "title": "Search Results",
+      "path": "/search"
+    },
+    "kykbc": {
+      "title": "Καλλυντικά \\/ Πρόσωπο",
+      "path": "/blank-12"
+    }
+  }
+}

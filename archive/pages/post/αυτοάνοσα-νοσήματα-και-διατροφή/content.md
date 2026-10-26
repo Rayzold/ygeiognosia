@@ -7,7 +7,7 @@ title: Αυτοάνοσα Νοσήματα και Διατροφή
 
 [LINK] All Posts -> https://www.ygeiognosia.com/blog
 
-![](media/nsplsh_6d52614e6f6b5f4c643673~mv2_d_4320_2856_s_4_2.jpg) _#1 4320x2856_
+![](media/nsplsh_6d52614e6f6b5f4c643673_mv2_d_4320_2856_s_4_2.jpg) _#1 4320x2856_
 
 [LINK] See All -> https://www.ygeiognosia.com/blog
 
