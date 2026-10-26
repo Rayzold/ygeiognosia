@@ -57,3 +57,6 @@ archive/_pages_transfer.tgz
 /archive/screenshots/
 /archive/html/
 /archive/_transfer/
+/archive/sitemaps/
+/archive/urls.json
+/archive/download-log.txt
