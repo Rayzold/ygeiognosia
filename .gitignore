@@ -50,3 +50,8 @@ archive/fonts/
 archive/files/
 archive/_pages_transfer.tgz
 .cache/
+
+# Wix capture: large binaries stay local (archive/html, sitemaps and JSON are committed)
+/archive/media/
+/archive/video/
+/archive/screenshots/
