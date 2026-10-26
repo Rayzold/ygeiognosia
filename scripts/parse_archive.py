@@ -357,6 +357,24 @@ def product_from(html: str, soup: BeautifulSoup, entry: dict):
     }
 
 
+def category_from(html: str, entry: dict):
+    """Wix Stores gallery widget on a page: category id/name and the products in display order (SSR: first page only)."""
+    w = script_json(html, "wix-warmup-data") or {}
+    app = (w.get("appsWarmupData") or {}).get(STORES_APP) or {}
+    for key, v in app.items():
+        if not key.startswith("initialData_") or not isinstance(v, dict):
+            continue
+        cat = (v.get("catalog") or {}).get("category") or {}
+        pw = cat.get("productsWithMetaData") or {}
+        lst = pw.get("list") or []
+        return {"path": entry["path"], "widget": key, "categoryId": cat.get("id"), "name": cat.get("name"),
+                "visible": cat.get("visible"), "totalCount": pw.get("totalCount"),
+                "products": [p.get("urlPart") for p in lst],
+                "complete": pw.get("totalCount") is not None and len(lst) >= pw.get("totalCount", 0),
+                "filters": ((v.get("appSettings") or {}).get("widgetSettings") or {}).get("FILTERS")}
+    return None
+
+
 # ------------------------------------------------------------------ posts
 def post_from(html: str, soup: BeautifulSoup, entry: dict):
     ld = next((x for x in ld_json(html) if x.get("@type") == "BlogPosting"), {})
@@ -429,7 +447,7 @@ def site_chrome(home_html: str, soup: BeautifulSoup):
 
 def main():
     manifest = json.loads((ARCH / "urls.json").read_text(encoding="utf-8-sig"))
-    products, posts, rows, index = [], [], [], {}
+    products, posts, rows, index, categories = [], [], [], {}, []
     site = None
     done = set()
     for e in manifest:
@@ -482,6 +500,9 @@ def main():
             dump(ARCH / p["file"], p)
             posts.append({k: p[k] for k in ("slug", "path", "title", "datePublished", "dateModified", "excerpt", "timeToRead", "cover", "categories", "blockTypes", "file")})
             extra = f"{(p['datePublished'] or '')[:10]} blocks={len(p['blocks'])}"
+        cat = category_from(raw, e)
+        if cat:
+            categories.append(cat)
         if e["path"] == "/" and site is None:
             site = site_chrome(raw, soup)
         rows.append((e["type"], e["path"], m["title"] or "", len([i for i in items if i["type"] == "text"]), len(images),
@@ -491,6 +512,7 @@ def main():
     dump(ARCH / "products.json", products)
     dump(ARCH / "posts-index.json", sorted(posts, key=lambda p: p["datePublished"] or "", reverse=True))
     dump(ARCH / "site.json", site or {})
+    dump(ARCH / "categories.json", categories)
     dump(ARCH / "images-index.json", index)
 
     md = ["# Wix sitemap overview", "", f"{len(rows)} URLs. texts = rich-text blocks in the page body, images = body images, missing = not downloaded.", "",

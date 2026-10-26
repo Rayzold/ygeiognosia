@@ -42,9 +42,21 @@ Background, facts, lessons and the domain runbook: `docs/ygeiognosia-playbook.md
 - Motion: only the restrained aesthlos patterns (Reveal, PageFade) and only where they do not change the faithful look. Respect `prefers-reduced-motion` everywhere.
 - Lighthouse targets (mobile, median of 3 runs): Performance >= 90, Accessibility >= 95, Best Practices >= 95, SEO 100.
 
+## Phase 1 findings (2026-10-26)
+- Archive: 226 URLs = 38 pages + `/blog` + 81 posts + 106 products. Parsed data: `archive/products.json`, `archive/categories.json`, `archive/posts/*.json` (typed Ricos blocks), `archive/posts-index.json`, `archive/site.json` (menu/footer), `archive/pages/<type>/<name>/` (meta, outline, images), `archive/sitemap.md`, `archive/design-tokens.md`. Raw HTML, media, video, fonts and screenshots stay local (gitignored). Re-generate with `python3 scripts/parse_archive.py archive`.
+- `/blank`, `/blank-1` … `/blank-15` and `/a` are **real store category pages** (16 categories, product order in `categories.json`); `/shop2` is the category hub; `/shop` is "All Products". Keep their URLs.
+- `/product-page/i-m-a-product-1…11` are Wix template dummies («I'm a product»), visible and in the sitemap but in no category. Real products: **95**.
+- **The e-shop is hidden on the live site**: no menu/home/blog link reaches `/shop`, `/shop2`, the categories or products (they only link to each other; menu «το κατάστημα» → `/about-us`, the physical shop). `/shop2` says «Το ηλεκτρονικό μας κατάστημα θα παραμείνει για λίγες ημέρες κλειστό.» Footer offers phone orders, store pickup and home delivery over 20€. **Confirm with the owner that the online store should be (re)opened before building checkout (Phase 5).**
+- `/orders`, `/orders-*` (6 pages): an older hand-made catalogue with prices in the text and an «Παραγγελία» Jotform link (form 203123241675346); also unlinked. Ask whether to keep.
+- `/blank-11` (Ερωτική Επιθυμία) is an empty category page.
+- Contact page uses a Wix form (Name, Email, Subject, Message, English placeholders); contact email `ygeiognosia@hotmail.com`. Background video is on `/people`.
+- Wix serves `<html lang="en">` on Greek pages: the rebuild uses `lang="el"` (list in OWNER-CHANGES.md).
+- Blog posts contain buttons and links to aesthlos.com, 14 YouTube embeds, 3 single-image galleries.
+
 ## Open questions (resolve in or after Phase 1)
-- `/product-page/i-m-a-product-N`, `/blank-N` and other Wix template leftovers: real or not? Ask the owner before migrating them.
-- Languages: Greek only? Check for `?lang=` variants in the archive.
+- Template dummies `i-m-a-product-N`: proposal = do not migrate, 301 to `/shop`. Confirm with the owner.
+- Fonts: PF DinText Pro and Black Diamond are commercial uploads (see `archive/design-tokens.md`); ask whether the owner holds web licences.
+- Languages: Greek only (no `hreflang`/`?lang=` found).
 - Wix members/login pages: not migrated (static site, no accounts). Confirm none are in use.
 - Order notification: where the owner receives new orders (email via which provider, or the Viva dashboard only) and whether orders need to be stored (e.g. Cloudflare D1/KV).
 - Invoices/receipts and myDATA: how the owner issues them today; the checkout must not break that process.
