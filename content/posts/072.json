@@ -113,7 +113,13 @@
       "file": "nsplsh_4c2d736167773366785a6f_mv2_d_3922_5883_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 281,
+        "h": 422
+      }
     },
     {
       "type": "empty-line",

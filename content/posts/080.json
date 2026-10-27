@@ -92,7 +92,13 @@
       "file": "nsplsh_2608247aa0e94b5f9ee63fe2fbd1d142_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 493
+      }
     },
     {
       "type": "paragraph",

@@ -39,7 +39,13 @@
       "file": "nsplsh_5147684f5969626838316f_mv2_d_5616_3744_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 352,
+        "h": 235
+      }
     },
     {
       "type": "paragraph",
@@ -116,7 +122,13 @@
       "file": "nsplsh_e33d64d0e0524f289268e078a745022b_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 467
+      }
     },
     {
       "type": "empty-line",

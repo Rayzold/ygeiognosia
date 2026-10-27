@@ -109,7 +109,13 @@
       "file": "nsplsh_5a41741d6f2b4c3a9120f90ee6cc3253_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 339,
+        "h": 603
+      }
     },
     {
       "type": "paragraph",

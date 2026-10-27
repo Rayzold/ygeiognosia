@@ -32,7 +32,13 @@
       "file": "21375d_455804d0559d41f9847e79d0c3cf0c2e_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 740
+      }
     },
     {
       "type": "empty-line",
@@ -239,7 +245,13 @@
       "file": "21375d_2ef79011f3814704999b8a0a114568c7_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 382,
+        "h": 573
+      }
     },
     {
       "type": "paragraph",
@@ -290,7 +302,13 @@
       "file": "21375d_a15fc8edc9e14789afc6983a31736055_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 390,
+        "w": 350,
+        "h": 526
+      }
     },
     {
       "type": "empty-line",
@@ -321,7 +339,13 @@
       "newTab": true,
       "background": null,
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 195,
+        "h": 45
+      }
     },
     {
       "type": "empty-line",
@@ -342,7 +366,13 @@
       "newTab": true,
       "background": null,
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 198,
+        "h": 45
+      }
     },
     {
       "type": "empty-line",

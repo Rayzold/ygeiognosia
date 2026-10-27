@@ -35,7 +35,13 @@
       "file": "21375d_addfffafa67749699c9f881a58456f40_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 420,
+        "w": 320,
+        "h": 430
+      }
     },
     {
       "type": "paragraph",
@@ -86,7 +92,13 @@
       "file": "a27d24_8aae42fa141d47b691a0920d007b3875_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 350
+      }
     },
     {
       "type": "paragraph",
@@ -137,7 +149,13 @@
       "file": "21375d_649d07d92641412d905b0c441c34fe9b_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 370
+      }
     },
     {
       "type": "paragraph",
@@ -210,7 +228,13 @@
       "youtube": "esK9sCxugac",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",

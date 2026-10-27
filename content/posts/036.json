@@ -147,7 +147,13 @@
       "file": "nsplsh_7a38426b41376851613349_mv2_d_5017_3344_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 378,
+        "h": 252
+      }
     },
     {
       "type": "paragraph",

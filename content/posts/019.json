@@ -72,7 +72,13 @@
       "file": "nsplsh_6749614135507958674459_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 386,
+        "w": 354,
+        "h": 305
+      }
     },
     {
       "type": "paragraph",
@@ -173,7 +179,13 @@
       "youtube": "ASns-OeaPn0",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",

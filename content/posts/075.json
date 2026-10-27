@@ -132,7 +132,13 @@
       "file": "21375d_620f9f7a6d80439e81e8629524db029f_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",
@@ -186,7 +192,12 @@
     },
     {
       "type": "gallery",
-      "layout": "PANORAMA",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 500
+      },
       "images": [
         {
           "id": "nsplsh_80e22ba6fcf14cccb79f7d38ca749238~mv2.jpg",
@@ -411,7 +422,12 @@
     },
     {
       "type": "gallery",
-      "layout": "PANORAMA",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 493
+      },
       "images": [
         {
           "id": "nsplsh_a780e28460094998bdf1b7278ab7e9d6~mv2.jpg",

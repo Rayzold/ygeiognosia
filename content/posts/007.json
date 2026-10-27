@@ -35,7 +35,13 @@
       "file": "21375d_ec2cb6470cb345bb88209d42d450ae95_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 494
+      }
     },
     {
       "type": "paragraph",
@@ -64,7 +70,13 @@
       "file": "21375d_05b8d59a974c475caa1d63bc737bc747_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 526,
+        "w": 214,
+        "h": 144
+      }
     },
     {
       "type": "paragraph",
@@ -104,7 +116,13 @@
       "file": "21375d_f1e498a5f0de452d82ac10b93b850794_mv2.jpeg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 234
+      }
     },
     {
       "type": "paragraph",

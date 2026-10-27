@@ -1,4 +1,8 @@
+import Link from "next/link";
+import { BLOG } from "@/content/blog";
 import { ADDRESS, FOOTER, PHONE } from "@/content/site";
+import { POSTS } from "@/lib/content";
+import HideOnPaths from "./HideOnPaths";
 import { SproutIcon } from "./Icons";
 import SocialLinks from "./SocialLinks";
 
@@ -16,6 +20,11 @@ export default function Footer() {
   );
   return (
     <footer className="text-white">
+      {/* the home page shows the same posts in its own «Πρόσφατα άρθρα» section */}
+      <HideOnPaths paths={["/"]}>
+        <FromTheBlog />
+        <hr className="mx-auto border-0 border-t border-white/30 desk:w-[980px]" />
+      </HideOnPaths>
       {/* desktop */}
       <div className="relative mx-auto hidden h-[257px] w-[980px] bg-green-4/[0.44] text-[15px] leading-[1.4] desk:block">
         <div className="absolute left-[44px] top-[33px] flex items-center gap-[12px]">
@@ -61,5 +70,31 @@ export default function Footer() {
         </ul>
       </div>
     </footer>
+  );
+}
+
+/**
+ * «Από το blog μας»: the three newest posts on every page (owner request 2026-10-27, not on Wix).
+ * A band on top of the Wix footer panel, same green.
+ */
+function FromTheBlog() {
+  return (
+    <nav aria-labelledby="footer-blog" className="mx-auto bg-green-4/[0.44] px-4 py-6 text-center desk:grid desk:w-[980px] desk:grid-cols-[190px_1fr_130px] desk:items-center desk:gap-6 desk:px-[44px] desk:py-[18px] desk:text-left">
+      <h2 id="footer-blog" className="font-script text-[22px] leading-[1.3] desk:text-[25px]">
+        {BLOG.fromBlog}
+      </h2>
+      <ul className="mt-3 space-y-2 text-[14px] leading-[1.35] desk:mt-0 desk:grid desk:grid-cols-3 desk:gap-6 desk:space-y-0">
+        {POSTS.slice(0, 3).map((p) => (
+          <li key={p.slug}>
+            <Link href={p.path} className="hover:underline desk:line-clamp-2">
+              {p.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Link href="/blog" className="mt-4 inline-block whitespace-nowrap text-[14px] font-bold text-yellow-1 hover:underline desk:mt-0 desk:justify-self-end">
+        {BLOG.allPosts} ›
+      </Link>
+    </nav>
   );
 }

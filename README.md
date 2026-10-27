@@ -48,4 +48,8 @@ Self-owned rebuild of the Wix site www.ygeiognosia.com: a static Next.js export 
 - The online shop is closed (`SHOP.open = false`, `src/content/shop.ts`): catalogue + phone orders; cart and Viva checkout come in Phase 5γ.
 - Fonts are interim look-alikes (owner decision pending).
 - `/contact`: the form is a placeholder until Phase 6 (Jotform).
+- Blog: YouTube videos show a placeholder (no thumbnail) until clicked, so nothing loads from Google before consent. Thumbnails would need `img-src https://i.ytimg.com` in the CSP, or downloaded copies.
+- Blog dates: shown only while the newest post is younger than `DATES_VISIBLE_DAYS` (`src/lib/blog.ts`), checked in the browser by an inline script in the root layout; without JavaScript they stay hidden.
+- Blog block geometry (image float/width, button positions, paragraph alignment) comes from `archive/posts-layout.json`, measured on the archived Wix HTML with `scripts/dev/post-layout.cjs`. New posts written outside Wix need their own layout (or none: full width).
+- Social preview images (`public/og/post/*.jpg`, 1200×630) are generated on every build by `scripts/og-images.mjs` (not committed).
 - Wix text boxes keep their Wix widths; with the interim body font a paragraph sometimes wraps one line later than on Wix (a few px lower, never overlapping).

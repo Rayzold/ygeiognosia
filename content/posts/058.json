@@ -32,7 +32,13 @@
       "file": "21375d_0f56acb16c714e95b686ea67da748ce4_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 350
+      }
     },
     {
       "type": "paragraph",

@@ -81,7 +81,13 @@
       "file": "nsplsh_6d52614e6f6b5f4c643673_mv2_d_4320_2856_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 49,
+        "w": 642,
+        "h": 424
+      }
     },
     {
       "type": "paragraph",

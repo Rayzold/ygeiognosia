@@ -17,25 +17,23 @@ type PageMeta = {
   description?: string;
   path: string;
   image?: { src: string; width: number; height: number; alt?: string };
+  /** blog posts: og:type article with its dates */
+  article?: { publishedTime: string; modifiedTime?: string; author?: string };
 };
 
 /** Title, description, canonical and Open Graph for one page. */
-export function pageMetadata({ title, absoluteTitle, description, path, image }: PageMeta): Metadata {
+export function pageMetadata({ title, absoluteTitle, description, path, image, article }: PageMeta): Metadata {
   const url = absoluteUrl(path);
+  const images = image ? [{ url: image.src, width: image.width, height: image.height, alt: image.alt }] : undefined;
+  const common = { locale: "el_GR", siteName: SITE_NAME, url, title, description, images };
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
-    openGraph: {
-      type: "website",
-      locale: "el_GR",
-      siteName: SITE_NAME,
-      url,
-      title,
-      description,
-      images: image ? [{ url: image.src, width: image.width, height: image.height, alt: image.alt }] : undefined,
-    },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: article
+      ? { ...common, type: "article", publishedTime: article.publishedTime, modifiedTime: article.modifiedTime, authors: article.author ? [article.author] : undefined }
+      : { ...common, type: "website" },
+    twitter: { card: "summary_large_image", title, description, images: image ? [image.src] : undefined },
   };
 }
 

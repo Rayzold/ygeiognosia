@@ -50,7 +50,13 @@
       "file": "nsplsh_e83209dabb624e7cb7e9818dbaec2787_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 529
+      }
     },
     {
       "type": "paragraph",
@@ -147,7 +153,13 @@
       "file": "21375d_ec5e859b243444dcad3a942f5d6ff6b8_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 313
+      }
     },
     {
       "type": "empty-line",
@@ -192,7 +204,13 @@
       "newTab": true,
       "background": "#FFB700",
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 183,
+        "h": 45
+      }
     },
     {
       "type": "button",
@@ -201,7 +219,13 @@
       "newTab": true,
       "background": "#000624",
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 223,
+        "w": 220,
+        "h": 45
+      }
     },
     {
       "type": "button",
@@ -210,7 +234,13 @@
       "newTab": true,
       "background": null,
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 483,
+        "w": 198,
+        "h": 45
+      }
     },
     {
       "type": "empty-line",

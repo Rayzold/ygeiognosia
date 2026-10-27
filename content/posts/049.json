@@ -42,7 +42,13 @@
       "file": "nsplsh_657a4f4b5a68594a41466f_mv2_d_3979_5969_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 361,
+        "h": 542
+      }
     },
     {
       "type": "paragraph",
@@ -96,7 +102,13 @@
       "file": "nsplsh_53617651664c526d34446f_mv2_d_3744_5616_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 390,
+        "w": 350,
+        "h": 525
+      }
     },
     {
       "type": "paragraph",

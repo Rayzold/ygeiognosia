@@ -32,7 +32,13 @@
       "file": "nsplsh_ad283478b32e4189b269577693c96c4c_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 467,
+        "w": 273,
+        "h": 273
+      }
     },
     {
       "type": "paragraph",

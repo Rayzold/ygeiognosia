@@ -53,7 +53,13 @@
       "file": "nsplsh_c86e9d5665114ded9730c714fc9a4914_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 402,
+        "h": 268
+      }
     },
     {
       "type": "paragraph",

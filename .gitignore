@@ -63,3 +63,6 @@ archive/_pages_transfer.tgz
 
 # responsive width variants are generated on every build (scripts/image-variants.mjs)
 /public/images/**/*-w[0-9]*.webp
+
+# social preview images are generated on every build (scripts/og-images.mjs)
+/public/og/

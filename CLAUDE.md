@@ -103,13 +103,23 @@ Every item is listed in OWNER-CHANGES.md.
 - Store pages (`/a`, `/blank*`, `/shop`, `/shop2`) are Phase 5.
 
 ## Phase 5 decisions (2026-10-27)
-- Next: Phase 5β (blog: `/blog` + 81 posts, template from `archive/posts/*.json` Ricos blocks; YouTube embeds need CSP `frame-src`), then Phase 6 (Jotform contact form), 5γ when the owner opens the online shop.
 - **The online shop opens later (owner):** `SHOP.open = false` in `src/content/shop.ts` → catalogue only. Header shows `ShopTeaser` («Τα προϊόντα μας» → /shop, «Online shop σύντομα!», phone) instead of the cart; product pages show the «online shop σύντομα» box with a `tel:` button instead of quantity/Add to Cart; cards say «Δείτε το προϊόν». New texts await the owner's approval (OWNER-CHANGES.md). Phase 5γ (cart + Viva) flips `SHOP.open`.
 - Store pages (/shop2 hub, /shop, /a, /blank-N) go through `src/app/[page]` like the content pages: `CONTENT_PAGES` gets them from `content/categories.json` (`category` = Wix category path). The extractor marks the Wix Stores widget as `kind: "gallery"` (shown count, sort, loadMore); `WixLayout` renders `ProductGallery` in flow (section grows), Wix item geometry (245px columns, 225px square photo, name 16px, price #bada55, 40px pill button), 2 columns on mobile; /shop: sort select + «Περισσότερα προϊόντα» (20 at a time, all products in the static HTML).
 - Product template `src/app/product-page/[slug]`: Wix positions (photo 500×500 bordered at x45/y25, details 355px at x580: title 32px bold, price 26px green-3, box, Wix «additional info» as `<details>`, share links), description HTML under the photo (`.wix-desc`), JSON-LD Product + Offer. Prices shown as `formatPrice()` («16,00 €», as Wix shows them); the Wix Stores CSV export is still needed to verify prices.
 - **No prices (owner 2026-10-27):** `SHOP.showPrices = false` → «Τιμή κατόπιν επικοινωνίας» on cards and product pages (+ a «call us for price and availability» line), no price sort options, no price in `/search-index.json`, JSON-LD `Product` without `offers`. When the owner sends current prices: update the catalogue (prices in `archive/products.json` are the old Wix ones), then set `showPrices: true`. The `/orders-*` pages keep the prices in their Wix text unchanged (Markos, 2026-10-27).
 - Search: `/search` (noindex) + static `/search-index.json` (products, post excerpts, pages); accent-insensitive matching in the browser.
 - Mobile: a box with ≥6 link buttons (the category menu) becomes a 2-column grid.
+
+## Phase 5β decisions (2026-10-27)
+- Next: Phase 6 (Jotform contact form), 5γ when the owner opens the online shop, then Phase 7 (QA).
+- Blog = Wix layout + **promotion and sharing (owner request 2026-10-27)**: home «Πρόσφατα άρθρα» (3 newest), footer band «Από το blog μας» on every page except home (`HideOnPaths`), «Διαβάστε επίσης» under each post (chronological neighbours, `relatedPosts()`), RSS at Wix's `/blog-feed.xml`.
+- Share buttons (`src/components/share/ShareBar.tsx`) under the title and at the end of each post: Facebook, WhatsApp, Viber, X, Pinterest, email, copy link, Web Share API on phones. Plain links, no third-party scripts. Brand icons: Simple Icons (CC0) inline.
+- Social previews: `scripts/og-images.mjs` (in `npm run build`) writes a 1200×630 JPEG per post from its cover (sharp attention crop) to `public/og/post/NNN.jpg` (gitignored); og:type article, twitter summary_large_image, JSON-LD `BlogPosting` + `BreadcrumbList`.
+- **Dates (owner):** hidden while the newest post is older than `DATES_VISIBLE_DAYS` (61) — inline script in the root layout sets `html[data-blog-fresh]`, `.blog-date` CSS. Wix showed no dates either. `<time>` and JSON-LD keep them.
+- Routes: `/blog` + `/blog/page/2…9` (Wix: 10 per page), `src/app/post/[slug]` with `PostBody` (Ricos blocks). Block geometry from `archive/posts-layout.json` (`scripts/dev/post-layout.cjs` on the archived HTML) merged by `build_content.py` as `block.layout` (float/x/w, paragraph align); consecutive buttons share a row as on Wix.
+- YouTube: click-to-load `youtube-nocookie.com` (CSP `frame-src`), placeholder without thumbnail (i.ytimg.com not reachable from the build container; privacy).
+- Contrast fixes (OWNER-CHANGES.md): post links dark green with yellow underline (Wix #FFCC00 on white), light Ricos buttons get dark text, list excerpt #C5DDA4, pagination dark green.
+- The 2 broken Wix images are skipped by `tryMedia()` (owner may still send originals).
 
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).

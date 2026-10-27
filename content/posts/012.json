@@ -35,7 +35,13 @@
       "youtube": "TWRjZ1YJiOQ",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",
@@ -46,14 +52,20 @@
       "html": "<em>«Η ασθένεια δεν είναι τίποτα άλλο, παρά μια διαταραγμένη συμβίωση…»</em> ",
       "text": "«Η ασθένεια δεν είναι τίποτα άλλο, παρά μια διαταραγμένη συμβίωση…»",
       "align": null,
-      "ricos": "paragraph"
+      "ricos": "paragraph",
+      "layout": {
+        "align": "center"
+      }
     },
     {
       "type": "paragraph",
       "html": "-Enderlein",
       "text": "-Enderlein",
       "align": null,
-      "ricos": "paragraph"
+      "ricos": "paragraph",
+      "layout": {
+        "align": "center"
+      }
     },
     {
       "type": "empty-line",

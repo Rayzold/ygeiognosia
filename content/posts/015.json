@@ -86,7 +86,13 @@
       "file": "21375d_febedfc815ff40baa645e900638c0b06_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 528
+      }
     },
     {
       "type": "empty-line",

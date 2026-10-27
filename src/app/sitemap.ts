@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/") },
     ...Object.keys(CONTENT_PAGES).map((p) => ({ url: absoluteUrl(`/${p}`) })),
     ...PRODUCTS.map((p) => ({ url: absoluteUrl(p.path) })),
+    { url: absoluteUrl("/blog"), lastModified: POSTS[0].dateModified },
     ...POSTS.map((p) => ({ url: absoluteUrl(p.path), lastModified: p.dateModified })),
   ];
 }

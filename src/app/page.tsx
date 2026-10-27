@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageColumn from "@/components/layout/PageColumn";
+import Link from "next/link";
+import PostCards from "@/components/blog/PostCards";
 import Reveal from "@/components/motion/Reveal";
+import { BLOG } from "@/content/blog";
 import { HOME } from "@/content/home";
+import { POSTS } from "@/lib/content";
 import { media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 
@@ -85,6 +89,21 @@ export default function Home() {
             <Image src={air.src} alt="" width={47} height={55} sizes="47px" className="h-full w-full object-cover" />
           </a>
         </Reveal>
+      </section>
+
+      {/* Section 3 (not on Wix, owner request 2026-10-27): the three newest blog posts */}
+      <section aria-labelledby="home-recent-posts" className="px-4 pb-10 pt-8 desk:px-[20px] desk:pb-[40px] desk:pt-[36px]">
+        <h2 id="home-recent-posts" className="mb-5 text-center font-script text-[24px] leading-[1.3] text-[#ffc824] desk:mb-[26px] desk:text-[30px]">
+          {BLOG.recent}
+        </h2>
+        <Reveal effect="fade">
+          <PostCards posts={POSTS.slice(0, 3)} tone="dark" />
+        </Reveal>
+        <p className="mt-8 text-center">
+          <Link href="/blog" className="inline-flex h-[44px] items-center justify-center rounded-[22px] bg-green-3 px-8 text-[16px] font-bold text-green-5 transition-colors hover:bg-green-2">
+            {BLOG.allPosts}
+          </Link>
+        </p>
       </section>
     </PageColumn>
   );

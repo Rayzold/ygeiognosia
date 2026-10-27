@@ -86,7 +86,13 @@
       "file": "21375d_97cbe082054446909ef7b3718ae61ec6_mv2.gif",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 350
+      }
     },
     {
       "type": "paragraph",

@@ -96,7 +96,13 @@
       "file": "21375d_54c9c64adb344e13ad1bed7a8f3e463d_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 250
+      }
     },
     {
       "type": "paragraph",
@@ -161,7 +167,13 @@
       "youtube": "fsiGp-69mBA",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",

@@ -43,7 +43,13 @@
       "file": "nsplsh_393032766e59656f575334_mv2_d_5472_3648_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 99,
+        "w": 543,
+        "h": 362
+      }
     },
     {
       "type": "empty-line",
@@ -221,7 +227,13 @@
       "youtube": "8luO_1_RdpE",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",

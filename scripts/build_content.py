@@ -169,7 +169,8 @@ def main():
         cats.append(c)
     dump(OUT / "categories.json", cats)
 
-    # posts
+    # posts (+ Wix block geometry measured by scripts/dev/post-layout.cjs)
+    posts_layout = json.loads((ARCH / "posts-layout.json").read_text(encoding="utf-8"))
     index = []
     for f in sorted((ARCH / "posts").glob("*.json")):
         p = json.loads(f.read_text(encoding="utf-8"))
@@ -188,6 +189,13 @@ def main():
             if b.get("images"):
                 b["images"] = [dict(i, alt=fix_text(i.get("alt"))) for i in b["images"]]
             blocks.append(b)
+        geo = posts_layout.get(p["slug"], [])
+        if len(geo) == len(blocks):
+            for b, g in zip(blocks, geo):
+                if g:
+                    b["layout"] = g
+        else:
+            print(f"warning: no block layout for post {p['slug']}")
         p["blocks"] = blocks
         p["meta"] = fix_meta(p.get("meta"))
         dump(OUT / "posts" / f.name, p)

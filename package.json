@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/image-variants.mjs && next build && node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out",
+    "build": "node scripts/image-variants.mjs && node scripts/og-images.mjs && next build && node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out",
     "start": "npx serve out",
     "lint": "eslint",
     "images": "node scripts/optimize-media.mjs && node scripts/image-variants.mjs",

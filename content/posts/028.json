@@ -68,7 +68,13 @@
       "file": "nsplsh_fcb8b9684c74438fa4e87456f451db23_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 390,
+        "w": 350,
+        "h": 232
+      }
     },
     {
       "type": "empty-line",
@@ -171,7 +177,13 @@
       "file": "21375d_f85b102ac7e3454992173666bc0a44ec_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 308,
+        "h": 462
+      }
     },
     {
       "type": "empty-line",
@@ -246,7 +258,13 @@
       "newTab": true,
       "background": "#AC91D0",
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 196,
+        "h": 45
+      }
     },
     {
       "type": "empty-line",

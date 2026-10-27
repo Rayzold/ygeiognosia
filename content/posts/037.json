@@ -53,7 +53,13 @@
       "file": null,
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 322
+      }
     },
     {
       "type": "empty-line",
@@ -166,7 +172,13 @@
       "file": "nsplsh_e7861440e3564516a76e9256936d4ce5_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 298,
+        "h": 199
+      }
     },
     {
       "type": "paragraph",

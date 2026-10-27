@@ -28,7 +28,13 @@
       "youtube": "WuvZWDsl1I0",
       "vimeo": null,
       "wixVideo": null,
-      "ricos": "video"
+      "ricos": "video",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 416
+      }
     },
     {
       "type": "empty-line",
@@ -83,7 +89,13 @@
       "file": "21375d_65c449774cfa4abba4797359615c8633_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 251,
+        "h": 251
+      }
     },
     {
       "type": "paragraph",
@@ -123,7 +135,13 @@
       "file": "nsplsh_70656e6168657655675341_mv2_d_5304_7618_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 435,
+        "w": 305,
+        "h": 438
+      }
     },
     {
       "type": "empty-line",

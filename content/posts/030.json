@@ -83,7 +83,13 @@
       "file": "nsplsh_6f456c5267454c70534538_mv2_d_2432_3648_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 292,
+        "h": 438
+      }
     },
     {
       "type": "paragraph",
@@ -298,7 +304,13 @@
       "file": "21375d_900e629097b94e3eb9c5c3ffaf10551c_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 525
+      }
     },
     {
       "type": "paragraph",
@@ -376,7 +388,13 @@
       "newTab": true,
       "background": "#C20000",
       "color": null,
-      "ricos": "button"
+      "ricos": "button",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 240,
+        "h": 45
+      }
     },
     {
       "type": "empty-line",

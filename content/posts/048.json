@@ -68,7 +68,13 @@
       "file": "21375d_e2b2ac186b6f41cc8550ddf01dd01407_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 391,
+        "h": 391
+      }
     },
     {
       "type": "empty-line",
@@ -265,7 +271,13 @@
       "file": "21375d_577a66a2e1514a5a8ae62c5a859326db_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 525
+      }
     },
     {
       "type": "empty-line",

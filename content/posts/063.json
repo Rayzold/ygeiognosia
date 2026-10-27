@@ -82,7 +82,13 @@
       "file": "21375d_b3fc50b56e0346068212b5357247d9a3_mv2.gif",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 3,
+        "w": 735,
+        "h": 490
+      }
     },
     {
       "type": "empty-line",

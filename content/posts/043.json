@@ -217,7 +217,13 @@
       "file": "nsplsh_10ecd72a3f5248699f9be4c491beb992_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 438
+      }
     },
     {
       "type": "empty-line",

@@ -35,7 +35,13 @@
       "file": "nsplsh_6e6948375a383153343467_mv2_d_2048_3092_s_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 528
+      }
     },
     {
       "type": "paragraph",

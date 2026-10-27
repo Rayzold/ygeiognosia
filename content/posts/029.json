@@ -68,7 +68,13 @@
       "file": "21375d_de43d7d185574c2f88d13cb2a2b527b3_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 547
+      }
     },
     {
       "type": "paragraph",
@@ -119,7 +125,13 @@
       "file": "21375d_fc0982e3da244aec9780a12d5c61b47c_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 350
+      }
     },
     {
       "type": "empty-line",

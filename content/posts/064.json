@@ -75,7 +75,13 @@
       "file": "nsplsh_79754f416379706f463149_mv2_d_2624_3936_s_4_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "right",
+        "x": 494,
+        "w": 246,
+        "h": 369
+      }
     },
     {
       "type": "paragraph",

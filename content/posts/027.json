@@ -50,7 +50,13 @@
       "file": "21375d_f5c656bfd01d45beafe569928c4311f0_mv2.jpeg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 740
+      }
     },
     {
       "type": "empty-line",
@@ -169,7 +175,13 @@
       "file": "nsplsh_3945704d4253414e392d51_mv2_d_2304_3456_s_2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "none",
+        "x": 0,
+        "w": 740,
+        "h": 1110
+      }
     },
     {
       "type": "empty-line",
@@ -336,7 +348,12 @@
     },
     {
       "type": "gallery",
-      "layout": "PANORAMA",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 350,
+        "h": 233
+      },
       "images": [
         {
           "id": "nsplsh_9a769307109342de86d3aa45ce8d941c~mv2.jpg",

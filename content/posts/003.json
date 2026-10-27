@@ -86,7 +86,13 @@
       "file": "21375d_90f7c213751b45fdb3a839a066af16eb_mv2.png",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 351,
+        "h": 439
+      }
     },
     {
       "type": "empty-line",
@@ -196,7 +202,13 @@
       "file": "21375d_34071127c62149c09fd76adf7ef21c32_mv2.jpg",
       "caption": "",
       "link": null,
-      "ricos": "image"
+      "ricos": "image",
+      "layout": {
+        "float": "left",
+        "x": 0,
+        "w": 345,
+        "h": 216
+      }
     },
     {
       "type": "paragraph",
