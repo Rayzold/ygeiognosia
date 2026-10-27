@@ -1,3 +1,5 @@
+import { CATEGORIES } from "@/lib/content";
+
 // Content pages rendered from their Wix layout (content/pages/pages/<slug>/layout.json) by src/app/[page].
 // Titles: Greek, unique, from each page's own Wix og:title / heading (approved fixes 3 and 4).
 // description: only where the Wix og:description cannot be used; otherwise it is taken from Wix or
@@ -12,6 +14,8 @@ export type ContentPage = {
   audio?: string;
   /** Wix video page background (fixed, over the photo) */
   video?: { src: string; poster: string };
+  /** store page: path of its Wix Stores category (content/categories.json), shown by the product gallery */
+  category?: string;
 };
 
 const OLIVE = "Αγριέλαιο Υγειογνωσίας";
@@ -37,4 +41,10 @@ export const CONTENT_PAGES: Record<string, ContentPage> = {
   "orders-cosmetics": { title: "Καλλυντικά | Παραγγελίες" },
   "orders-food-supplements": { title: "Συμπληρώματα Διατροφής | Παραγγελίες" },
   "orders-immune-protection": { title: "Ενίσχυση / Προστασία Ανοσοποιητικού | Παραγγελίες" },
+  // Store (Phase 5): /shop2 is the category hub, /shop "All Products", /a and /blank-N the categories
+  shop2: { title: "Ηλεκτρονικό κατάστημα" },
+  shop: { title: "Όλα τα προϊόντα", category: "/shop" },
+  ...Object.fromEntries(
+    CATEGORIES.filter((c) => c.path !== "/shop").map((c) => [c.path.slice(1), { title: c.name.replace(/\s+/g, " ").trim(), category: c.path }]),
+  ),
 };

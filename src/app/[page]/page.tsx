@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import VideoBackground from "@/components/layout/VideoBackground";
 import WixLayout from "@/components/wix/WixLayout";
 import { CONTENT_PAGES } from "@/content/pages";
+import type { CardItem } from "@/components/shop/ProductGallery";
+import { categoryProducts, decodeEntities, formatPrice } from "@/lib/content";
 import { media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 import { allNodes, describe, loadLayout, type ImageNode } from "@/lib/wix-layout";
@@ -33,7 +35,23 @@ function ogImage(slug: string) {
     }
   }
   const first = allNodes(loadLayout("pages", slug).nodes).find((n): n is ImageNode => n.kind === "image");
-  return first ? media(first.file) : undefined;
+  if (first) return media(first.file);
+  const product = CONTENT_PAGES[slug]?.category ? categoryProducts(CONTENT_PAGES[slug].category!)[0] : undefined;
+  return product?.media[0] ? media(product.media[0].file) : undefined;
+}
+
+/** Store page description: the category and the first product names (approved fix 5). */
+function describeCategory(title: string, category: string): string {
+  const names = categoryProducts(category).map((p) => decodeEntities(p.name).trim());
+  const t = `${title}: ${names.join(", ")}`;
+  return t.length <= 160 ? t : t.slice(0, 157).replace(/,?\s+\S*$/, "") + "…";
+}
+
+function cards(category: string): CardItem[] {
+  return categoryProducts(category).map((p) => {
+    const img = p.media[0] ? media(p.media[0].file) : null;
+    return { path: p.path, name: decodeEntities(p.name).trim(), price: Number(p.price), formatted: formatPrice(p.price), image: img, ribbon: p.ribbon };
+  });
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -45,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMetadata({
     title: def.title,
     absoluteTitle: def.absoluteTitle,
-    description: def.description ?? wixDescription ?? describe(loadLayout("pages", page)),
+    description: def.description ?? wixDescription ?? (def.category ? describeCategory(def.title, def.category) : describe(loadLayout("pages", page))),
     path: `/${page}`,
     image: image ? { ...image, alt: def.title } : undefined,
   });
@@ -59,7 +77,7 @@ export default async function ContentPage({ params }: Props) {
   return (
     <>
       {def.video && <VideoBackground src={def.video.src} poster={def.video.poster} />}
-      <WixLayout layout={loadLayout("pages", page)} title={def.title.split(" | ")[0]} audio={audio} />
+      <WixLayout layout={loadLayout("pages", page)} title={def.title.split(" | ")[0]} audio={audio} gallery={def.category ? cards(def.category) : undefined} />
     </>
   );
 }

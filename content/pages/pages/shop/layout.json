@@ -1,0 +1,27 @@
+{
+  "height": 2123,
+  "shade": "rgba(0, 0, 0, 0.6)",
+  "nodes": [
+    {
+      "id": "comp-la82oexm",
+      "x": 0,
+      "y": 0,
+      "w": 980,
+      "h": 2123,
+      "kind": "section",
+      "children": [
+        {
+          "id": "TPASection_ki69fma2",
+          "x": 0,
+          "y": 1,
+          "w": 980,
+          "h": 2122,
+          "kind": "gallery",
+          "shown": 20,
+          "sort": true,
+          "loadMore": true
+        }
+      ]
+    }
+  ]
+}

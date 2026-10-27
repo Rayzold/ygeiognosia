@@ -48,6 +48,7 @@ export type LayoutNode =
   | (Base & { kind: "anchor"; name: string })
   | (Base & { kind: "anchormenu"; items: { label: string; anchor: string }[] })
   | (Base & { kind: "audio" | "map" })
+  | (Base & { kind: "gallery"; shown: number; sort: boolean; loadMore: boolean })
   | (Base & { kind: "form"; fields: { tag: string; name: string; placeholder: string; required: boolean }[]; submit?: string });
 
 export type Layout = { height: number; shade: string; nodes: LayoutNode[] };

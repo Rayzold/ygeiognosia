@@ -1,0 +1,360 @@
+{
+  "height": 501,
+  "shade": "rgba(0, 0, 0, 0)",
+  "nodes": [
+    {
+      "id": "comp-la82oevt1",
+      "x": 0,
+      "y": 0,
+      "w": 980,
+      "h": 501,
+      "kind": "section",
+      "children": [
+        {
+          "id": "comp-kih8h77m",
+          "x": 0,
+          "y": 0,
+          "w": 979,
+          "h": 501,
+          "kind": "image",
+          "file": "21375d_a092e9b9910147d6a506ef1095519ec9~mv2.jpg",
+          "alt": "ygeiognosia",
+          "crop": {
+            "x": 0,
+            "y": 1097,
+            "w": 4608,
+            "h": 2359
+          },
+          "mode": "fill",
+          "align": "c",
+          "fit": "cover",
+          "nat": {
+            "w": 4608,
+            "h": 3456
+          }
+        },
+        {
+          "id": "comp-kih8pc0y",
+          "x": 1,
+          "y": 210,
+          "w": 979,
+          "h": 145,
+          "kind": "box",
+          "children": [
+            {
+              "id": "comp-kih8pc2u",
+              "x": 0,
+              "y": 0,
+              "w": 979,
+              "h": 145,
+              "kind": "svg",
+              "svg": "<svg preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"17.3 68.2 165.3 63.6\" role=\"presentation\" aria-hidden=\"true\">\n    <g fill=\"rgb(0, 0, 0)\" stroke=\"none\" fill-opacity=\"0.54\">\n        <path d=\"M182.6 68.2v63.6H17.3V68.2h165.3z\" fill=\"rgb(0, 0, 0)\" stroke=\"none\" fill-opacity=\"0.54\"></path>\n    </g>\n</svg>"
+            },
+            {
+              "id": "comp-kih8pc31",
+              "x": 63,
+              "y": 13,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Συμπληρώματα Διατροφής",
+              "href": "https://www.ygeiognosia.com/blank",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc35",
+              "x": 63,
+              "y": 39,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Ελιξίρια",
+              "href": "https://www.ygeiognosia.com/blank-4",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc37",
+              "x": 63,
+              "y": 65,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Καλλυντικά | Πρόσωπο",
+              "href": "https://www.ygeiognosia.com/blank-12",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3a",
+              "x": 63,
+              "y": 92,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Καλλυντικά | Σώμα",
+              "href": "https://www.ygeiognosia.com/blank-13",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3d",
+              "x": 279,
+              "y": 13,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Συμπληρώματα για παιδιά",
+              "href": "https://www.ygeiognosia.com/blank-1",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3f",
+              "x": 279,
+              "y": 39,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Υπερτροφές",
+              "href": "https://www.ygeiognosia.com/blank-5",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3i",
+              "x": 279,
+              "y": 65,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Αναπνευστικό",
+              "href": "https://www.ygeiognosia.com/a",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3l",
+              "x": 279,
+              "y": 92,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Οδοντόκρεμες | Στοματικά Διαλύματα",
+              "href": "https://www.ygeiognosia.com/blank-14",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3o",
+              "x": 497,
+              "y": 13,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Αντιοξείδωση - Ενδυνάμωση",
+              "href": "https://www.ygeiognosia.com/blank-2",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3r",
+              "x": 713,
+              "y": 13,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Αδυνάτισμα",
+              "href": "https://www.ygeiognosia.com/blank-3",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3u",
+              "x": 497,
+              "y": 39,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Δυσκοιλιότητα",
+              "href": "https://www.ygeiognosia.com/blank-7",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc3x",
+              "x": 713,
+              "y": 39,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Ουροποιητικό",
+              "href": "https://www.ygeiognosia.com/blank-8",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc40",
+              "x": 497,
+              "y": 66,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Άγχος - Ύπνος - Συναίσθημα",
+              "href": "https://www.ygeiognosia.com/blank-10",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc42",
+              "x": 713,
+              "y": 64,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Φυσικά Αντιβιοτικά",
+              "href": "https://www.ygeiognosia.com/blank-9",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc45",
+              "x": 503,
+              "y": 95,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Ενίσχυση | Προστασία Ανοσοποιητικού",
+              "href": "https://www.ygeiognosia.com/blank-6",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            },
+            {
+              "id": "comp-kih8pc471",
+              "x": 713,
+              "y": 91,
+              "w": 216,
+              "h": 40,
+              "kind": "button",
+              "label": "Παιχνίδια | Είδη Δώρων",
+              "href": "https://www.ygeiognosia.com/blank-15",
+              "f": "84b1395d",
+              "s": 12,
+              "c": "rgb(255, 255, 255)",
+              "align": "center"
+            }
+          ]
+        },
+        {
+          "id": "comp-kirf27si",
+          "x": 260,
+          "y": 48,
+          "w": 460,
+          "h": 104,
+          "kind": "svg",
+          "svg": "<svg preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"17.3 68.2 165.3 63.6\" role=\"presentation\" aria-hidden=\"true\">\n    <g fill=\"rgb(53, 68, 33)\" stroke=\"none\">\n        <path d=\"M182.6 68.2v63.6H17.3V68.2h165.3z\" fill=\"rgb(53, 68, 33)\" stroke=\"none\"></path>\n    </g>\n</svg>"
+        },
+        {
+          "id": "comp-kirexs53",
+          "x": 260,
+          "y": 75,
+          "w": 460,
+          "h": 67,
+          "kind": "text",
+          "blocks": [
+            {
+              "tag": "h1",
+              "align": "center",
+              "fs": 13,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Το ηλεκτρονικό",
+                  "f": "8b43208e",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "t": " ",
+                  "f": "josefin slab",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "t": "μας κατάστημα θα παραμείνει",
+                  "f": "8b43208e",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "br": 1
+                },
+                {
+                  "t": "\nγια λίγες ημέρες κλειστό. ",
+                  "f": "8b43208e",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "br": 1
+                },
+                {
+                  "t": "\n",
+                  "f": "josefin slab",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "t": "Ευχαριστούμε για την κατανόηση. ",
+                  "f": "8b43208e",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                },
+                {
+                  "br": 1
+                },
+                {
+                  "t": "\n ",
+                  "f": "josefin slab",
+                  "s": 13,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

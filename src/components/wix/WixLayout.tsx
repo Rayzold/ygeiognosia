@@ -20,6 +20,7 @@ import {
 } from "@/lib/wix-layout";
 import AnchorMenu from "./AnchorMenu";
 import AudioPlayer from "./AudioPlayer";
+import ProductGallery, { type CardItem } from "@/components/shop/ProductGallery";
 
 /**
  * Renders a Wix page from its extracted layout (content/pages/<type>/<name>/layout.json).
@@ -45,7 +46,7 @@ const fontClass = (f?: string) => (f && FONT[f]) ?? "font-body";
 const POS = "desk:absolute desk:left-[var(--x)] desk:top-[var(--y)] desk:w-[var(--w)]";
 const SIZE = "desk:h-[var(--h)]";
 
-type Ctx = { title: string; audio?: string; hoverParents: Set<string>; first: { image: boolean } };
+type Ctx = { title: string; audio?: string; gallery?: CardItem[]; hoverParents: Set<string>; first: { image: boolean } };
 
 const box = (n: LayoutNode): CSSProperties =>
   ({ "--x": `${n.x}px`, "--y": `${n.y}px`, "--w": `${n.w}px`, "--h": `${n.h}px` }) as CSSProperties;
@@ -56,7 +57,7 @@ const byReadingOrder = (a: LayoutNode, b: LayoutNode) =>
   Math.abs(a.y - b.y) >= 8 ? a.y - b.y : (a.kind === "image" ? 0 : 1) - (b.kind === "image" ? 0 : 1) || a.x - b.x;
 const z = new WeakMap<LayoutNode, number>();
 
-export default function WixLayout({ layout, title, audio }: { layout: Layout; title: string; audio?: string }) {
+export default function WixLayout({ layout, title, audio, gallery }: { layout: Layout; title: string; audio?: string; gallery?: CardItem[] }) {
   const hoverParents = new Set<string>();
   const collect = (ns: LayoutNode[]) =>
     ns.forEach((n) => {
@@ -64,7 +65,7 @@ export default function WixLayout({ layout, title, audio }: { layout: Layout; ti
       if ("children" in n && n.children) collect(n.children);
     });
   collect(layout.nodes);
-  const ctx: Ctx = { title, audio, hoverParents, first: { image: true } };
+  const ctx: Ctx = { title, audio, gallery, hoverParents, first: { image: true } };
 
   const sections = layout.nodes.filter((n) => n.kind === "section").sort(byReadingOrder) as BoxNode[];
   const pinned = layout.nodes.filter((n) => n.kind !== "section").flatMap((n) => ("children" in n && n.children ? n.children : [n]));
@@ -74,7 +75,12 @@ export default function WixLayout({ layout, title, audio }: { layout: Layout; ti
     <PageColumn shade={shadeOf(layout)}>
       {!hasH1(layout.nodes) && <h1 className="sr-only">{title}</h1>}
       {sections.map((s) => (
-        <section key={s.id} style={{ ...box(s), backgroundColor: s.bg }} className="relative flex flex-col gap-4 py-5 desk:block desk:h-[var(--h)] desk:py-0">
+        <section
+          key={s.id}
+          style={{ ...box(s), backgroundColor: s.bg }}
+          // a section with a product gallery grows with it (sorting / «Load More»); the others keep their Wix height
+          className={`relative flex flex-col gap-4 py-5 desk:block desk:py-0 ${s.children.some((c) => c.kind === "gallery") ? "desk:min-h-[var(--h)]" : "desk:h-[var(--h)]"}`}
+        >
           {children(s, ctx)}
         </section>
       ))}
@@ -115,7 +121,9 @@ function Node({ n, ctx, label }: { n: LayoutNode; ctx: Ctx; label: string }) {
       const group = ctx.hoverParents.has(n.id) ? "group" : "";
       // an empty coloured box is only a backdrop for siblings on desktop: not shown on mobile
       const empty = !n.children.length ? "hidden" : "flex";
-      return wrap(n, `relative ${empty} flex-col gap-4 ${n.bg ? "py-4" : ""} desk:block desk:py-0 ${group} ${POS} ${SIZE}`, children(n, ctx), deco);
+      // a block of many link buttons (the store category menu): two compact columns on mobile
+      const menu = n.children.filter((c) => c.kind === "button").length >= 6 ? "max-desk:grid max-desk:grid-cols-2 max-desk:gap-x-2 max-desk:gap-y-1 max-desk:px-2 max-desk:[&>*]:!h-[34px] max-desk:[&>*]:!w-full max-desk:[&>*]:!min-w-0" : "";
+      return wrap(n, `relative ${empty} flex-col gap-4 ${n.bg ? "py-4" : ""} ${menu} desk:block desk:py-0 ${group} ${POS} ${SIZE}`, children(n, ctx), deco);
     }
     case "line":
       return wrap(n, `mx-auto w-[min(var(--w),calc(100%-2rem))] ${POS}`, null, { borderTop: `${n.weight}px solid ${n.color}` });
@@ -128,6 +136,13 @@ function Node({ n, ctx, label }: { n: LayoutNode; ctx: Ctx; label: string }) {
       return wrap(n, `mx-4 h-[260px] desk:mx-0 ${POS} ${SIZE}`, <MapFrame />);
     case "form":
       return wrap(n, `mx-4 desk:mx-0 ${POS} ${SIZE}`, <FormPlaceholder />);
+    case "gallery":
+      // in flow (not absolute) so the section grows with it
+      return (
+        <div key={n.id} style={box(n)} className="desk:relative desk:ml-[var(--x)] desk:w-[var(--w)] desk:pt-[var(--y)]">
+          <ProductGallery items={ctx.gallery ?? []} sort={n.sort} pageSize={n.loadMore ? n.shown : undefined} />
+        </div>
+      );
     case "audio":
       // the Wix music player; shown once the track is in public/audio (see src/content/pages.ts)
       return ctx.audio ? wrap(n, `mx-auto ${POS} ${SIZE}`, <AudioPlayer src={ctx.audio} />) : null;

@@ -1,4 +1,5 @@
 // Build-time access to the generated content (content/*.json, see scripts/build_content.py).
+import categories from "../../content/categories.json";
 import postsIndex from "../../content/posts-index.json";
 import products from "../../content/products.json";
 
@@ -38,11 +39,37 @@ export type PostSummary = {
   file: string;
 };
 
+export type Category = { path: string; categoryId: string; name: string; products: string[] };
+
 export const PRODUCTS = products as unknown as Product[];
+/** Wix Stores categories (and "All Products" = /shop), product slugs in Wix order. */
+export const CATEGORIES = categories as unknown as Category[];
+export const categoryByPath = (path: string) => CATEGORIES.find((c) => c.path === path);
 export const POSTS = postsIndex as unknown as PostSummary[];
 
 export const productBySlug = (slug: string) => PRODUCTS.find((p) => p.slug === slug);
 export const postBySlug = (slug: string) => POSTS.find((p) => p.slug === slug);
+
+/**
+ * Products of a store page in Wix order. /shop ("All Products") lists every product: the 20 Wix showed
+ * first, then the rest in catalogue order (Wix loads them with «Load More»).
+ */
+export function categoryProducts(path: string): Product[] {
+  const c = categoryByPath(path);
+  if (!c) return [];
+  const first = c.products.map(productBySlug).filter((p): p is Product => !!p);
+  if (path !== "/shop") return first;
+  return [...first, ...PRODUCTS.filter((p) => !c.products.includes(p.slug))];
+}
+
+const EUR = new Intl.NumberFormat("el-GR", { style: "currency", currency: "EUR" });
+/** Price as Wix shows it in the store widgets, e.g. «16,00 €». */
+export const formatPrice = (n: number | string) => EUR.format(Number(n));
+
+/** Plain text of a Wix product description (for meta descriptions and search). */
+export function htmlToText(html: string): string {
+  return decodeEntities(html.replace(/<br\s*\/?>|<\/p>/gi, " ").replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+}
 
 /** Route params arrive percent-encoded for non-ASCII slugs; content uses the decoded form. */
 export const decodeSlug = (s: string) => {

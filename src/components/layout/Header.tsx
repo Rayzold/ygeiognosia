@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { HEADER, MEDIA } from "@/content/site";
 import { media } from "@/lib/media";
-import { CartBadge, cartLabel } from "./CartLink";
+import { SHOP } from "@/content/shop";
+import { CartBadge, ShopTeaser, cartLabel } from "./CartLink";
 import DesktopNav from "./DesktopNav";
 import MobileMenu from "./MobileMenu";
 import SearchBox from "./SearchBox";
@@ -23,10 +24,18 @@ export default function Header() {
           <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes="184px" priority className="h-full w-full object-cover" />
         </Link>
 
-        <p className="absolute right-[58px] top-[40px] whitespace-nowrap text-right text-[15px] leading-[1.4] text-white" aria-label={cartLabel}>
-          {HEADER.cart}
-        </p>
-        <CartBadge className="absolute left-[932px] top-[26px] h-[35px] w-[29px]" />
+        {SHOP.open ? (
+          <>
+            <p className="absolute right-[58px] top-[40px] whitespace-nowrap text-right text-[15px] leading-[1.4] text-white" aria-label={cartLabel}>
+              {HEADER.cart}
+            </p>
+            <CartBadge className="absolute left-[932px] top-[26px] h-[35px] w-[29px]" />
+          </>
+        ) : (
+          <div className="absolute right-[19px] top-[26px]">
+            <ShopTeaser layout="desktop" />
+          </div>
+        )}
 
         <Link href="/" className="absolute right-[4px] top-[189px] whitespace-nowrap text-right font-script text-[25px] leading-[1.4] text-white">
           {HEADER.tagline}
@@ -51,10 +60,18 @@ export default function Header() {
         <div className="absolute right-2 top-10">
           <MobileMenu />
         </div>
-        <p className="mt-4 text-[14px] text-white" aria-label={cartLabel}>
-          {HEADER.cart}
-        </p>
-        <CartBadge className="mt-1 h-[34px] w-[29px]" />
+        {SHOP.open ? (
+          <>
+            <p className="mt-4 text-[14px] text-white" aria-label={cartLabel}>
+              {HEADER.cart}
+            </p>
+            <CartBadge className="mt-1 h-[34px] w-[29px]" />
+          </>
+        ) : (
+          <div className="mt-4">
+            <ShopTeaser layout="mobile" />
+          </div>
+        )}
         <SearchBox className="mt-3 h-[52px] w-full" />
         <Link href="/" className="mt-3 font-script text-[24px] leading-[1.4] text-white">
           {HEADER.tagline}

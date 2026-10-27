@@ -192,7 +192,9 @@ async function extract(page, file) {
           src.forEach((s, i) => {
             const cs = getComputedStyle(s), d = dst[i];
             if (s !== svg && /^(path|circle|ellipse|rect|polygon|polyline|line|g|use)$/i.test(s.tagName)) {
-              d.setAttribute("fill", cs.fill); if (cs.stroke !== "none") d.setAttribute("stroke", cs.stroke);
+              d.setAttribute("fill", cs.fill);
+              if (cs.stroke !== "none" && parseFloat(cs.strokeWidth) > 0) { d.setAttribute("stroke", cs.stroke); d.setAttribute("stroke-width", cs.strokeWidth); }
+              else d.setAttribute("stroke", "none");
               if (cs.fillOpacity !== "1") d.setAttribute("fill-opacity", cs.fillOpacity);
               if (cs.opacity !== "1") d.setAttribute("opacity", cs.opacity);
             }
@@ -208,6 +210,10 @@ async function extract(page, file) {
       if (c.includes("wixui-horizontal-line")) {
         const d = [el, ...el.querySelectorAll("*")].map(getComputedStyle).find((s) => px(s.borderTopWidth) > 0 || !transparent(s.backgroundColor));
         return { ...n, kind: "line", color: d ? (px(d.borderTopWidth) > 0 ? d.borderTopColor : d.backgroundColor) : "#fff", weight: d ? px(d.borderTopWidth) || Math.round(r.h) : 1 };
+      }
+      if (el.id.startsWith("TPASection_") && el.querySelector("[data-hook=gallery-app-root]")) {
+        // Wix Stores product gallery: rendered by our ProductGrid from the category's product list
+        return { ...n, kind: "gallery", shown: el.querySelectorAll("[data-hook=product-list-grid-item]").length, sort: !!el.querySelector("[data-hook=sort-dropdown]"), loadMore: !!el.querySelector("[data-hook=load-more-button]") };
       }
       if (c.includes("wixui-audio-player")) return { ...n, kind: "audio" };
       if (c.includes("wixui-google-map")) return { ...n, kind: "map" };

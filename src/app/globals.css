@@ -88,3 +88,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Wix product descriptions (HTML from Wix Stores): paragraphs without margins, empty ones keep a line. */
+.wix-desc p {
+  min-height: 1lh;
+}

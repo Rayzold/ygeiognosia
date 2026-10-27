@@ -102,6 +102,13 @@ Every item is listed in OWNER-CHANGES.md.
 - `/contact`: Google map iframe (CSP `frame-src` www.google.com, maps.google.com) at the new address; form placeholder until Phase 6.
 - Store pages (`/a`, `/blank*`, `/shop`, `/shop2`) are Phase 5.
 
+## Phase 5 decisions (2026-10-27)
+- **The online shop opens later (owner):** `SHOP.open = false` in `src/content/shop.ts` → catalogue only. Header shows `ShopTeaser` («Τα προϊόντα μας» → /shop, «Online shop σύντομα!», phone) instead of the cart; product pages show the «online shop σύντομα» box with a `tel:` button instead of quantity/Add to Cart; cards say «Δείτε το προϊόν». New texts await the owner's approval (OWNER-CHANGES.md). Phase 5γ (cart + Viva) flips `SHOP.open`.
+- Store pages (/shop2 hub, /shop, /a, /blank-N) go through `src/app/[page]` like the content pages: `CONTENT_PAGES` gets them from `content/categories.json` (`category` = Wix category path). The extractor marks the Wix Stores widget as `kind: "gallery"` (shown count, sort, loadMore); `WixLayout` renders `ProductGallery` in flow (section grows), Wix item geometry (245px columns, 225px square photo, name 16px, price #bada55, 40px pill button), 2 columns on mobile; /shop: sort select + «Περισσότερα προϊόντα» (20 at a time, all products in the static HTML).
+- Product template `src/app/product-page/[slug]`: Wix positions (photo 500×500 bordered at x45/y25, details 355px at x580: title 32px bold, price 26px green-3, box, Wix «additional info» as `<details>`, share links), description HTML under the photo (`.wix-desc`), JSON-LD Product + Offer. Prices shown as `formatPrice()` («16,00 €», as Wix shows them); the Wix Stores CSV export is still needed to verify prices.
+- Search: `/search` (noindex) + static `/search-index.json` (products, post excerpts, pages); accent-insensitive matching in the browser.
+- Mobile: a box with ≥6 link buttons (the category menu) becomes a 2-column grid.
+
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).
 - Fonts: PF DinText Pro and Black Diamond are commercial uploads (see `archive/design-tokens.md`); ask whether the owner holds web licences. Comparison for the owner: `archive/review/fonts-sygkrisi.png`. Interim: Roboto Condensed + Mynerve (only free script fonts with Greek on Fontsource: Mynerve, Playpen Sans, Zen Kurenaido — none close to Black Diamond).
