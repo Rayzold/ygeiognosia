@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import VideoBackground from "@/components/layout/VideoBackground";
 import WixLayout from "@/components/wix/WixLayout";
 import { CONTENT_PAGES } from "@/content/pages";
+import { SHOP } from "@/content/shop";
 import type { CardItem } from "@/components/shop/ProductGallery";
 import { categoryProducts, decodeEntities, formatPrice } from "@/lib/content";
 import { media } from "@/lib/media";
@@ -50,7 +51,9 @@ function describeCategory(title: string, category: string): string {
 function cards(category: string): CardItem[] {
   return categoryProducts(category).map((p) => {
     const img = p.media[0] ? media(p.media[0].file) : null;
-    return { path: p.path, name: decodeEntities(p.name).trim(), price: Number(p.price), formatted: formatPrice(p.price), image: img, ribbon: p.ribbon };
+    // without prices (SHOP.showPrices) the old Wix prices must not reach the page, not even in the React payload
+    const price = SHOP.showPrices ? { price: Number(p.price), formatted: formatPrice(p.price) } : { price: 0, formatted: "" };
+    return { path: p.path, name: decodeEntities(p.name).trim(), ...price, image: img, ribbon: p.ribbon };
   });
 }
 
