@@ -123,7 +123,7 @@ Every item is listed in OWNER-CHANGES.md.
 ## Phase 6 decisions (2026-10-27)
 - `/contact` form = `src/components/contact/ContactForm.tsx` (rendered by `WixLayout` for the `form` node): Wix fields (Όνομα, Email, Θέμα, Μήνυμα, all required), Wix geometry and colours (white 73% fields, #6B8841 button, hover #A0CC62 with dark text for contrast), Greek texts in `src/content/contact.ts` (new success/error texts await owner approval).
 - Posts with `no-cors` to Jotform form «Υγειογνωσία – Επικοινωνία» (`262993612964066`, Markos' Jotform account, EU); notification to ygeiognosia@hotmail.com (Markos, 2026-10-27). Honeypot `website`. CSP allows `eu-submit.jotform.com` in `connect-src` and `form-action`.
-- The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test (a real submission and the notification email) is done by Markos.
+- The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test done by Markos on pages.dev (2026-10-27).
 
 ## Phase 7 decisions (2026-10-27)
 - Next: owner review of the preview, then Phase 8 (cutover); 5γ (cart + Viva) when the owner opens the online shop.
@@ -146,7 +146,7 @@ Every item is listed in OWNER-CHANGES.md.
 - Order notification: where the owner receives new orders (email via which provider, or the Viva dashboard only) and whether orders need to be stored (e.g. Cloudflare D1/KV).
 - Invoices/receipts and myDATA: how the owner issues them today; the checkout must not break that process.
 - E-shop legal pages (terms, returns, privacy/cookies): carry over verbatim from Wix; flag to the owner if any are missing.
-- Domain expires **15/12/2026**: Markos renews it at papaki before the cutover.
+- Domain expires **15/12/2026**: Markos renews it at papaki before the cutover (reminder set for 10/11/2026).
 - Before cancelling Wix: export orders, customers, products CSV, blog/newsletter subscribers, form messages, invoices.
 
 ## Owner changelog
