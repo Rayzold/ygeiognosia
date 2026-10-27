@@ -123,7 +123,7 @@ Every item is listed in OWNER-CHANGES.md.
 ## Phase 6 decisions (2026-10-27)
 - `/contact` form = `src/components/contact/ContactForm.tsx` (rendered by `WixLayout` for the `form` node): Wix fields (Όνομα, Email, Θέμα, Μήνυμα, all required), Wix geometry and colours (white 73% fields, #6B8841 button, hover #A0CC62 with dark text for contrast), Greek texts in `src/content/contact.ts` (new success/error texts await owner approval).
 - Posts with `no-cors` to Jotform form «Υγειογνωσία – Επικοινωνία» (`262993612964066`, Markos' Jotform account, EU); notification to ygeiognosia@hotmail.com (Markos, 2026-10-27). Honeypot `website`. CSP allows `eu-submit.jotform.com` in `connect-src` and `form-action`.
-- The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test by Markos on pages.dev (2026-10-27): the name arrived as «{}» with the Jotform unique name `input`, so the question was recreated as `q7_onoma`; retest pending.
+- The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test by Markos on pages.dev (2026-10-27): the name arrived as «{}» in the notification email. The site sends the right payload (`q7_onoma=…`, checked in Chrome); the cause is the Jotform notification template, whose Όνομα row holds an empty tag `{}` (Greek label → empty unique name when the form was built). Fix in Jotform: Settings → Emails → notification → replace `{}` with the Όνομα field (Markos).
 
 ## Phase 7 decisions (2026-10-27)
 - Next: owner review of the preview, then Phase 8 (cutover); 5γ (cart + Viva) when the owner opens the online shop.
