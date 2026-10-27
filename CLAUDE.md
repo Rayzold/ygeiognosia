@@ -121,10 +121,18 @@ Every item is listed in OWNER-CHANGES.md.
 - The 2 broken Wix images are skipped by `tryMedia()` (owner may still send originals).
 
 ## Phase 6 decisions (2026-10-27)
-- Next: 5γ when the owner opens the online shop, then Phase 7 (QA).
 - `/contact` form = `src/components/contact/ContactForm.tsx` (rendered by `WixLayout` for the `form` node): Wix fields (Όνομα, Email, Θέμα, Μήνυμα, all required), Wix geometry and colours (white 73% fields, #6B8841 button, hover #A0CC62 with dark text for contrast), Greek texts in `src/content/contact.ts` (new success/error texts await owner approval).
 - Posts with `no-cors` to Jotform form «Υγειογνωσία – Επικοινωνία» (`262993612964066`, Markos' Jotform account, EU); notification to ygeiognosia@hotmail.com (Markos, 2026-10-27). Honeypot `website`. CSP allows `eu-submit.jotform.com` in `connect-src` and `form-action`.
 - The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test (a real submission and the notification email) is done by Markos.
+
+## Phase 7 decisions (2026-10-27)
+- Next: owner review of the preview, then Phase 8 (cutover); 5γ (cart + Viva) when the owner opens the online shop.
+- QA scripts in `scripts/dev/qa/` (Lighthouse median of 3, axe over every page at 390/1440, keyboard walks); see README «QA».
+- Local Lighthouse (2026-10-27, mobile): Accessibility 100, Best Practices 100, SEO 100 on all page types (`/search` is noindex by design); Performance 81–90 locally because on a zero-latency server the first paint waits for hydration. Real numbers: PageSpeed on pages.dev.
+- Contrast: `src/lib/contrast.ts` (`readablePair` for Wix buttons and the post Ricos buttons, `readableOnWhite` for inline post colours); token `green-4d` #647E3C for white text on the menu green; light green backgrounds get green-5 text. All in OWNER-CHANGES.md.
+- Headings: `WixLayout` renumbers heading levels in DOM order so they never skip a level; empty Wix headings render as `<p>`.
+- Favicon/app icons from the site logo (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`); Wix used its own generic favicon.
+- The build runs `check-sitemap.mjs --strict`; `scripts/pending-links.txt` is empty.
 
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).

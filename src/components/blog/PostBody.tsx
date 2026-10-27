@@ -2,13 +2,16 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { SITE_URL } from "@/content/site";
 import { tryMedia, type Block, type BlockLayout } from "@/lib/blog";
+import { readableOnWhite, readablePair } from "@/lib/contrast";
 import YouTube from "./YouTube";
 
 /** Wix post text column: 740px. Block widths and offsets are kept as fractions of it. */
 const COLUMN = 740;
 
 /** Internal links written as absolute Wix URLs become site paths. */
-const localLinks = (html: string) => html.replaceAll(`href="${SITE_URL}"`, 'href="/"').replaceAll(`href="${SITE_URL}`, 'href="');
+const localLinks = (html: string) => readableColors(html.replaceAll(`href="${SITE_URL}"`, 'href="/"').replaceAll(`href="${SITE_URL}`, 'href="'));
+/** Inline Wix text colours on the white post column: darkened only where below WCAG AA (e.g. #BA6C2D, 3.98). */
+const readableColors = (html: string) => html.replace(/(?<![-\w])color:\s*(#[0-9a-fA-F]{3,6}\b|rgba?\([^)]*\))/g, (_m, c: string) => `color:${readableOnWhite(c)}`);
 const localHref = (href: string) => (href === SITE_URL ? "/" : href.startsWith(SITE_URL + "/") ? href.slice(SITE_URL.length) : href);
 
 /**
@@ -24,21 +27,14 @@ function geometry(l: BlockLayout | undefined): { className: string; style: CSSPr
   return { className: `${base} desk:ml-[var(--pl)]`, style };
 }
 
-/** Relative luminance (WCAG) of a #rrggbb colour. */
-function luminance(hex: string): number {
-  const v = hex.replace("#", "").match(/../g)?.map((c) => parseInt(c, 16) / 255) ?? [0, 0, 0];
-  const [r, g, b] = v.map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
 
 type ButtonBlock = Extract<Block, { type: "button" }>;
 
 /** Wix Ricos button (45px, 14px label, the post's own colour, opens aesthlos.com in a new tab). */
 function PostButton({ b, gap }: { b: ButtonBlock; gap: number }) {
-  const bg = b.background ?? "#A0CC62";
-  // Wix shows white text on every button colour; light colours get dark text so it stays readable (WCAG AA)
-  const color = luminance(bg) > 0.3 ? "#1d2512" : "#ffffff";
-  const style = { backgroundColor: bg, color, minWidth: `${b.layout?.w ?? 0}px`, "--gap": `${gap}px` } as CSSProperties;
+  // Wix shows white text on every button colour; pairs below WCAG AA get dark text or a darker shade
+  const { fg, bg } = readablePair("#ffffff", b.background ?? "#A0CC62");
+  const style = { backgroundColor: bg, color: fg, minWidth: `${b.layout?.w ?? 0}px`, "--gap": `${gap}px` } as CSSProperties;
   return (
     <a href={localHref(b.href!)} target={b.newTab ? "_blank" : undefined} rel={b.newTab ? "noopener" : undefined} style={style} className="post-button desk:ml-[var(--gap)]">
       {b.text}

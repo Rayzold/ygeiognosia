@@ -46,10 +46,18 @@ The site is static, so the `/contact` form (`src/components/contact/ContactForm.
 - CSP (`public/_headers`): `connect-src` and `form-action` allow `https://eu-submit.jotform.com` only.
 - Texts: `src/content/contact.ts`.
 
+## QA (Phase 7)
+
+Scripts in `scripts/dev/qa/` (not part of the build; serve `out/` first with `npx serve out -l 3123`):
+- `lh3.mjs`: Lighthouse mobile, median of 3 runs per URL (`npm i --no-save lighthouse@12 chrome-launcher@1`). Locally Performance reads lower than on Cloudflare (on a zero-latency server the first paint waits for hydration); the real check is https://pagespeed.web.dev on the deployed site.
+- `axe.cjs`: axe-core WCAG 2.1 A/AA over every page at 390px and 1440px (`npm i --no-save axe-core@4`).
+- `kbd.cjs`, `kbd2.cjs`: keyboard walk (focus visible, no hidden focus), mobile menu focus trap, desktop submenu, YouTube facade, reduced motion.
+- Colour pairs below WCAG AA are adjusted in code by `src/lib/contrast.ts` (Wix buttons, inline colours in posts); site tokens: `green-4d` for white text on the menu green.
+
 ## Checks
 
 - `scripts/check-links.mjs` fails the build on any broken internal link/asset or any Wix URL. Links to pages of later phases are listed in `scripts/pending-links.txt` and only reported.
-- `scripts/check-sitemap.mjs` compares `archive/wix-urls.txt` (every URL of the Wix sitemap) with `out/` and `public/_redirects`. It reports only; from Phase 7 the build runs it with `--strict`.
+- `scripts/check-sitemap.mjs` compares `archive/wix-urls.txt` (every URL of the Wix sitemap) with `out/` and `public/_redirects`. The build runs it with `--strict`: a missing Wix URL fails the deploy.
 - `scripts/dev/wix-render.cjs` renders an archived Wix page offline with the original images and fonts at any viewport (reference for visual comparison; needs `playwright`).
 
 ## Known limitations

@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: Props) {
               <p className="text-[17px] font-bold leading-[1.3] text-[#ffc824]">{SHOP.soon.title}</p>
               <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.text}</p>
               {!SHOP.showPrices && <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.priceText}</p>}
-              <a href={`tel:${PHONE.tel}`} className="mt-3 flex h-[40px] max-w-[307px] items-center justify-center bg-green-3 text-[16px] font-light text-white transition-colors hover:bg-green-2 hover:text-green-5">
+              <a href={`tel:${PHONE.tel}`} className="mt-3 flex h-[40px] max-w-[307px] items-center justify-center bg-green-3 text-[16px] font-light text-green-5 transition-colors hover:bg-green-2 hover:text-green-5">
                 {SHOP.soon.call}
               </a>
             </div>

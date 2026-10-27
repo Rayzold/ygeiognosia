@@ -21,7 +21,7 @@ export default function Header() {
       {/* desktop */}
       <div className="relative mx-auto hidden h-[375px] w-[980px] desk:block">
         <Link href="/" aria-label="Υγειογνωσία, αρχική σελίδα" className="absolute left-[392px] top-[78px] block h-[184px] w-[184px]">
-          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes="184px" priority className="h-full w-full object-cover" />
+          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes="184px" loading="eager" className="h-full w-full object-cover" />
         </Link>
 
         {SHOP.open ? (

@@ -4,7 +4,7 @@ import { SearchIcon } from "./Icons";
 /** Wix SearchBox: dark translucent field with white border, green search button. Submits to /search?q=. */
 export default function SearchBox({ className = "" }: { className?: string }) {
   return (
-    <form role="search" action="/search" method="get" className={`flex overflow-hidden rounded-[6px] border border-white bg-black/[0.56] ${className}`}>
+    <form role="search" aria-label="Αναζήτηση στο site" action="/search" method="get" className={`flex overflow-hidden rounded-[6px] border border-white bg-black/[0.56] ${className}`}>
       <input
         type="search"
         name="q"

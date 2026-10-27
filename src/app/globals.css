@@ -30,6 +30,7 @@
   --color-green-2: #c5dda4; /* color_17: menu hover */
   --color-green-3: #a0cc62; /* color_18: accent, active menu, buttons */
   --color-green-4: #6b8841; /* color_19: menu bar, footer panel (44%) */
+  --color-green-4d: #647e3c; /* color_19 darkened just enough for white text (WCAG AA 4.5:1; Wix 4.0) */
   --color-green-5: #354421; /* color_20 */
   --color-yellow-1: #ffeeaa;
   --color-yellow-3: #ffcc00;
@@ -54,9 +55,12 @@
   a {
     color: inherit;
   }
+  /* two-tone ring (green outside, black gap inside): visible on the dark pages, on the white blog column
+     and on green buttons alike */
   :focus-visible {
     outline: 2px solid var(--color-green-3);
     outline-offset: 2px;
+    box-shadow: 0 0 0 2px #000;
   }
 }
 

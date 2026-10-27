@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import PageColumn from "@/components/layout/PageColumn";
 import Reveal from "@/components/motion/Reveal";
+import { readablePair } from "@/lib/contrast";
 import { media } from "@/lib/media";
 import {
   isFileAlt,
@@ -57,6 +58,25 @@ const box = (n: LayoutNode): CSSProperties =>
 const byReadingOrder = (a: LayoutNode, b: LayoutNode) =>
   Math.abs(a.y - b.y) >= 8 ? a.y - b.y : (a.kind === "image" ? 0 : 1) - (b.kind === "image" ? 0 : 1) || a.x - b.x;
 const z = new WeakMap<LayoutNode, number>();
+/** Heading level per text block, so headings never skip a level in DOM order (Wix jumps e.g. from h1 to h5). */
+const levels = new WeakMap<Block, string>();
+
+function assignHeadingLevels(sections: BoxNode[]) {
+  let prev = 1; // the page's h1 (its own, or the sr-only one)
+  const walk = (ns: LayoutNode[]) =>
+    [...ns].sort(byReadingOrder).forEach((n) => {
+      if (n.kind === "text")
+        n.blocks.forEach((b) => {
+          const m = b.tag.match(/^h([1-6])$/);
+          if (!m) return;
+          const level = m[1] === "1" ? 1 : Math.min(+m[1], prev + 1);
+          levels.set(b, `h${level}`);
+          prev = level;
+        });
+      else if ("children" in n && n.children) walk(n.children);
+    });
+  walk(sections);
+}
 
 export default function WixLayout({ layout, title, audio, gallery }: { layout: Layout; title: string; audio?: string; gallery?: CardItem[] }) {
   const hoverParents = new Set<string>();
@@ -71,6 +91,7 @@ export default function WixLayout({ layout, title, audio, gallery }: { layout: L
   const sections = layout.nodes.filter((n) => n.kind === "section").sort(byReadingOrder) as BoxNode[];
   const pinned = layout.nodes.filter((n) => n.kind !== "section").flatMap((n) => ("children" in n && n.children ? n.children : [n]));
   const menu = pinned.find((n) => n.kind === "anchormenu");
+  assignHeadingLevels(sections);
 
   return (
     <PageColumn shade={shadeOf(layout)}>
@@ -201,9 +222,10 @@ function scriptFit(b: Block, width: number): number {
 }
 
 function TextBlock({ b, width }: { b: Block; width: number }) {
-  const Tag = (/^h[1-6]$/.test(b.tag) ? b.tag : "p") as "p";
   const k = scriptFit(b, width);
   const empty = b.runs.every((r) => !r.br && !(r.t ?? "").replace(/[\s ]/g, ""));
+  // an empty Wix heading is only spacing: not announced as a heading
+  const Tag = (empty ? "p" : (levels.get(b) ?? (/^h[1-6]$/.test(b.tag) ? b.tag : "p"))) as "p";
   const style: CSSProperties = {
     textAlign: b.align as CSSProperties["textAlign"],
     // Wix line heights are em-based on the paragraph, so runs inherit an absolute value (see .wix-lh)
@@ -315,12 +337,15 @@ function WixButton({ n }: { n: ButtonNode }) {
   // script labels: one line, scaled down to fit the Wix button (see scriptFit)
   const est = n.f === "32d95d9a" ? n.label.length * SCRIPT_EM * n.s : 0;
   const k = est > n.w - 16 ? Math.max(0.6, +((n.w - 16) / est).toFixed(3)) : 1;
+  // Wix colour pairs below WCAG AA are nudged just enough to be readable (src/lib/contrast.ts)
+  const rest = readablePair(n.c, n.bg);
+  const hover = readablePair(n.hoverColor ?? n.c, n.hoverBg ?? n.bg);
   const style = {
     ...(k < 1 ? { "--k": k } : {}),
-    "--bg": n.bg ?? "transparent",
-    "--hbg": n.hoverBg ?? n.bg ?? "transparent",
-    "--c": n.c,
-    "--hc": n.hoverColor ?? n.c,
+    "--bg": rest.bg ?? "transparent",
+    "--hbg": hover.bg ?? "transparent",
+    "--c": rest.fg,
+    "--hc": hover.fg,
     "--s": n.s,
     border: n.border,
     borderRadius: n.radius,
@@ -350,7 +375,7 @@ function MapFrame() {
       src="https://maps.google.com/maps?q=%CE%92%CF%85%CE%B6%CE%B1%CE%BD%CF%84%CE%AF%CE%BF%CF%85%2023%2C%20%CE%9D%CE%AD%CE%B1%20%CE%A3%CE%BC%CF%8D%CF%81%CE%BD%CE%B7%2017121&z=16&hl=el&output=embed"
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      className="h-full w-full border-0"
+      className="h-full w-full border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-3"
     />
   );
 }

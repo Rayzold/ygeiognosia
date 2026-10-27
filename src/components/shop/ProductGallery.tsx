@@ -46,7 +46,7 @@ export default function ProductGallery({ items, sort = false, pageSize }: { item
       <ul className="grid grid-cols-2 desk:grid-cols-4">
         {sorted.map((p, i) => (
           <li key={p.path} className={`p-[6px] desk:p-[10px] ${i >= shown ? "hidden" : ""}`}>
-            <ProductCard p={p} />
+            <ProductCard p={p} first={i < 2} />
           </li>
         ))}
       </ul>
@@ -65,12 +65,12 @@ export default function ProductGallery({ items, sort = false, pageSize }: { item
   );
 }
 
-function ProductCard({ p }: { p: CardItem }) {
+function ProductCard({ p, first }: { p: CardItem; first: boolean }) {
   return (
     <div className="flex h-full flex-col text-left">
       <Link href={p.path} className="relative block aspect-square overflow-hidden bg-white" tabIndex={-1} aria-hidden="true">
-        {p.image && <Image src={p.image.src} alt="" fill sizes="(min-width: 1000px) 225px, 50vw" className="object-cover" />}
-        {p.ribbon && <span className="absolute left-0 top-0 bg-green-3 px-3 py-[2px] text-[14px] font-light text-white">{p.ribbon}</span>}
+        {p.image && <Image src={p.image.src} alt="" fill priority={first} sizes="(min-width: 1000px) 225px, 50vw" className="object-cover" />}
+        {p.ribbon && <span className="absolute left-0 top-0 bg-green-3 px-3 py-[2px] text-[14px] font-light text-green-5">{p.ribbon}</span>}
       </Link>
       <Link href={p.path} className="mt-4 block text-[15px] leading-[20px] text-white hover:underline desk:text-[16px]">
         {p.name}
@@ -88,7 +88,7 @@ function ProductCard({ p }: { p: CardItem }) {
       <Link
         href={p.path}
         aria-label={`${SHOP.viewProduct}: ${p.name}`}
-        className="mt-3 flex h-[40px] shrink-0 items-center justify-center rounded-[20px] bg-black text-[15px] text-white transition-colors hover:bg-green-3 desk:text-[16px]"
+        className="mt-3 flex h-[40px] shrink-0 items-center justify-center rounded-[20px] bg-black text-[15px] text-white transition-colors hover:bg-green-3 hover:text-green-5 desk:text-[16px]"
       >
         {SHOP.viewProduct}
       </Link>

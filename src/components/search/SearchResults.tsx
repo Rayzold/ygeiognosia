@@ -19,13 +19,20 @@ const LABEL: Record<SearchItem["type"], string> = { product: "Προϊόντα",
 export default function SearchResults() {
   const q = useSearchParams().get("q")?.trim() ?? "";
   const [items, setItems] = useState<SearchItem[] | null>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     if (!q || items) return;
     fetch("/search-index.json")
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      })
       .then(setItems)
-      .catch(() => setItems([]));
+      .catch(() => {
+        setFailed(true);
+        setItems([]);
+      });
   }, [q, items]);
 
   const words = norm(q).split(/\s+/).filter(Boolean);
@@ -41,19 +48,19 @@ export default function SearchResults() {
 
   return (
     <div>
-      <form action="/search" role="search" className="flex max-w-[600px]">
+      <form action="/search" role="search" aria-label="Νέα αναζήτηση" className="flex max-w-[600px]">
         <label htmlFor="search-q" className="sr-only">
           Αναζήτηση
         </label>
         <input id="search-q" name="q" defaultValue={q} type="search" placeholder="Τι ψάχνετε...;" className="h-[46px] flex-1 border border-white bg-black/50 px-4 text-[16px] text-white placeholder:text-white/70" />
-        <button type="submit" className="h-[46px] bg-green-3 px-5 text-[16px] text-white hover:bg-green-2 hover:text-green-5">
+        <button type="submit" className="h-[46px] bg-green-3 px-5 text-[16px] text-green-5 hover:bg-green-2 hover:text-green-5">
           Αναζήτηση
         </button>
       </form>
 
       {q && (
         <p className="mt-6 text-[15px] text-white/90" aria-live="polite">
-          {items === null ? "Αναζήτηση…" : hits.length ? `${hits.length} αποτελέσματα για «${q}»` : `Δεν βρέθηκαν αποτελέσματα για «${q}».`}
+          {items === null ? "Αναζήτηση…" : failed ? "Η αναζήτηση δεν είναι διαθέσιμη αυτή τη στιγμή. Δοκιμάστε ξανά σε λίγο." : hits.length ? `${hits.length} αποτελέσματα για «${q}»` : `Δεν βρέθηκαν αποτελέσματα για «${q}».`}
         </p>
       )}
 

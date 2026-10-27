@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/image-variants.mjs && node scripts/og-images.mjs && next build && node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out",
+    "build": "node scripts/image-variants.mjs && node scripts/og-images.mjs && next build && node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out --strict",
     "start": "npx serve out",
     "lint": "eslint",
     "images": "node scripts/optimize-media.mjs && node scripts/image-variants.mjs",
     "variants": "node scripts/image-variants.mjs",
-    "check": "node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out"
+    "check": "node scripts/check-links.mjs out && node scripts/check-sitemap.mjs out --strict"
   },
   "dependencies": {
     "next": "15.5.28",

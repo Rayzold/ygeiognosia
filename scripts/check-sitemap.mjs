@@ -1,7 +1,7 @@
 // Checks that every URL of the live Wix sitemap (archive/wix-urls.txt) still works on the new site:
 // either a page exists in out/ or public/_redirects sends it somewhere that exists.
 // Usage: node scripts/check-sitemap.mjs [out_dir] [--strict]
-// Without --strict it only reports (pages are added phase by phase); from Phase 7 the build runs --strict.
+// Without --strict it only reports. Since Phase 7 the build runs --strict: a missing Wix URL fails the deploy.
 import fs from 'node:fs';
 import path from 'node:path';
 

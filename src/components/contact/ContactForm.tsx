@@ -98,7 +98,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="h-[44px] w-[155px] bg-green-4 font-light text-[19px] text-white transition-colors duration-[400ms] hover:bg-green-3 hover:text-green-5 disabled:bg-grey-2 desk:h-[33px]"
+          className="h-[44px] w-[155px] bg-green-4d font-light text-[19px] text-white transition-colors duration-[400ms] hover:bg-green-3 hover:text-green-5 disabled:bg-grey-2 desk:h-[33px]"
         >
           {status === "sending" ? T.sending : T.submit}
         </button>

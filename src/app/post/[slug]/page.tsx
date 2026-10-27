@@ -91,7 +91,7 @@ export default async function PostPage({ params }: Props) {
           </Link>
           <Link
             href="/blog"
-            className="flex h-[30px] w-[96px] items-center justify-center gap-[6px] bg-green-4 text-white transition-colors hover:bg-green-5 desk:absolute desk:right-[35px] desk:top-[94px] desk:z-10"
+            className="flex h-[30px] w-[96px] items-center justify-center gap-[6px] bg-green-4d text-white transition-colors hover:bg-green-5 desk:absolute desk:right-[35px] desk:top-[94px] desk:z-10"
           >
             <svg viewBox="0 0 200 200" aria-hidden="true" className="h-[22px] w-[22px]" fill="currentColor">
               <path d="M57.654 179.5c-.482 0-.964-.161-1.366-.402-1.125-.723-1.527-2.088-1.045-3.292L84.895 105.3h-27.24a2.664 2.664 0 0 1-2.25-1.285c-.482-.803-.562-1.767-.08-2.57l39.696-79.5c.402-.883 1.366-1.445 2.33-1.445h42.347c.964 0 1.848.562 2.33 1.365.482.883.402 1.847-.08 2.73L111.01 73.5h31.339c1.045 0 1.929.562 2.411 1.526.402.964.321 2.008-.402 2.811l-84.695 100.7c-.482.642-1.286.963-2.009.963" />

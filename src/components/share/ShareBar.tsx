@@ -38,9 +38,11 @@ export default function ShareBar({ url, title, image, variant = "compact" }: Pro
   ];
 
   async function copy() {
+    let ok = true;
     try {
       await navigator.clipboard.writeText(url);
     } catch {
+      ok = false;
       // older browsers / no permission: select-and-copy fallback
       const ta = document.createElement("textarea");
       ta.value = url;
@@ -50,12 +52,13 @@ export default function ShareBar({ url, title, image, variant = "compact" }: Pro
       document.body.appendChild(ta);
       ta.select();
       try {
-        document.execCommand("copy");
+        ok = document.execCommand("copy");
       } catch {
         /* nothing else to try */
       }
       ta.remove();
     }
+    if (!ok) return; // could not copy: no false «copied» message
     setCopied(true);
     window.setTimeout(() => setCopied(false), 2500);
   }

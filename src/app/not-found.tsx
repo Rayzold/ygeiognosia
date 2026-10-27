@@ -8,7 +8,7 @@ export default function NotFound() {
       <h1 className="font-script text-[32px]">Η σελίδα δεν βρέθηκε</h1>
       <p className="mt-4 text-[16px]">Η σελίδα που ζητήσατε δεν υπάρχει ή έχει μετακινηθεί.</p>
       <p className="mt-6">
-        <Link href="/" className="inline-block bg-green-3 px-6 py-2 text-[15px] text-white hover:bg-green-4">
+        <Link href="/" className="inline-block bg-green-3 px-6 py-2 text-[15px] text-green-5 hover:bg-green-2">
           Επιστροφή στην αρχική
         </Link>
       </p>

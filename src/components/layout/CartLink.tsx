@@ -38,7 +38,7 @@ export function ShopTeaser({ layout }: { layout: "desktop" | "mobile" }) {
           </a>
         </p>
       </div>
-      <Link href="/shop" aria-label={SHOP.header.products} className={desk ? "block h-[35px] w-[29px] shrink-0" : "order-1 mb-1 block h-[34px] w-[29px]"}>
+      <Link href="/shop" tabIndex={-1} aria-hidden="true" className={desk ? "block h-[35px] w-[29px] shrink-0" : "order-1 mb-1 block h-[34px] w-[29px]"}>
         <CartIcon className="h-full w-full fill-green-3" />
       </Link>
     </div>
