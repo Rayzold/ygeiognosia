@@ -41,7 +41,7 @@ Self-owned rebuild of the Wix site www.ygeiognosia.com: a static Next.js export 
 
 The site is static, so the `/contact` form (`src/components/contact/ContactForm.tsx`, Wix look and geometry) posts straight to the Jotform form **«Υγειογνωσία – Επικοινωνία»** (EU servers, id `262993612964066`, in Markos' Jotform account). Jotform stores every message (My Forms → Submissions) and emails a notification to ygeiognosia@hotmail.com (Settings → Emails, reply-to = sender).
 
-- Field names (`q7_input`, `q3_q3_email1`, `q4_q4_textbox2`, `q5_q5_textarea3`) come from the Jotform form. If questions are re-created there, their names change: open the form, inspect the inputs and update `JOTFORM` in the component.
+- Field names (`q7_onoma`, `q3_q3_email1`, `q4_q4_textbox2`, `q5_q5_textarea3`) come from the Jotform form. Avoid the generic unique name `input` (Jotform emailed «{}» for `q7_input`; recreated 2026-10-27 as `onoma`). If questions are re-created there, their names change: open the form, inspect the inputs and update `JOTFORM` in the component.
 - Spam: a hidden honeypot (`website`, Jotform's own trap) plus Jotform's spam filter.
 - CSP (`public/_headers`): `connect-src` and `form-action` allow `https://eu-submit.jotform.com` only.
 - Texts: `src/content/contact.ts`.

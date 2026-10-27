@@ -16,7 +16,7 @@ import { CONTACT_FORM as T } from "@/content/contact";
 const JOTFORM = {
   id: "262993612964066",
   action: "https://eu-submit.jotform.com/submit/262993612964066",
-  fields: { name: "q7_input", email: "q3_q3_email1", subject: "q4_q4_textbox2", message: "q5_q5_textarea3" },
+  fields: { name: "q7_onoma", email: "q3_q3_email1", subject: "q4_q4_textbox2", message: "q5_q5_textarea3" },
   honeypot: "website", // Jotform's own spam trap: must stay empty
 };
 
