@@ -13,7 +13,7 @@ Background, facts, lessons and the domain runbook: `docs/ygeiognosia-playbook.md
 
 ## Stack
 - Next.js (App Router) + TypeScript + Tailwind CSS, `output: "export"`, `trailingSlash: false` (Wix-style URLs).
-- Hosting: Cloudflare Pages (account `markos.stefanou@gmail.com`), auto-deploy on every `git push` to `main`. Preview on `https://<project>.pages.dev` before the domain cutover.
+- Hosting: Cloudflare Pages (account `markos.stefanou@gmail.com`), project `ygeiognosia`, auto-deploy on every `git push` to `main`. Owner preview: https://ygeiognosia.pages.dev (noindex) until approval and the domain cutover.
 - Checkout backend: Cloudflare Pages Functions in `/functions` (same origin, so no CORS). This is the only server-side code. Everything else is static.
 - Images: WebP + pre-generated width variants + custom `next/image` loader (as in aesthlos: `scripts/image-variants.mjs`, `src/lib/image-loader.ts`); widths must match `next.config.ts` deviceSizes/imageSizes. Lazy-load below the fold and give every image correct `sizes` (the store and blog have hundreds of images).
 - Content: typed `src/content/*.ts` for pages; products from the Wix Stores CSV export frozen into `src/content/products.json` (or `.ts`); blog posts as one Markdown/MDX file each in `src/content/posts/`.
@@ -77,7 +77,7 @@ Every item is listed in OWNER-CHANGES.md.
 - Breakpoint `desk` = 1000px: from there up the Wix desktop layout (980px column, header 375px and footer 257px with every element at its measured Wix position); below it the Wix mobile layout (stacked, hamburger → full-screen menu).
 - Site chrome: `src/content/site.ts`; layout components in `src/components/layout/`. The background photo (`nsplsh_7a4a796f…`) is a fixed `next/image` layer on every page (`/people` gets its video in Phase 4).
 - Content is read at build time from `content/*.json` via `src/lib/content.ts` (generated, not hand-edited). Images via `media("<archive file name>")` (`src/lib/media.ts`); names = Wix file ids; variants generated at build, not committed.
-- URLs: Next writes Greek slugs as UTF-8 file names (`out/product-page/ψευδάργυρος.html`); canonical, og:url and sitemap use percent-encoded URLs (`absoluteUrl()` in `src/lib/seo.ts`). Locally both raw and encoded URLs return 200; **verify on pages.dev**.
+- URLs: Next writes Greek slugs as UTF-8 file names (`out/product-page/ψευδάργυρος.html`); canonical, og:url and sitemap use percent-encoded URLs (`absoluteUrl()` in `src/lib/seo.ts`). Verified 2026-10-27 on https://ygeiognosia.pages.dev (Cloudflare Pages project `ygeiognosia`, Git-connected to `main`, preset None, `npm run build` → `out`, `NODE_VERSION=22`): Greek product/post URLs 200 (browser-encoded form), 404 page, redirects (`/home`, `/blank-11`, dummies), CSP/HSTS headers, `X-Robots-Tag: noindex` on pages.dev.
 - Keep `google-site-verification` (from Wix) in every page (`GOOGLE_SITE_VERIFICATION`).
 - `public/_redirects`: dummies → `/shop`, `/blank-11` → `/shop2`, `/home` → `/` (301).
 - Reference renders of Wix: `node scripts/dev/wix-render.cjs archive/html/pages/<page>.html out.png 1440 900` (the Edge screenshots in `archive/screenshots` are 7000px tall, so their fixed background looks darker than in a real browser).
