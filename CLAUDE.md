@@ -84,6 +84,14 @@ Every item is listed in OWNER-CHANGES.md.
 - Product and post routes are Phase 2 stubs (name/price/image, title/date/cover) until Phases 5/5β. `scripts/pending-links.txt` lists menu pages not built yet; empty it before release, and switch `check-sitemap.mjs` to `--strict` in Phase 7.
 - Search box posts to `/search?q=` (Phase 5: client-side search over products, posts, pages). Cart badge is static «0» until Phase 5γ.
 
+## Phase 3 decisions (2026-10-27)
+- Every page sits in `PageColumn` (`src/components/layout/PageColumn.tsx`): the Wix page column, 980px on desktop, full width on mobile, black at the page's own opacity (Wix "page" background: 0.6 on home/contact/shop, 0.77 on /about-us and /people; measure each page in Phase 4). It clips horizontal overflow from entrance animations.
+- Wix entrance animations: `Reveal` (`src/components/motion/Reveal.tsx`) with `effect` fade / slide (from the left) / float (from the right), duration and delay from the Wix CSS (`animation:motion-fadeIn 1200ms …` in the archived HTML). Only below-the-fold elements animate; static HTML is visible; reduced motion = none.
+- One DOM per page for desktop and mobile (no duplicated text): mobile flow layout, `desk:` absolute positions measured on Wix (relative to the column, x from its left edge, y from its top).
+- Home texts: `src/content/home.ts`. Title/description = Wix's own Greek og:title/og:description (`pageMetadata({ absoluteTitle: true })`). sr-only `<h1>`; Wix's H3/H2 become `<h2>`.
+- Interim script font (Mynerve) is ~35% wider than Black Diamond: single-line script texts that would overflow get a smaller size, with a comment; restore Wix sizes if the owner licenses Black Diamond.
+- The Edge screenshots in `archive/screenshots` were taken mid-animation (e.g. the home card looks almost black); use `FULL=1 node scripts/dev/wix-render.cjs …` (finishes the animations) as the visual reference.
+
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).
 - Fonts: PF DinText Pro and Black Diamond are commercial uploads (see `archive/design-tokens.md`); ask whether the owner holds web licences. Comparison for the owner: `archive/review/fonts-sygkrisi.png`. Interim: Roboto Condensed + Mynerve (only free script fonts with Greek on Fontsource: Mynerve, Playpen Sans, Zen Kurenaido — none close to Black Diamond).

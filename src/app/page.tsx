@@ -1,9 +1,91 @@
-// PHASE 2 STUB — the home page is rebuilt in Phase 3.
+import type { Metadata } from "next";
+import Image from "next/image";
+import PageColumn from "@/components/layout/PageColumn";
+import Reveal from "@/components/motion/Reveal";
+import { HOME } from "@/content/home";
+import { media } from "@/lib/media";
+import { pageMetadata } from "@/lib/seo";
+
+const card = media(HOME.card.image);
+const honey = media(HOME.aesthlos.image);
+const air = media(HOME.air.image);
+const og = media(HOME.ogImage);
+
+export const metadata: Metadata = pageMetadata({
+  title: HOME.title,
+  absoluteTitle: true,
+  description: HOME.description,
+  path: "/",
+  image: { ...og, alt: "Υγειογνωσία" },
+});
+
+const COLUMN_SIZES = "(min-width: 1000px) 980px, 100vw";
+
+/**
+ * Home page, as on Wix. Desktop (>=1000px): 980px column, two sections, elements at their measured Wix
+ * positions (Wix: SITE_PAGES 980×1035). Mobile: the Wix mobile order, stacked and centred.
+ * One DOM for both layouts (no duplicated text): mobile flow, `desk:` absolute positions.
+ */
 export default function Home() {
+  const a = HOME.aesthlos;
   return (
-    <section className="mx-auto max-w-[980px] bg-black/70 px-6 py-24 text-center">
-      <p className="font-script text-[28px]">Θα μας Βρείτε στη νέα μας διεύθυνση Βυζαντίου 23, Νέα Σμύρνη</p>
-      <p className="mt-6 text-[15px] text-grey-2">Η αρχική σελίδα ολοκληρώνεται στο επόμενο στάδιο.</p>
-    </section>
+    <PageColumn shade={0.6}>
+      <h1 className="sr-only">Υγειογνωσία, κατάστημα βιολογικών προϊόντων</h1>
+
+      {/* Section 1: new address + card */}
+      <section>
+        <h2 className="px-3 pb-3 pt-4 text-center font-script text-[17px] leading-[1.3] text-white desk:px-0 desk:pb-0 desk:pt-[38px] desk:text-[25px] desk:leading-[27px] desk:whitespace-nowrap">
+          {HOME.address.lead} <span className="text-[#bada55]">{HOME.address.highlight}</span>
+        </h2>
+        <Reveal effect="fade" className="relative mx-[10px] aspect-[980/511] desk:mx-0 desk:mt-[32px] desk:aspect-auto desk:h-[511px]">
+          <Image src={card.src} alt={HOME.card.alt} fill sizes={COLUMN_SIZES} priority className="object-cover" />
+        </Reveal>
+      </section>
+
+      {/* Section 2: Aesthlos honey banner (black box 980×427, image 980×412) */}
+      <section className="bg-black pb-10 text-center text-white desk:relative desk:h-[427px] desk:pb-0">
+        <Reveal
+          effect="slide"
+          className="py-3 text-[12px] leading-[1.3] desk:pointer-events-none desk:absolute desk:left-[605px] desk:top-[99px] desk:z-10 desk:w-[300px] desk:py-0 desk:text-[14px] desk:leading-[18px]"
+        >
+          <p>
+            <strong className="font-bold text-[#ffc824]">{a.newLead}</strong> {a.newText}
+          </p>
+        </Reveal>
+
+        <a href={a.href} target="_blank" rel="noopener" aria-label={`${a.alt} (aesthlos.com)`} className="relative mx-[10px] block aspect-[290/236] desk:mx-0 desk:aspect-auto desk:h-[412px]">
+          <Image src={honey.src} alt={a.alt} fill sizes={COLUMN_SIZES} className="object-cover object-[0%_50%] desk:object-center" />
+        </a>
+
+        <Reveal
+          effect="float"
+          className="mt-3 text-[17px] leading-[1.3] desk:pointer-events-none desk:absolute desk:left-[557px] desk:top-[133px] desk:z-10 desk:mt-0 desk:w-[395px] desk:text-[27px] desk:leading-[34px]"
+        >
+          <p>
+            {a.lines[0]}
+            <br />
+            {a.lines[1]}
+            <br />
+            <strong className="font-bold">{a.brand}</strong>
+          </p>
+        </Reveal>
+
+        {/* Wix: 27px Black Diamond, centred at x≈755. The interim script font is much wider, so 22px (centred at 750) keeps it inside the banner. */}
+        <Reveal
+          effect="slide"
+          className="mt-3 px-3 desk:pointer-events-none desk:absolute desk:left-[520px] desk:top-[238px] desk:z-10 desk:mt-0 desk:w-[460px] desk:px-0"
+        >
+          <h2 className="font-script text-[18px] leading-[1.3] tracking-[0.01em] text-[#ffeebc] desk:whitespace-nowrap desk:text-[22px] desk:leading-[40px]">
+            {a.slogan}
+          </h2>
+        </Reveal>
+
+        <Reveal effect="fade" duration={2000} delay={3000} className="mt-5 desk:absolute desk:left-[907px] desk:top-[342px] desk:z-10 desk:mt-0">
+          <a href={HOME.air.href} target="_blank" rel="noopener" aria-label={HOME.air.label} className="mx-auto block h-[36px] w-[31px] desk:h-[55px] desk:w-[47px]">
+            <Image src={air.src} alt="" width={47} height={55} sizes="47px" className="h-full w-full object-cover" />
+          </a>
+        </Reveal>
+      </section>
+    </PageColumn>
   );
 }

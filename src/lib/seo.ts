@@ -10,13 +10,20 @@ export function absoluteUrl(path: string): string {
   return SITE_URL + encodeURI(decodeURI(p));
 }
 
-type PageMeta = { title: string; description?: string; path: string; image?: { src: string; width: number; height: number; alt?: string } };
+type PageMeta = {
+  title: string;
+  /** true: use the title as is, without the " | Υγειογνωσία" suffix (home page) */
+  absoluteTitle?: boolean;
+  description?: string;
+  path: string;
+  image?: { src: string; width: number; height: number; alt?: string };
+};
 
 /** Title, description, canonical and Open Graph for one page. */
-export function pageMetadata({ title, description, path, image }: PageMeta): Metadata {
+export function pageMetadata({ title, absoluteTitle, description, path, image }: PageMeta): Metadata {
   const url = absoluteUrl(path);
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {

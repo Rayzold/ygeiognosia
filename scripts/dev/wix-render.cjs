@@ -1,8 +1,11 @@
 // Render an archived Wix page offline: Wix media URLs are served from the local originals.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require('fs'); const path = require('path');
-const { chromium, devices } = require('playwright');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { chromium } = require('playwright');
 
 // Usage: node scripts/dev/wix-render.cjs <archive/html/...html> <out.png> <width> <height> [archiveDir]
+// FULL=1 for a full-page screenshot. Wix entrance animations are shown in their final state.
 // Reference screenshots of the Wix design at any viewport (fonts and images from the local archive).
 const ARCH = path.resolve(process.argv[6] ?? 'archive');
 const MEDIA = path.join(ARCH, 'media'), FONTS = path.join(ARCH, 'fonts');
@@ -25,9 +28,12 @@ const files = fs.readdirSync(MEDIA);
     return r.abort();
   });
   await p.goto('file://' + path.resolve(file), { waitUntil: 'load' });
-  // swap LQIP background for the full image
-  await p.evaluate(() => document.querySelectorAll('wow-image img').forEach((i) => { i.src = i.src.replace(/\/v1\/.*$/, ''); }));
+  // finish Wix entrance animations; swap LQIP images for the full ones
+  await p.evaluate(() => {
+    document.querySelectorAll('[id^=comp-]').forEach((e) => e.setAttribute('data-motion-enter', 'done'));
+    document.querySelectorAll('wow-image img').forEach((i) => { i.src = i.src.replace(/\/v1\/.*$/, ''); });
+  });
   await p.waitForTimeout(1500);
-  await p.screenshot({ path: out });
+  await p.screenshot({ path: out, fullPage: process.env.FULL === '1' });
   await b.close();
 })();
