@@ -49,5 +49,4 @@ Self-owned rebuild of the Wix site www.ygeiognosia.com: a static Next.js export 
 - Cart icon shows 0 and is not interactive until the cart (Phase 5γ).
 - Fonts are interim look-alikes (owner decision pending).
 - `/contact`: the form is a placeholder until Phase 6 (Jotform).
-- `/people`: the Wix music player appears once the track is saved as `public/audio/people.mp3` (owner to download; see `src/content/pages.ts`).
 - Wix text boxes keep their Wix widths; with the interim body font a paragraph sometimes wraps one line later than on Wix (a few px lower, never overlapping).
