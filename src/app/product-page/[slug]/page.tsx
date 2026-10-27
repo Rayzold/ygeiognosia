@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
   return pageMetadata({ title: name(p), description: description(p) || undefined, path: p.path, image: img ? { ...img, alt: name(p) } : undefined });
 }
 
-/** JSON-LD Product + Offer (price, EUR, availability). */
+/** JSON-LD Product + Offer (price, EUR, availability); without prices, Product only. */
 function productJsonLd(p: Product, image?: string) {
   return {
     "@context": "https://schema.org",
@@ -43,7 +43,7 @@ function productJsonLd(p: Product, image?: string) {
     description: htmlToText(p.descriptionHtml) || undefined,
     image: image ? [image] : undefined,
     url: absoluteUrl(p.path),
-    offers: {
+    offers: !SHOP.showPrices ? undefined : {
       "@type": "Offer",
       url: absoluteUrl(p.path),
       price: Number(p.price).toFixed(2),
@@ -69,15 +69,20 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="desk:col-start-2 desk:row-span-2 desk:row-start-1">
           <h1 className="font-body text-[28px] font-bold leading-[1.2] text-white desk:text-[32px]">{name(p)}</h1>
-          <p className="mt-[23px] text-[26px] leading-[32px] text-green-3">
-            <span className="sr-only">{SHOP.price}: </span>
-            {formatPrice(p.price)}
-          </p>
+          {SHOP.showPrices ? (
+            <p className="mt-[23px] text-[26px] leading-[32px] text-green-3">
+              <span className="sr-only">{SHOP.price}: </span>
+              {formatPrice(p.price)}
+            </p>
+          ) : (
+            <p className="mt-[23px] text-[20px] leading-[32px] text-green-3">{SHOP.pricePlaceholder}</p>
+          )}
 
           {!SHOP.open && (
             <div className="mt-[20px] border-l-4 border-green-3 bg-green-4/30 px-4 py-3">
               <p className="text-[17px] font-bold leading-[1.3] text-[#ffc824]">{SHOP.soon.title}</p>
               <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.text}</p>
+              {!SHOP.showPrices && <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.priceText}</p>}
               <a href={`tel:${PHONE.tel}`} className="mt-3 flex h-[40px] max-w-[307px] items-center justify-center bg-green-3 text-[16px] font-light text-white transition-colors hover:bg-green-2 hover:text-green-5">
                 {SHOP.soon.call}
               </a>

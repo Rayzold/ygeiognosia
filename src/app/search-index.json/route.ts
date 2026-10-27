@@ -1,4 +1,5 @@
 import { CONTENT_PAGES } from "@/content/pages";
+import { SHOP } from "@/content/shop";
 import { POSTS, PRODUCTS, decodeEntities, formatPrice, htmlToText } from "@/lib/content";
 import { media } from "@/lib/media";
 import { describe, loadLayout } from "@/lib/wix-layout";
@@ -24,7 +25,7 @@ export function GET() {
       path: p.path,
       text: htmlToText(p.descriptionHtml).slice(0, 600),
       image: safeMedia(p.media[0]?.file),
-      price: formatPrice(p.price),
+      price: SHOP.showPrices ? formatPrice(p.price) : undefined,
     })),
     ...POSTS.map((p) => ({ type: "post" as const, title: p.title, path: p.path, text: (p.excerpt ?? "").slice(0, 400), image: safeMedia(p.cover?.file) })),
     ...Object.entries(CONTENT_PAGES)

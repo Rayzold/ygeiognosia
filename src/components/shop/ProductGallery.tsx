@@ -35,7 +35,7 @@ export default function ProductGallery({ items, sort = false, pageSize }: { item
             onChange={(e) => setOrder(e.target.value)}
             className="h-[40px] w-[200px] border border-white/60 bg-white px-3 text-[16px] text-black"
           >
-            {SHOP.sort.options.map((o) => (
+            {SHOP.sort.options.filter((o) => SHOP.showPrices || !("price" in o)).map((o) => (
               <option key={o.value} value={o.value}>
                 {o.label}
               </option>
@@ -76,8 +76,14 @@ function ProductCard({ p }: { p: CardItem }) {
         {p.name}
       </Link>
       <p className="mb-auto mt-1 text-[16px] leading-[24px] text-[#bada55]">
-        <span className="sr-only">{SHOP.price}: </span>
-        {p.formatted}
+        {SHOP.showPrices ? (
+          <>
+            <span className="sr-only">{SHOP.price}: </span>
+            {p.formatted}
+          </>
+        ) : (
+          <span className="text-[14px]">{SHOP.pricePlaceholder}</span>
+        )}
       </p>
       <Link
         href={p.path}
