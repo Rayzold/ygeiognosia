@@ -132,6 +132,7 @@ Every item is listed in OWNER-CHANGES.md.
 - Contrast: `src/lib/contrast.ts` (`readablePair` for Wix buttons and the post Ricos buttons, `readableOnWhite` for inline post colours); token `green-4d` #647E3C for white text on the menu green; light green backgrounds get green-5 text. All in OWNER-CHANGES.md.
 - Headings: `WixLayout` renumbers heading levels in DOM order so they never skip a level; empty Wix headings render as `<p>`.
 - Favicon/app icons from the site logo (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`); Wix used its own generic favicon.
+- `/contact` map: `src/components/wix/MapFrame.tsx` creates the Google iframe only when it scrolls into view (native lazy loading started it during load and PageSpeed mobile dropped to 69).
 - The build runs `check-sitemap.mjs --strict`; `scripts/pending-links.txt` is empty.
 
 ## Open questions (resolve in or after Phase 1)

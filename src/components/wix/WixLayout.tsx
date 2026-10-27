@@ -21,6 +21,7 @@ import {
 } from "@/lib/wix-layout";
 import ContactForm from "@/components/contact/ContactForm";
 import AnchorMenu from "./AnchorMenu";
+import MapFrame from "./MapFrame";
 import AudioPlayer from "./AudioPlayer";
 import ProductGallery, { type CardItem } from "@/components/shop/ProductGallery";
 
@@ -368,15 +369,4 @@ function WixButton({ n }: { n: ButtonNode }) {
   );
 }
 
-function MapFrame() {
-  return (
-    <iframe
-      title="Χάρτης: Βυζαντίου 23, Νέα Σμύρνη"
-      src="https://maps.google.com/maps?q=%CE%92%CF%85%CE%B6%CE%B1%CE%BD%CF%84%CE%AF%CE%BF%CF%85%2023%2C%20%CE%9D%CE%AD%CE%B1%20%CE%A3%CE%BC%CF%8D%CF%81%CE%BD%CE%B7%2017121&z=16&hl=el&output=embed"
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      className="h-full w-full border-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-3"
-    />
-  );
-}
 
