@@ -1,0 +1,402 @@
+{
+  "height": 745,
+  "shade": "rgba(0, 0, 0, 0.6)",
+  "nodes": [
+    {
+      "id": "comp-la82oexd",
+      "x": 0,
+      "y": 0,
+      "w": 980,
+      "h": 429,
+      "kind": "section",
+      "children": [
+        {
+          "id": "WRchTxti",
+          "x": 48,
+          "y": 32,
+          "w": 394,
+          "h": 44,
+          "kind": "text",
+          "blocks": [
+            {
+              "tag": "h2",
+              "align": "left",
+              "fs": 30,
+              "lh": 42,
+              "runs": [
+                {
+                  "t": "Φόρμα Επικοινωνίας",
+                  "f": "32d95d9a",
+                  "s": 30,
+                  "c": "rgb(255, 204, 0)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "comp-jxbrjk9n",
+          "x": 44,
+          "y": 84,
+          "w": 664,
+          "h": 310,
+          "kind": "box",
+          "children": [
+            {
+              "id": "comp-jxbrjkpu",
+              "x": 0,
+              "y": 0,
+              "w": 664,
+              "h": 310,
+              "kind": "form",
+              "fields": [
+                {
+                  "tag": "input",
+                  "name": "name",
+                  "placeholder": "Name",
+                  "required": true,
+                  "x": 4,
+                  "y": 12,
+                  "w": 631,
+                  "h": 33
+                },
+                {
+                  "tag": "input",
+                  "name": "email",
+                  "placeholder": "Email",
+                  "required": true,
+                  "x": 4,
+                  "y": 50,
+                  "w": 631,
+                  "h": 33
+                },
+                {
+                  "tag": "input",
+                  "name": "subject",
+                  "placeholder": "Subject",
+                  "required": true,
+                  "x": 4,
+                  "y": 89,
+                  "w": 631,
+                  "h": 33
+                },
+                {
+                  "tag": "textarea",
+                  "name": "",
+                  "placeholder": "Message",
+                  "required": true,
+                  "x": 4,
+                  "y": 128,
+                  "w": 631,
+                  "h": 111
+                }
+              ],
+              "submit": "Submit"
+            }
+          ]
+        },
+        {
+          "id": "WRchTxtl",
+          "x": 726,
+          "y": 32,
+          "w": 220,
+          "h": 179,
+          "kind": "text",
+          "blocks": [
+            {
+              "tag": "h5",
+              "align": "left",
+              "fs": 28,
+              "lh": 39.2,
+              "runs": [
+                {
+                  "t": "Ώρες Λειτουργίας:",
+                  "f": "32d95d9a",
+                  "s": 28,
+                  "c": "rgb(255, 204, 0)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": " ",
+                  "f": "din-next-w01-light",
+                  "s": 16,
+                  "c": "rgb(107, 136, 65)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Δευτέρα: 09:00 - 17:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Τρίτη: 09:00 - 21:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Τετάρτη: 09:00 - 17:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Πέμπτη: 09:00 - 21:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Παρασκευή: 09:00 - 21:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "Σάββατο: 09:00 - 17:00",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "WRchTxt5",
+          "x": 726,
+          "y": 232,
+          "w": 220,
+          "h": 171,
+          "kind": "text",
+          "blocks": [
+            {
+              "tag": "h5",
+              "align": "left",
+              "fs": 28,
+              "lh": 39.2,
+              "runs": [
+                {
+                  "t": "Επισκεφθείτε μας!",
+                  "f": "32d95d9a",
+                  "s": 28,
+                  "c": "rgb(255, 204, 0)"
+                }
+              ]
+            },
+            {
+              "tag": "h5",
+              "align": "left",
+              "fs": 28,
+              "lh": 14,
+              "runs": [
+                {
+                  "t": "",
+                  "f": "32d95d9a",
+                  "s": 28,
+                  "c": "rgb(255, 204, 0)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 19.2,
+              "runs": [
+                {
+                  "t": "Βυζαντίου 23,",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 19.2,
+              "runs": [
+                {
+                  "t": "Νέα Σμύρνη",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 19.2,
+              "runs": [
+                {
+                  "t": "17121, Αθήνα",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 19.2,
+              "runs": [
+                {
+                  "t": "",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 8,
+              "runs": [
+                {
+                  "t": " ",
+                  "f": "din-next-w01-light",
+                  "s": 16,
+                  "c": "rgb(107, 136, 65)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 16,
+              "lh": 22.4,
+              "runs": [
+                {
+                  "t": "",
+                  "f": "din-next-w01-light",
+                  "s": 16,
+                  "c": "rgb(107, 136, 65)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "comp-khemvpvr",
+          "x": 726,
+          "y": 356,
+          "w": 184,
+          "h": 39,
+          "kind": "text",
+          "blocks": [
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 13,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "+30 213014 4422",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)"
+                }
+              ]
+            },
+            {
+              "tag": "p",
+              "align": "left",
+              "fs": 13,
+              "lh": null,
+              "runs": [
+                {
+                  "t": "ygeiognosia@hotmail.com",
+                  "f": "2a288b1e",
+                  "s": 16,
+                  "c": "rgb(255, 255, 255)",
+                  "href": "mailto:ygeiognosia@hotmail.com"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comp-la82oexd1",
+      "x": 0,
+      "y": 429,
+      "w": 980,
+      "h": 316,
+      "kind": "section",
+      "children": [
+        {
+          "id": "GglMp0",
+          "x": 44,
+          "y": 25,
+          "w": 893,
+          "h": 230,
+          "kind": "map"
+        }
+      ]
+    }
+  ]
+}

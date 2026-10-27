@@ -5,6 +5,6 @@
 | dropped dummy products | 11 |
 | dropped empty categories | 1 |
 | dropped placeholder info sections | 2 |
-| invisible | 122 |
-| latin | 524 |
-| spell | 457 |
+| invisible | 270 |
+| latin | 555 |
+| spell | 500 |

@@ -60,6 +60,24 @@
   }
 }
 
+/* Wix rich text (src/components/wix/WixLayout.tsx): --s = the Wix font size in px, --k = fit factor for
+   script lines on desktop. Below the desktop breakpoint, sizes above 16px are scaled down, as on the Wix
+   mobile site. */
+.wix-run {
+  font-size: calc(var(--s) * var(--k, 1) * 1px);
+}
+.wix-lh {
+  line-height: calc(var(--lh) * 1px);
+}
+@media (width < 1000px) {
+  .wix-run {
+    font-size: calc(min(var(--s), 16 + (var(--s) - 16) * 0.55) * 1px);
+  }
+  .wix-lh {
+    line-height: calc(var(--lh) / var(--s) * min(var(--s), 16 + (var(--s) - 16) * 0.55) * 1px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

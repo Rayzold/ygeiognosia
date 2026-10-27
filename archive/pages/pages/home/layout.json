@@ -1,0 +1,278 @@
+{
+ "height": 1037,
+ "shade": "rgba(0, 0, 0, 0.6)",
+ "nodes": [
+  {
+   "id": "comp-la82oex7",
+   "x": 0,
+   "y": 0,
+   "w": 980,
+   "h": 608,
+   "kind": "section",
+   "children": [
+    {
+     "id": "i020pd3f_0",
+     "x": 208,
+     "y": 38,
+     "w": 563,
+     "h": 27,
+     "kind": "text",
+     "blocks": [
+      {
+       "tag": "h3",
+       "align": "center",
+       "fs": 25,
+       "lh": 25,
+       "runs": [
+        {
+         "t": "Θα μας Βρείτε στη νέα μας διεύθυνση",
+         "f": "32d95d9a",
+         "s": 25,
+         "c": "rgb(255, 255, 255)"
+        },
+        {
+         "t": " ",
+         "f": "josefin slab",
+         "s": 25,
+         "c": "rgb(139, 0, 0)"
+        },
+        {
+         "t": "Βυζαντίου 23, Νέα Σμύρνη ",
+         "f": "32d95d9a",
+         "s": 25,
+         "c": "rgb(186, 218, 85)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comp-mka2u654",
+     "x": 1,
+     "y": 97,
+     "w": 980,
+     "h": 511,
+     "anim": {
+      "effect": "fade",
+      "duration": 1200,
+      "delay": 0
+     },
+     "kind": "image",
+     "file": "21375d_0f04640e2d154b1ab367212d496a47ca~mv2.jpg",
+     "alt": "ygeiognosia-card-8,5x5,5-01_edited.jpg",
+     "crop": {
+      "x": 0,
+      "y": 63,
+      "w": 1004,
+      "h": 524
+     },
+     "mode": "fill",
+     "align": "c",
+     "fit": "cover",
+     "nat": {
+      "w": 1004,
+      "h": 650
+     }
+    }
+   ]
+  },
+  {
+   "id": "comp-la82oex71",
+   "x": 0,
+   "y": 608,
+   "w": 980,
+   "h": 429,
+   "kind": "section",
+   "children": [
+    {
+     "id": "comp-kylhz5py",
+     "x": 0,
+     "y": 0,
+     "w": 980,
+     "h": 429,
+     "kind": "box",
+     "bg": "rgb(0, 0, 0)",
+     "children": [
+      {
+       "id": "comp-m763xtft",
+       "x": 0,
+       "y": 0,
+       "w": 980,
+       "h": 412,
+       "kind": "image",
+       "file": "21375d_ec5e859b243444dcad3a942f5d6ff6b8~mv2.png",
+       "alt": "aesthlos_2honeys_banner.png",
+       "mode": "fill",
+       "align": "c",
+       "fit": "cover",
+       "href": "https://www.aesthlos.com",
+       "blank": 1,
+       "nat": {
+        "w": 4075,
+        "h": 1721
+       }
+      },
+      {
+       "id": "comp-kylhz5sf",
+       "x": 605,
+       "y": 99,
+       "w": 300,
+       "h": 27,
+       "anim": {
+        "effect": "slide",
+        "duration": 1200,
+        "delay": 0
+       },
+       "kind": "text",
+       "blocks": [
+        {
+         "tag": "p",
+         "align": "center",
+         "fs": 14,
+         "lh": null,
+         "runs": [
+          {
+           "t": " ",
+           "f": "8b43208e",
+           "s": 14,
+           "c": "rgb(255, 255, 255)"
+          },
+          {
+           "t": " ΝΕΑ",
+           "f": "8b43208e",
+           "s": 14,
+           "c": "rgb(255, 200, 36)"
+          },
+          {
+           "t": " ",
+           "f": "8b43208e",
+           "s": 14,
+           "c": "rgb(255, 255, 255)"
+          },
+          {
+           "t": "αποκλειστική προσθήκη στα ράφια μας!    ",
+           "f": "2a288b1e",
+           "s": 14,
+           "c": "rgb(255, 255, 255)"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "comp-kylhz5s6",
+       "x": 557,
+       "y": 133,
+       "w": 395,
+       "h": 102,
+       "anim": {
+        "effect": "float",
+        "duration": 1200,
+        "delay": 0
+       },
+       "kind": "text",
+       "blocks": [
+        {
+         "tag": "p",
+         "align": "center",
+         "fs": 27,
+         "lh": null,
+         "runs": [
+          {
+           "t": "Μέλι Άγριας Βελανιδιάς",
+           "f": "2a288b1e",
+           "s": 27,
+           "c": "rgb(255, 255, 255)"
+          }
+         ]
+        },
+        {
+         "tag": "p",
+         "align": "center",
+         "fs": 27,
+         "lh": null,
+         "runs": [
+          {
+           "t": "& Mέλι Δάσους",
+           "f": "2a288b1e",
+           "s": 27,
+           "c": "rgb(255, 255, 255)"
+          }
+         ]
+        },
+        {
+         "tag": "p",
+         "align": "center",
+         "fs": 27,
+         "lh": null,
+         "runs": [
+          {
+           "t": "Αesthlos Τherafoods",
+           "f": "8b43208e",
+           "s": 27,
+           "c": "rgb(255, 255, 255)"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "comp-kyliot48",
+       "x": 572,
+       "y": 235,
+       "w": 365,
+       "h": 55,
+       "anim": {
+        "effect": "slide",
+        "duration": 1200,
+        "delay": 0
+       },
+       "kind": "text",
+       "blocks": [
+        {
+         "tag": "h2",
+         "align": "left",
+         "fs": 27,
+         "lh": null,
+         "runs": [
+          {
+           "t": "Ένα υπερόπλο της καθημερινής Διατροφής",
+           "f": "32d95d9a",
+           "s": 27,
+           "c": "rgb(255, 238, 188)",
+           "ls": 0.27
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "comp-kh7uy7p1",
+       "x": 907,
+       "y": 342,
+       "w": 47,
+       "h": 55,
+       "anim": {
+        "effect": "fade",
+        "duration": 2000,
+        "delay": 3000
+       },
+       "kind": "image",
+       "file": "21375d_b3fa1d14aac54a88b6b01c1b6d520528~mv2.png",
+       "alt": "305-3054790_warrior-bushido-samurai-ink-",
+       "mode": "fill",
+       "align": "c",
+       "fit": "cover",
+       "href": "http://www.axna.gr/air/",
+       "blank": 1,
+       "nat": {
+        "w": 482,
+        "h": 606
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

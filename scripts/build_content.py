@@ -12,6 +12,7 @@ Fixes touch visible text only: never slugs, paths, URLs, hrefs or file names.
 
 Usage: python3 scripts/build_content.py [repo_root]
 Writes content/{products.json,categories.json,site.json,posts/*.json,posts-index.json,pages/**,FIXES-REPORT.md}
+(pages/**/layout.json: the Wix desktop layout from scripts/extract-layout.cjs, with the same text fixes)
 """
 import csv
 import json
@@ -112,6 +113,19 @@ def fix_content_md(text):
     return "\n".join(out) + "\n"
 
 
+def fix_layout(n):
+    """Fix visible text in a layout node tree (scripts/extract-layout.cjs): text runs, alts, button labels."""
+    n = dict(n)
+    if n.get("blocks"):
+        n["blocks"] = [dict(b, runs=[dict(r, t=fix_text(r["t"])) if "t" in r else r for r in b["runs"]]) for b in n["blocks"]]
+    for k in ("alt", "label"):
+        if n.get(k):
+            n[k] = fix_text(n[k])
+    if n.get("children"):
+        n["children"] = [fix_layout(c) for c in n["children"]]
+    return n
+
+
 def dump(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -193,6 +207,9 @@ def main():
         (o / "content.md").write_text(fix_content_md((d / "content.md").read_text(encoding="utf-8")), encoding="utf-8")
         imgs = json.loads((d / "images.json").read_text(encoding="utf-8"))
         dump(o / "images.json", [dict(i, alt=fix_text(i.get("alt"))) for i in imgs])
+        if (d / "layout.json").exists():
+            lay = json.loads((d / "layout.json").read_text(encoding="utf-8"))
+            dump(o / "layout.json", dict(lay, nodes=[fix_layout(x) for x in lay["nodes"]]))
 
     # site chrome
     site = json.loads((ARCH / "site.json").read_text(encoding="utf-8"))

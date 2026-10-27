@@ -92,11 +92,23 @@ Every item is listed in OWNER-CHANGES.md.
 - Interim script font (Mynerve) is ~35% wider than Black Diamond: single-line script texts that would overflow get a smaller size, with a comment; restore Wix sizes if the owner licenses Black Diamond.
 - The Edge screenshots in `archive/screenshots` were taken mid-animation (e.g. the home card looks almost black); use `FULL=1 node scripts/dev/wix-render.cjs …` (finishes the animations) as the visual reference.
 
+## Phase 4 decisions (2026-10-27)
+- Content pages are not hand-built: `scripts/extract-layout.cjs` renders each archived Wix page offline (Wix fonts and originals, animations finished) and writes its desktop layout tree to `archive/pages/pages/<slug>/layout.json` (sections, boxes, rich text runs with font/size/colour/links, images with Wix crop, buttons with hover colours, SVG shapes with inlined paint, lines, anchors, anchor menu, map, form, audio; entrance animations and hover transforms from the page CSS). `build_content.py` applies the approved text fixes into `content/…/layout.json`.
+- One route `src/app/[page]` + registry `src/content/pages.ts` (title, description source, audio, video background) + one renderer `src/components/wix/WixLayout.tsx`: desktop = Wix absolute positions (sections stacked at Wix heights, z-order kept), mobile = same DOM in reading order (rows within 8px, images first), empty backdrop boxes and SVG decorations hidden. Phase 5 adds the store categories to the same route.
+- Rich text: `.wix-run` (`--s` font size, `--k` desktop fit factor) and `.wix-lh` (Wix line heights are absolute px; scaled with the font on mobile) in globals.css. Script-only lines and script button labels are scaled to fit their Wix box (interim font ~0.53em per glyph).
+- Font map (Wix id → ours): 2a288b1e/84b1395d PF DinText → body; 8b43208e → bold; 32d95d9a Black Diamond → script; DIN Next / Work Sans / Brandon light → body light.
+- `wix-render.cjs` loads uncropped originals, so cropped Wix images look different in those references; the layout uses the real Wix crop (`/v1/crop/x_,y_,w_,h_` from the img URL).
+- `/people`: video background `VideoBackground` (poster under reduced motion); music player track = `music.wixstatic.com/mp3/21375d_f2a90e8fb6364e2a8c0385ae218c5007.mp3` (6:11, 11.9 MB, not reachable from here) → `public/audio/people.mp3` when Markos provides it.
+- `/contact`: Google map iframe (CSP `frame-src` www.google.com, maps.google.com) at the new address; form placeholder until Phase 6.
+- Store pages (`/a`, `/blank*`, `/shop`, `/shop2`) are Phase 5.
+
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).
 - Fonts: PF DinText Pro and Black Diamond are commercial uploads (see `archive/design-tokens.md`); ask whether the owner holds web licences. Comparison for the owner: `archive/review/fonts-sygkrisi.png`. Interim: Roboto Condensed + Mynerve (only free script fonts with Greek on Fontsource: Mynerve, Playpen Sans, Zen Kurenaido — none close to Black Diamond).
 - Singular «ελιξήριο» (3 places: posts 065, 075, `/exclusive-elixirs`) is not in the approved spelling list; ask before changing.
-- `/contact` og:description still has the old address «Ομήρου 14» (new: Βυζαντίου 23); ask in Phase 4.
+- `/contact` og:description still has the old address «Ομήρου 14» (new: Βυζαντίου 23): the rebuild generates the description from the page text instead; tell the owner.
+- `/aesthlos`: the first 681px of the page are empty on Wix too (kept); ask the owner.
+- `/people` music track: Markos downloads it (URL in Phase 4 decisions) and confirms the owner may use it.
 - Languages: Greek only (no `hreflang`/`?lang=` found).
 - Wix members/login pages: not migrated (static site, no accounts). Confirm none are in use.
 - Order notification: where the owner receives new orders (email via which provider, or the Viva dashboard only) and whether orders need to be stored (e.g. Cloudflare D1/KV).
