@@ -111,7 +111,6 @@ Every item is listed in OWNER-CHANGES.md.
 - Mobile: a box with ≥6 link buttons (the category menu) becomes a 2-column grid.
 
 ## Phase 5β decisions (2026-10-27)
-- Next: Phase 6 (Jotform contact form), 5γ when the owner opens the online shop, then Phase 7 (QA).
 - Blog = Wix layout + **promotion and sharing (owner request 2026-10-27)**: home «Πρόσφατα άρθρα» (3 newest), footer band «Από το blog μας» on every page except home (`HideOnPaths`), «Διαβάστε επίσης» under each post (chronological neighbours, `relatedPosts()`), RSS at Wix's `/blog-feed.xml`.
 - Share buttons (`src/components/share/ShareBar.tsx`) under the title and at the end of each post: Facebook, WhatsApp, Viber, X, Pinterest, email, copy link, Web Share API on phones. Plain links, no third-party scripts. Brand icons: Simple Icons (CC0) inline.
 - Social previews: `scripts/og-images.mjs` (in `npm run build`) writes a 1200×630 JPEG per post from its cover (sharp attention crop) to `public/og/post/NNN.jpg` (gitignored); og:type article, twitter summary_large_image, JSON-LD `BlogPosting` + `BreadcrumbList`.
@@ -120,6 +119,12 @@ Every item is listed in OWNER-CHANGES.md.
 - YouTube: click-to-load `youtube-nocookie.com` (CSP `frame-src`), placeholder without thumbnail (i.ytimg.com not reachable from the build container; privacy).
 - Contrast fixes (OWNER-CHANGES.md): post links dark green with yellow underline (Wix #FFCC00 on white), light Ricos buttons get dark text, list excerpt #C5DDA4, pagination dark green.
 - The 2 broken Wix images are skipped by `tryMedia()` (owner may still send originals).
+
+## Phase 6 decisions (2026-10-27)
+- Next: 5γ when the owner opens the online shop, then Phase 7 (QA).
+- `/contact` form = `src/components/contact/ContactForm.tsx` (rendered by `WixLayout` for the `form` node): Wix fields (Όνομα, Email, Θέμα, Μήνυμα, all required), Wix geometry and colours (white 73% fields, #6B8841 button, hover #A0CC62 with dark text for contrast), Greek texts in `src/content/contact.ts` (new success/error texts await owner approval).
+- Posts with `no-cors` to Jotform form «Υγειογνωσία – Επικοινωνία» (`262993612964066`, Markos' Jotform account, EU); notification to ygeiognosia@hotmail.com (Markos, 2026-10-27). Honeypot `website`. CSP allows `eu-submit.jotform.com` in `connect-src` and `form-action`.
+- The container cannot reach Jotform; field names were read from the live form in Chrome. End-to-end test (a real submission and the notification email) is done by Markos.
 
 ## Open questions (resolve in or after Phase 1)
 - Two post images are broken on Wix itself (403 even for resized variants): `21375d_4482fcf3…~mv2.jpg` in `/post/mumijo-ή-αλλιώς-το-δάκρυ-του-γίγαντα` and `21375d_8ef7168d…~mv2.jpg` in `/post/η-αιτία-των-ασθενειών-μέρος-β-αυτοάνοσα-νοσήματα-και-φλεγμονές`. Ask the owner for the originals; otherwise omit them (OWNER-CHANGES.md).

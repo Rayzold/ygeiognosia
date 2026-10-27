@@ -37,6 +37,15 @@ Self-owned rebuild of the Wix site www.ygeiognosia.com: a static Next.js export 
   `ffmpeg -i archive/video/21375d_42e6506a0506417d9a8b4a236fd24e84-1080p.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset veryfast -crf 30 -pix_fmt yuv420p -movflags +faststart public/video/people.mp4`
 - Fonts are self-hosted in `public/fonts` (OFL licences next to them). Interim choice until the owner decides: Roboto Condensed (for PF DinText Pro) and Mynerve (for Black Diamond); switch in `src/app/globals.css` only.
 
+## Contact form (Jotform)
+
+The site is static, so the `/contact` form (`src/components/contact/ContactForm.tsx`, Wix look and geometry) posts straight to the Jotform form **«Υγειογνωσία – Επικοινωνία»** (EU servers, id `262993612964066`, in Markos' Jotform account). Jotform stores every message (My Forms → Submissions) and emails a notification to ygeiognosia@hotmail.com (Settings → Emails, reply-to = sender).
+
+- Field names (`q7_input`, `q3_q3_email1`, `q4_q4_textbox2`, `q5_q5_textarea3`) come from the Jotform form. If questions are re-created there, their names change: open the form, inspect the inputs and update `JOTFORM` in the component.
+- Spam: a hidden honeypot (`website`, Jotform's own trap) plus Jotform's spam filter.
+- CSP (`public/_headers`): `connect-src` and `form-action` allow `https://eu-submit.jotform.com` only.
+- Texts: `src/content/contact.ts`.
+
 ## Checks
 
 - `scripts/check-links.mjs` fails the build on any broken internal link/asset or any Wix URL. Links to pages of later phases are listed in `scripts/pending-links.txt` and only reported.
@@ -47,7 +56,7 @@ Self-owned rebuild of the Wix site www.ygeiognosia.com: a static Next.js export 
 
 - The online shop is closed (`SHOP.open = false`, `src/content/shop.ts`): catalogue + phone orders; cart and Viva checkout come in Phase 5γ.
 - Fonts are interim look-alikes (owner decision pending).
-- `/contact`: the form is a placeholder until Phase 6 (Jotform).
+- `/contact` form posts cross-origin (`no-cors`) to Jotform, so the page cannot read Jotform's answer. If Jotform rejects a message (spam filter, the free plan's monthly quota, questions re-created so the `qN_…` names changed), the visitor still sees «sent»; the success text therefore also offers ygeiognosia@hotmail.com. Proper fix: a Pages Function that relays the POST and returns Jotform's real status.
 - Blog: YouTube videos show a placeholder (no thumbnail) until clicked, so nothing loads from Google before consent. Thumbnails would need `img-src https://i.ytimg.com` in the CSP, or downloaded copies.
 - Blog dates: shown only while the newest post is younger than `DATES_VISIBLE_DAYS` (`src/lib/blog.ts`), checked in the browser by an inline script in the root layout; without JavaScript they stay hidden.
 - Blog block geometry (image float/width, button positions, paragraph alignment) comes from `archive/posts-layout.json`, measured on the archived Wix HTML with `scripts/dev/post-layout.cjs`. New posts written outside Wix need their own layout (or none: full width).

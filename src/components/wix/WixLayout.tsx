@@ -18,6 +18,7 @@ import {
   type Run,
   type TextNode,
 } from "@/lib/wix-layout";
+import ContactForm from "@/components/contact/ContactForm";
 import AnchorMenu from "./AnchorMenu";
 import AudioPlayer from "./AudioPlayer";
 import ProductGallery, { type CardItem } from "@/components/shop/ProductGallery";
@@ -135,7 +136,7 @@ function Node({ n, ctx, label }: { n: LayoutNode; ctx: Ctx; label: string }) {
     case "map":
       return wrap(n, `mx-4 h-[260px] desk:mx-0 ${POS} ${SIZE}`, <MapFrame />);
     case "form":
-      return wrap(n, `mx-4 desk:mx-0 ${POS} ${SIZE}`, <FormPlaceholder />);
+      return wrap(n, `mx-4 desk:mx-0 ${POS} ${SIZE}`, <ContactForm />);
     case "gallery":
       // in flow (not absolute) so the section grows with it
       return (
@@ -354,7 +355,3 @@ function MapFrame() {
   );
 }
 
-/** Phase 6 replaces this with the Jotform contact form. */
-function FormPlaceholder() {
-  return <div className="flex h-full min-h-[200px] items-center justify-center border border-white/40 p-6 text-center text-[15px] text-white/80">Η φόρμα επικοινωνίας προστίθεται στο επόμενο βήμα.</div>;
-}

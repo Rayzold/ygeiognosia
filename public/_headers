@@ -3,14 +3,15 @@
 # CSP: only our own files. 'unsafe-inline' is required by the static Next.js export (inline bootstrap
 # scripts) and inline styles. Cloudflare Web Analytics allowed. frame-src: the Google map on /contact (as on
 # Wix) and the YouTube player in blog posts (youtube-nocookie.com, loaded only after a click).
-# Phase 5γ the Viva checkout redirect, Phase 6 Jotform: extend only what each needs.
+# connect-src/form-action: the /contact form posts to Jotform (eu-submit.jotform.com).
+# Phase 5γ the Viva checkout redirect: extend only what it needs.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self' https://eu-submit.jotform.com https://cloudflareinsights.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube-nocookie.com; form-action 'self' https://eu-submit.jotform.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 # Preview hosts (*.pages.dev, branch previews) must never be indexed: only www.ygeiognosia.com is canonical.
 https://:project.pages.dev/*
