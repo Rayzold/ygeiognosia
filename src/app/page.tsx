@@ -11,6 +11,7 @@ import { media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
 
 const card = media(HOME.card.image);
+const store = media(HOME.store.image);
 const honey = media(HOME.aesthlos.image);
 const air = media(HOME.air.image);
 const og = media(HOME.ogImage);
@@ -41,9 +42,15 @@ export default function Home() {
         <h2 className="px-3 pb-3 pt-4 text-center font-script text-[17px] leading-[1.3] text-white desk:px-0 desk:pb-0 desk:pt-[38px] desk:text-[25px] desk:leading-[27px] desk:whitespace-nowrap">
           {HOME.address.lead} <span className="text-[#bada55]">{HOME.address.highlight}</span>
         </h2>
-        <Reveal effect="fade" className="relative mx-[10px] aspect-[980/511] desk:mx-0 desk:mt-[32px] desk:aspect-auto desk:h-[511px]">
-          <Image src={card.src} alt={HOME.card.alt} fill sizes={COLUMN_SIZES} priority className="object-cover" />
-        </Reveal>
+        {HOME.hero === "store" ? (
+          <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[4/3] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
+            <Image src={store.src} alt={HOME.store.alt} fill sizes="560px" priority className="object-cover object-[50%_12%]" />
+          </Reveal>
+        ) : (
+          <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[1004/650] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
+            <Image src={card.src} alt={HOME.card.alt} fill sizes="560px" priority className="object-cover" />
+          </Reveal>
+        )}
       </section>
 
       {/* Section 2: Aesthlos honey banner (black box 980×427, image 980×412) */}
