@@ -58,6 +58,22 @@ export function loadLayout(type: string, name: string): Layout {
   return JSON.parse(fs.readFileSync(file, "utf8")) as Layout;
 }
 
+/**
+ * Removes `px` of empty space from the top of a page (owner decision for /aesthlos, 2026-11-12).
+ * The top-level node that starts at y=0 loses `px` of height and its children move up; every other
+ * top-level node moves up by `px`. Refuses to cut through content: a child above `px` is an error.
+ */
+export function trimTop(layout: Layout, px: number): Layout {
+  if (!px) return layout;
+  const nodes = layout.nodes.map((n) => {
+    if (n.y > 0) return { ...n, y: n.y - px };
+    if (!("children" in n)) throw new Error(`trimTop: top node ${n.id} has no children to move`);
+    for (const c of n.children) if (c.y < px) throw new Error(`trimTop: ${c.id} at y=${c.y} is inside the ${px}px cut`);
+    return { ...n, h: n.h - px, children: n.children.map((c) => ({ ...c, y: c.y - px })) };
+  });
+  return { ...layout, height: layout.height - px, nodes };
+}
+
 /** Opacity of the Wix page column colour, e.g. "rgba(0, 0, 0, 0.77)" -> 0.77 */
 export function shadeOf(layout: Layout): number {
   const m = layout.shade.match(/rgba\([^)]*,\s*([\d.]+)\)/);

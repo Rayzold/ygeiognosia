@@ -3,9 +3,10 @@
 // Generated on every build into public/og/ (gitignored), like the width variants.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const index = JSON.parse(fs.readFileSync(path.join(root, 'src/content/media-index.json'), 'utf8'));
 const posts = JSON.parse(fs.readFileSync(path.join(root, 'content/posts-index.json'), 'utf8'));
 const outDir = path.join(root, 'public/og/post');

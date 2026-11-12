@@ -10,7 +10,7 @@ import type { CardItem } from "@/components/shop/ProductGallery";
 import { categoryProducts, decodeEntities, formatPrice } from "@/lib/content";
 import { media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
-import { allNodes, describe, loadLayout, type ImageNode } from "@/lib/wix-layout";
+import { allNodes, describe, loadLayout, trimTop, type ImageNode } from "@/lib/wix-layout";
 
 // Top-level Wix pages (/about-us, /people, /contact, …), each rendered from its Wix layout.
 export const dynamicParams = false;
@@ -80,7 +80,7 @@ export default async function ContentPage({ params }: Props) {
   return (
     <>
       {def.video && <VideoBackground src={def.video.src} poster={def.video.poster} />}
-      <WixLayout layout={loadLayout("pages", page)} title={def.title.split(" | ")[0]} audio={audio} gallery={def.category ? cards(def.category) : undefined} />
+      <WixLayout layout={trimTop(loadLayout("pages", page), def.trimTop ?? 0)} title={def.title.split(" | ")[0]} audio={audio} gallery={def.category ? cards(def.category) : undefined} />
     </>
   );
 }

@@ -4,12 +4,13 @@
 // Usage: node scripts/check-links.mjs [out_dir]
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const OUT = path.resolve(process.argv[2] ?? 'out');
 const SITE = 'https://www.ygeiognosia.com';
 // Pages not built yet (phase by phase) are listed in scripts/pending-links.txt and only reported.
 // The list must be empty before the release (Phase 7).
-const pendingFile = path.join(path.dirname(new URL(import.meta.url).pathname), 'pending-links.txt');
+const pendingFile = path.join(path.dirname(fileURLToPath(import.meta.url)), 'pending-links.txt');
 const pending = new Set(fs.existsSync(pendingFile) ? fs.readFileSync(pendingFile, 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')) : []);
 const isFile = (p) => fs.existsSync(p) && fs.statSync(p).isFile();
 const exists = (u) => {

@@ -21,7 +21,9 @@ Background, facts, lessons and the domain runbook: `docs/ygeiognosia-playbook.md
 - `npm run build` = image variants + next build + `scripts/check-links.mjs` (fails the deploy on any broken link/asset/Wix URL) + a sitemap check that every URL of the Wix `sitemap.xml` exists in `out/`.
 - Known technical debt goes in README "Known limitations".
 
-## Store and checkout (owner decisions, 2026-10-26)
+## Store and checkout (owner decisions, 2026-10-26; superseded 2026-11-12)
+**2026-11-12: no sales from the site without phone confirmation. The shop stays a catalogue with phone orders (`SHOP.open = false`); no cart, no Viva checkout, no Pages Functions. `/orders` pages keep their Jotform «Παραγγελία» link. Fonts final: Roboto Condensed + Mynerve. The section below is kept for history.**
+
 - Own store in the site: product list, categories, product page, client-side cart (no customer accounts).
 - Payment: **Viva Smart Checkout via API**. The owner has an active Viva merchant account.
   - Cart lives in the browser (localStorage, wrapped in try/catch; the cart must still work in memory if storage is unavailable).

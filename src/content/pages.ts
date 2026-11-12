@@ -16,6 +16,8 @@ export type ContentPage = {
   video?: { src: string; poster: string };
   /** store page: path of its Wix Stores category (content/categories.json), shown by the product gallery */
   category?: string;
+  /** px of empty space removed from the top of the Wix layout (owner-approved, see OWNER-CHANGES.md) */
+  trimTop?: number;
 };
 
 const OLIVE = "Αγριέλαιο Υγειογνωσίας";
@@ -24,7 +26,8 @@ export const CONTENT_PAGES: Record<string, ContentPage> = {
   "about-us": { title: "Το κατάστημα", useWixDescription: true },
   // Wix track 21375d_f2a90e8fb6364e2a8c0385ae218c5007.mp3 (music.wixstatic.com, 6:11, 11.9 MB)
   people: { title: "Οι άνθρωποι", audio: "/audio/people.mp3", video: { src: "/video/people.mp4", poster: "/images/people-video-poster.webp" } },
-  aesthlos: { title: "Exclusive Προϊόντα Aesthlos", useWixDescription: true },
+  // the Wix page starts with 681px of empty space (an intro removed on Wix): reduced to 120px (Markos, 2026-11-12)
+  aesthlos: { title: "Exclusive Προϊόντα Aesthlos", useWixDescription: true, trimTop: 561 },
   // Wix og:description still has the old address «Ομήρου 14»: generated from the page instead (open question)
   contact: { title: "Επικοινωνία" },
   "exclusive-elixirs": { title: "Τα ελιξίρια μας", useWixDescription: true },

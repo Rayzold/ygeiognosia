@@ -9,9 +9,10 @@
 // Writes src/content/media-index.json: { "<local file name>": { src, width, height } }.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.resolve(process.argv[2] ?? path.join(root, 'archive'));
 const pub = path.join(root, 'public');
 const MAX = 1920; // longest side; the content column is 980px, so 1920 covers 2x screens

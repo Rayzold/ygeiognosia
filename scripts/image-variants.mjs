@@ -2,10 +2,11 @@
 // Widths must match images.deviceSizes + images.imageSizes in next.config.ts. Never upscales.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 export const WIDTHS = [256, 400, 640, 828, 1080, 1600, 1920];
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dir = path.join(root, 'public/images');
 const files = fs.readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('.webp') && !/-w\d+\.webp$/.test(f));
 let n = 0;

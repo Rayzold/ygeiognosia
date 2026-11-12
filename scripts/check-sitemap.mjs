@@ -4,11 +4,12 @@
 // Without --strict it only reports. Since Phase 7 the build runs --strict: a missing Wix URL fails the deploy.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const args = process.argv.slice(2);
 const strict = args.includes('--strict');
 const OUT = path.resolve(args.find((a) => !a.startsWith('--')) ?? 'out');
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const isFile = (p) => fs.existsSync(p) && fs.statSync(p).isFile();
 const page = (p) => (p === '/' ? isFile(path.join(OUT, 'index.html')) : isFile(path.join(OUT, p.slice(1) + '.html')) || isFile(path.join(OUT, p.slice(1), 'index.html')));
 

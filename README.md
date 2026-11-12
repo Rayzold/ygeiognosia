@@ -62,8 +62,8 @@ Scripts in `scripts/dev/qa/` (not part of the build; serve `out/` first with `np
 
 ## Known limitations
 
-- The online shop is closed (`SHOP.open = false`, `src/content/shop.ts`): catalogue + phone orders; cart and Viva checkout come in Phase 5γ.
-- Fonts are interim look-alikes (owner decision pending).
+- The online shop stays closed (`SHOP.open = false`, `src/content/shop.ts`): catalogue + phone orders. Owner decision 2026-11-12: no sales from the site without a phone confirmation, so there is no cart and no Viva checkout.
+- Fonts: free look-alikes Roboto Condensed (body) and Mynerve (handwritten titles) replace the commercial Wix fonts (final, 2026-11-12).
 - `/contact` form posts cross-origin (`no-cors`) to Jotform, so the page cannot read Jotform's answer. If Jotform rejects a message (spam filter, the free plan's monthly quota, questions re-created so the `qN_…` names changed), the visitor still sees «sent»; the success text therefore also offers ygeiognosia@hotmail.com. Proper fix: a Pages Function that relays the POST and returns Jotform's real status.
 - Blog: YouTube videos show a placeholder (no thumbnail) until clicked, so nothing loads from Google before consent. Thumbnails would need `img-src https://i.ytimg.com` in the CSP, or downloaded copies.
 - Blog dates: shown only while the newest post is younger than `DATES_VISIBLE_DAYS` (`src/lib/blog.ts`), checked in the browser by an inline script in the root layout; without JavaScript they stay hidden.
