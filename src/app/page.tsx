@@ -44,11 +44,11 @@ export default function Home() {
         </h2>
         {HOME.hero === "store" ? (
           <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[4/3] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
-            <Image src={store.src} alt={HOME.store.alt} fill sizes="560px" priority className="object-cover object-[50%_12%]" />
+            <Image src={store.src} alt={HOME.store.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover object-[50%_12%]" />
           </Reveal>
         ) : (
           <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[1004/650] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
-            <Image src={card.src} alt={HOME.card.alt} fill sizes="560px" priority className="object-cover" />
+            <Image src={card.src} alt={HOME.card.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover" />
           </Reveal>
         )}
       </section>
