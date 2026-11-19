@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { SearchItem } from "@/app/search-index.json/route";
+import { SHOP } from "@/content/shop";
+import { PHONE } from "@/content/site";
 
 /** Greek-aware matching: lower case, no accents, final sigma = sigma. */
 const norm = (s: string) =>
@@ -61,6 +63,19 @@ export default function SearchResults() {
       {q && (
         <p className="mt-6 text-[15px] text-white/90" aria-live="polite">
           {items === null ? "Αναζήτηση…" : failed ? "Η αναζήτηση δεν είναι διαθέσιμη αυτή τη στιγμή. Δοκιμάστε ξανά σε λίγο." : hits.length ? `${hits.length} αποτελέσματα για «${q}»` : `Δεν βρέθηκαν αποτελέσματα για «${q}».`}
+        </p>
+      )}
+
+      {q && items !== null && !failed && hits.length === 0 && (
+        <p className="mt-3 text-[15px] leading-[1.6] text-white/90">
+          {SHOP.noResults.lead}{" "}
+          <Link href="/shop" className="inline-block py-[10px] font-bold text-green-3 underline underline-offset-4 hover:text-green-2">
+            {SHOP.noResults.all}
+          </Link>{" "}
+          {SHOP.noResults.or}{" "}
+          <a href={`tel:${PHONE.tel}`} className="inline-block whitespace-nowrap py-[10px] font-bold text-green-3 underline underline-offset-4 hover:text-green-2">
+            {PHONE.display}
+          </a>
         </p>
       )}
 

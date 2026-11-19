@@ -47,5 +47,7 @@ export const SHOP = {
   // NEW (2026-11-19): labels for screen readers only; the visible words are the page and category names
   breadcrumb: "Διαδρομή",
   categories: "Κατηγορίες προϊόντων",
+  // NEW (2026-11-19): under «Δεν βρέθηκαν αποτελέσματα» on /search
+  noResults: { lead: "Δοκιμάστε μια πιο σύντομη λέξη, δείτε", all: "όλα τα προϊόντα", or: "ή καλέστε μας:" },
   share: { facebook: "Κοινοποίηση στο Facebook", pinterest: "Κοινοποίηση στο Pinterest", whatsapp: "Αποστολή με WhatsApp", x: "Κοινοποίηση στο X" },
 };
