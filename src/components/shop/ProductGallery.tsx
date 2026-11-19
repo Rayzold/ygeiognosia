@@ -30,14 +30,15 @@ export default function ProductGallery({ items, sort = false, pageSize, categori
     <div>
       {categories && categories.length > 0 && (
         <nav aria-label={SHOP.categories} className="pt-4 desk:px-[10px] desk:pt-[24px]">
-          <ul className="flex gap-2 overflow-x-auto px-[10px] pb-2 desk:flex-wrap desk:overflow-visible desk:px-0 desk:pb-0">
+          {/* desktop: a fixed 4-column grid on the product columns (a wrapping row changed height when the web font arrived) */}
+          <ul className="flex gap-2 overflow-x-auto px-[10px] pb-2 desk:grid desk:grid-cols-4 desk:gap-x-[20px] desk:gap-y-2 desk:overflow-visible desk:px-0 desk:pb-0">
             {categories.map((c) => (
-              <li key={c.path} className="shrink-0">
+              <li key={c.path} className="shrink-0 desk:min-w-0">
                 <Link
                   href={c.path}
-                  className="flex h-[44px] items-center whitespace-nowrap rounded-[22px] border border-white/60 px-4 text-[15px] text-white transition-colors hover:border-green-3 hover:bg-green-3 hover:text-green-5 desk:h-[36px] desk:rounded-[18px] desk:text-[14px]"
+                  className="flex h-[44px] items-center whitespace-nowrap rounded-[22px] border border-white/60 px-4 text-[15px] text-white transition-colors hover:border-green-3 hover:bg-green-3 hover:text-green-5 desk:h-[36px] desk:justify-center desk:rounded-[18px] desk:px-2 desk:text-[14px]"
                 >
-                  {c.name}
+                  <span className="desk:truncate">{c.name}</span>
                 </Link>
               </li>
             ))}
