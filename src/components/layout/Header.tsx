@@ -10,6 +10,9 @@ import SearchBox from "./SearchBox";
 import SocialLinks from "./SocialLinks";
 
 const logo = media(MEDIA.logo);
+// One `sizes` for both logos (desktop 184px, mobile 120px): the hidden one then resolves to the same file,
+// so a phone does not also download the larger desktop logo.
+const LOGO_SIZES = "(min-width: 1000px) 184px, 120px";
 
 /**
  * Site header. Desktop (>=1000px): the Wix 980×375 header, every element at its measured Wix position.
@@ -21,7 +24,7 @@ export default function Header() {
       {/* desktop */}
       <div className="relative mx-auto hidden h-[375px] w-[980px] desk:block">
         <Link href="/" aria-label="Υγειογνωσία, αρχική σελίδα" className="absolute left-[392px] top-[78px] block h-[184px] w-[184px]">
-          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes="184px" loading="eager" className="h-full w-full object-cover" />
+          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes={LOGO_SIZES} loading="eager" className="h-full w-full object-cover" />
         </Link>
 
         {SHOP.open ? (
@@ -55,7 +58,7 @@ export default function Header() {
       {/* mobile */}
       <div className="relative flex flex-col items-center px-[10px] pb-3 pt-4 desk:hidden">
         <Link href="/" aria-label="Υγειογνωσία, αρχική σελίδα" className="block h-[120px] w-[120px]">
-          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes="120px" priority className="h-full w-full object-cover" />
+          <Image src={logo.src} width={logo.width} height={logo.height} alt="Υγειογνωσία" sizes={LOGO_SIZES} priority className="h-full w-full object-cover" />
         </Link>
         <div className="absolute right-2 top-10">
           <MobileMenu />

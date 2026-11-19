@@ -42,14 +42,16 @@ export default function Home() {
         <h2 className="px-3 pb-3 pt-4 text-center font-script text-[17px] leading-[1.3] text-white desk:px-0 desk:pb-0 desk:pt-[38px] desk:text-[25px] desk:leading-[27px] desk:whitespace-nowrap">
           {HOME.address.lead} <span className="text-[#bada55]">{HOME.address.highlight}</span>
         </h2>
+        {/* The hero photo is the LCP element: a plain box, not a Reveal. On a short viewport (landscape phone,
+            zoomed desktop) Reveal would hide the already painted photo at hydration and fade it in again. */}
         {HOME.hero === "store" ? (
-          <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[4/3] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
+          <div className="relative mx-auto mt-2 aspect-[4/3] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
             <Image src={store.src} alt={HOME.store.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover object-[50%_12%]" />
-          </Reveal>
+          </div>
         ) : (
-          <Reveal effect="fade" className="relative mx-auto mt-2 aspect-[1004/650] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
+          <div className="relative mx-auto mt-2 aspect-[1004/650] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
             <Image src={card.src} alt={HOME.card.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover" />
-          </Reveal>
+          </div>
         )}
       </section>
 
