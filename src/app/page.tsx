@@ -25,6 +25,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const COLUMN_SIZES = "(min-width: 1000px) 980px, 100vw";
+// The hero box is min(560px, 90vw). `sizes` is understated on purpose (540px / 60vw) so that 2x and 3x
+// screens take the 1080px / 828px file (about 2x density) instead of the 1600px / 1080px one: the photo is
+// the LCP element and the larger files cost 50-140 KB more for no visible gain.
+const HERO_SIZES = "(min-width: 623px) 540px, 60vw";
 
 /**
  * Home page, as on Wix. Desktop (>=1000px): 980px column, two sections, elements at their measured Wix
@@ -46,11 +50,11 @@ export default function Home() {
             zoomed desktop) Reveal would hide the already painted photo at hydration and fade it in again. */}
         {HOME.hero === "store" ? (
           <div className="relative mx-auto mt-2 aspect-[4/3] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
-            <Image src={store.src} alt={HOME.store.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover object-[50%_12%]" />
+            <Image src={store.src} alt={HOME.store.alt} fill sizes={HERO_SIZES} priority fetchPriority="high" className="object-cover object-[50%_12%]" />
           </div>
         ) : (
           <div className="relative mx-auto mt-2 aspect-[1004/650] w-[min(560px,90%)] overflow-hidden rounded-xl shadow-2xl desk:mt-[32px] desk:mb-[32px]">
-            <Image src={card.src} alt={HOME.card.alt} fill sizes="(min-width: 623px) 560px, 90vw" priority fetchPriority="high" className="object-cover" />
+            <Image src={card.src} alt={HOME.card.alt} fill sizes={HERO_SIZES} priority fetchPriority="high" className="object-cover" />
           </div>
         )}
       </section>
