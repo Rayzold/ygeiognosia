@@ -145,7 +145,7 @@ function Node({ n, ctx, label }: { n: LayoutNode; ctx: Ctx; label: string }) {
       // an empty coloured box is only a backdrop for siblings on desktop: not shown on mobile
       const empty = !n.children.length ? "hidden" : "flex";
       // a block of many link buttons (the store category menu): two compact columns on mobile
-      const menu = n.children.filter((c) => c.kind === "button").length >= 6 ? "max-desk:grid max-desk:grid-cols-2 max-desk:gap-x-2 max-desk:gap-y-1 max-desk:px-2 max-desk:[&>*]:!h-[34px] max-desk:[&>*]:!w-full max-desk:[&>*]:!min-w-0" : "";
+      const menu = n.children.filter((c) => c.kind === "button").length >= 6 ? "max-desk:grid max-desk:grid-cols-2 max-desk:gap-x-2 max-desk:gap-y-1 max-desk:px-2 max-desk:[&>*]:!h-[44px] max-desk:[&>*]:!w-full max-desk:[&>*]:!min-w-0" : "";
       return wrap(n, `relative ${empty} flex-col gap-4 ${n.bg ? "py-4" : ""} ${menu} desk:block desk:py-0 ${group} ${POS} ${SIZE}`, children(n, ctx), deco);
     }
     case "line":

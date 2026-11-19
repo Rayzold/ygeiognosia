@@ -13,8 +13,9 @@ const bullet = "before:mr-[0.6em] before:content-['•']";
  * Mobile: the Wix mobile footer, centred.
  */
 export default function Footer() {
+  // phones: 44px-high tap area (padding cancelled by the negative margin, so the lines keep their spacing)
   const phone = (
-    <a href={`tel:${PHONE.tel}`} className="whitespace-nowrap hover:underline">
+    <a href={`tel:${PHONE.tel}`} className="whitespace-nowrap hover:underline max-desk:-my-[14px] max-desk:inline-block max-desk:py-[14px] max-desk:font-bold max-desk:underline max-desk:decoration-green-3 max-desk:underline-offset-4">
       {PHONE.display}
     </a>
   );

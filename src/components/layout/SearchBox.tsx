@@ -14,7 +14,7 @@ export default function SearchBox({ className = "" }: { className?: string }) {
         aria-label={HEADER.searchPlaceholder}
         className="min-w-0 flex-1 bg-transparent px-3 text-[16px] text-white placeholder:text-white focus:outline-none"
       />
-      <button type="submit" aria-label="Αναζήτηση" className="flex w-10 shrink-0 items-center justify-center bg-green-3 text-white hover:bg-green-3 focus-visible:bg-green-4">
+      <button type="submit" aria-label="Αναζήτηση" className="flex w-11 shrink-0 desk:w-10 items-center justify-center bg-green-3 text-green-5 transition-colors hover:bg-green-2 focus-visible:bg-green-2">
         <SearchIcon className="h-[18px] w-[18px]" />
       </button>
     </form>

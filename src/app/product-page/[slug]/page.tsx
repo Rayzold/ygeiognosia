@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageColumn from "@/components/layout/PageColumn";
 import ShareLinks from "@/components/shop/ShareLinks";
+import { PhoneIcon } from "@/components/layout/Icons";
 import { SHOP } from "@/content/shop";
 import { PHONE } from "@/content/site";
 import { PRODUCTS, decodeEntities, decodeSlug, formatPrice, htmlToText, productBySlug, type Product } from "@/lib/content";
@@ -83,7 +84,9 @@ export default async function ProductPage({ params }: Props) {
               <p className="text-[17px] font-bold leading-[1.3] text-[#ffc824]">{SHOP.soon.title}</p>
               <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.text}</p>
               {!SHOP.showPrices && <p className="mt-2 text-[14px] leading-[1.45] text-white">{SHOP.soon.priceText}</p>}
-              <a href={`tel:${PHONE.tel}`} className="mt-3 flex h-[40px] max-w-[307px] items-center justify-center bg-green-3 text-[16px] font-light text-green-5 transition-colors hover:bg-green-2 hover:text-green-5">
+              {/* the page's main action: full width on phones, 48px tap target, bold label with a handset */}
+              <a href={`tel:${PHONE.tel}`} className="mt-3 flex min-h-[48px] items-center justify-center gap-2 bg-green-3 px-3 text-[17px] font-bold text-green-5 transition-colors hover:bg-green-2 hover:text-green-5 desk:max-w-[307px]">
+                <PhoneIcon className="h-[18px] w-[18px] shrink-0" />
                 {SHOP.soon.call}
               </a>
             </div>

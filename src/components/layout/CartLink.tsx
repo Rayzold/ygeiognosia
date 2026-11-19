@@ -27,13 +27,15 @@ export function ShopTeaser({ layout }: { layout: "desktop" | "mobile" }) {
   return (
     <div className={desk ? "flex items-start gap-3 text-right" : "flex flex-col items-center text-center"}>
       <div className={desk ? "" : "order-2"}>
-        <Link href="/shop" className="text-[15px] leading-[1.4] text-white hover:underline">
+        <Link href="/shop" className={`text-[15px] leading-[1.4] text-white hover:underline ${desk ? "" : "inline-block pb-[4px] pt-[2px]"}`}>
           {SHOP.header.products}
         </Link>
         <p className="text-[12px] leading-[1.5] text-[#ffc824]">{SHOP.header.note}</p>
-        <p className="text-[12px] leading-[1.5] text-white">
+        {/* phones: larger text and a 44px-high tap area for the number (padding cancelled by the negative
+            margin, so the header keeps its height) */}
+        <p className={desk ? "text-[12px] leading-[1.5] text-white" : "text-[14px] leading-[1.5] text-white"}>
           {SHOP.header.phone}{" "}
-          <a href={`tel:${PHONE.tel}`} className="whitespace-nowrap hover:underline">
+          <a href={`tel:${PHONE.tel}`} className={`whitespace-nowrap hover:underline ${desk ? "" : "-my-[12px] inline-block py-[12px] font-bold underline decoration-green-3 underline-offset-4"}`}>
             {PHONE.display}
           </a>
         </p>
