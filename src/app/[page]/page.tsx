@@ -7,10 +7,10 @@ import WixLayout from "@/components/wix/WixLayout";
 import { CONTENT_PAGES } from "@/content/pages";
 import { SHOP } from "@/content/shop";
 import type { CardItem } from "@/components/shop/ProductGallery";
-import { categoryProducts, decodeEntities, formatPrice } from "@/lib/content";
+import { CATEGORIES, categoryProducts, decodeEntities, formatPrice } from "@/lib/content";
 import { media } from "@/lib/media";
 import { pageMetadata } from "@/lib/seo";
-import { allNodes, describe, loadLayout, trimTop, type ImageNode } from "@/lib/wix-layout";
+import { allNodes, describe, loadLayout, siteHref, trimTop, type ImageNode } from "@/lib/wix-layout";
 
 // Top-level Wix pages (/about-us, /people, /contact, …), each rendered from its Wix layout.
 export const dynamicParams = false;
@@ -57,6 +57,15 @@ function cards(category: string): CardItem[] {
   });
 }
 
+/** The store categories in the order of the Wix category menu (/shop2), with their page titles. */
+function shopCategories() {
+  const paths = allNodes(loadLayout("pages", "shop2").nodes).flatMap((n) => (n.kind === "button" && n.href ? [siteHref(n.href).href] : []));
+  const rank = (p: string) => (paths.indexOf(p) < 0 ? paths.length : paths.indexOf(p));
+  return CATEGORIES.filter((c) => c.path !== "/shop" && CONTENT_PAGES[c.path.slice(1)])
+    .map((c) => ({ name: CONTENT_PAGES[c.path.slice(1)].title, path: c.path }))
+    .sort((a, b) => rank(a.path) - rank(b.path));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { page } = await params;
   const def = CONTENT_PAGES[page];
@@ -80,7 +89,14 @@ export default async function ContentPage({ params }: Props) {
   return (
     <>
       {def.video && <VideoBackground src={def.video.src} poster={def.video.poster} />}
-      <WixLayout layout={trimTop(loadLayout("pages", page), def.trimTop ?? 0)} title={def.title.split(" | ")[0]} audio={audio} gallery={def.category ? cards(def.category) : undefined} />
+      <WixLayout
+        layout={trimTop(loadLayout("pages", page), def.trimTop ?? 0)}
+        title={def.title.split(" | ")[0]}
+        audio={audio}
+        gallery={def.category ? cards(def.category) : undefined}
+        // «Όλα τα προϊόντα» gets links to the categories (their own pages already carry the Wix category menu)
+        categories={page === "shop" ? shopCategories() : undefined}
+      />
     </>
   );
 }

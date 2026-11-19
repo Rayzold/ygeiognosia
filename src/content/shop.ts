@@ -44,5 +44,8 @@ export const SHOP = {
     ],
   },
   price: "Τιμή",
+  // NEW (2026-11-19): labels for screen readers only; the visible words are the page and category names
+  breadcrumb: "Διαδρομή",
+  categories: "Κατηγορίες προϊόντων",
   share: { facebook: "Κοινοποίηση στο Facebook", pinterest: "Κοινοποίηση στο Pinterest", whatsapp: "Αποστολή με WhatsApp", x: "Κοινοποίηση στο X" },
 };

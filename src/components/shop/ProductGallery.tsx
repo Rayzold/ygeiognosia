@@ -11,8 +11,12 @@ export type CardItem = { path: string; name: string; price: number; formatted: s
  * Wix Stores product gallery: 4 columns of 245px on desktop (2 on mobile), square photo, name, price,
  * button. /shop also has Wix's sort menu and «Load More» (20 at a time). All products are in the static
  * HTML (crawlable); «Load More» only reveals them.
+ * `categories` (not on Wix, /shop only): links to the category pages above the list, so «all products» can be
+ * narrowed down; one scrolling row on phones, wrapped on desktop.
  */
-export default function ProductGallery({ items, sort = false, pageSize }: { items: CardItem[]; sort?: boolean; pageSize?: number }) {
+export type CategoryLink = { name: string; path: string };
+
+export default function ProductGallery({ items, sort = false, pageSize, categories }: { items: CardItem[]; sort?: boolean; pageSize?: number; categories?: CategoryLink[] }) {
   const [order, setOrder] = useState("");
   const [shown, setShown] = useState(pageSize ?? items.length);
   const sorted = [...items];
@@ -24,8 +28,24 @@ export default function ProductGallery({ items, sort = false, pageSize }: { item
 
   return (
     <div>
+      {categories && categories.length > 0 && (
+        <nav aria-label={SHOP.categories} className="pt-4 desk:px-[10px] desk:pt-[24px]">
+          <ul className="flex gap-2 overflow-x-auto px-[10px] pb-2 desk:flex-wrap desk:overflow-visible desk:px-0 desk:pb-0">
+            {categories.map((c) => (
+              <li key={c.path} className="shrink-0">
+                <Link
+                  href={c.path}
+                  className="flex h-[44px] items-center whitespace-nowrap rounded-[22px] border border-white/60 px-4 text-[15px] text-white transition-colors hover:border-green-3 hover:bg-green-3 hover:text-green-5 desk:h-[36px] desk:rounded-[18px] desk:text-[14px]"
+                >
+                  {c.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       {sort && (
-        <div className="flex justify-end px-[10px] pt-4 desk:h-[85px] desk:px-[10px] desk:pt-[24px]">
+        <div className={`flex justify-end px-[10px] pt-4 desk:px-[10px] ${categories?.length ? "desk:pb-[21px] desk:pt-[16px]" : "desk:h-[85px] desk:pt-[24px]"}`}>
           <label className="sr-only" htmlFor="shop-sort">
             {SHOP.sort.label}
           </label>

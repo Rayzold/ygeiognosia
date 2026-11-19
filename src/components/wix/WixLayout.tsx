@@ -23,7 +23,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import AnchorMenu from "./AnchorMenu";
 import MapFrame from "./MapFrame";
 import AudioPlayer from "./AudioPlayer";
-import ProductGallery, { type CardItem } from "@/components/shop/ProductGallery";
+import ProductGallery, { type CardItem, type CategoryLink } from "@/components/shop/ProductGallery";
 
 /**
  * Renders a Wix page from its extracted layout (content/pages/<type>/<name>/layout.json).
@@ -49,7 +49,7 @@ const fontClass = (f?: string) => (f && FONT[f]) ?? "font-body";
 const POS = "desk:absolute desk:left-[var(--x)] desk:top-[var(--y)] desk:w-[var(--w)]";
 const SIZE = "desk:h-[var(--h)]";
 
-type Ctx = { title: string; audio?: string; gallery?: CardItem[]; hoverParents: Set<string>; first: { image: boolean } };
+type Ctx = { title: string; audio?: string; gallery?: CardItem[]; categories?: CategoryLink[]; hoverParents: Set<string>; first: { image: boolean } };
 
 const box = (n: LayoutNode): CSSProperties =>
   ({ "--x": `${n.x}px`, "--y": `${n.y}px`, "--w": `${n.w}px`, "--h": `${n.h}px` }) as CSSProperties;
@@ -79,7 +79,7 @@ function assignHeadingLevels(sections: BoxNode[]) {
   walk(sections);
 }
 
-export default function WixLayout({ layout, title, audio, gallery }: { layout: Layout; title: string; audio?: string; gallery?: CardItem[] }) {
+export default function WixLayout({ layout, title, audio, gallery, categories }: { layout: Layout; title: string; audio?: string; gallery?: CardItem[]; categories?: CategoryLink[] }) {
   const hoverParents = new Set<string>();
   const collect = (ns: LayoutNode[]) =>
     ns.forEach((n) => {
@@ -87,7 +87,7 @@ export default function WixLayout({ layout, title, audio, gallery }: { layout: L
       if ("children" in n && n.children) collect(n.children);
     });
   collect(layout.nodes);
-  const ctx: Ctx = { title, audio, gallery, hoverParents, first: { image: true } };
+  const ctx: Ctx = { title, audio, gallery, categories, hoverParents, first: { image: true } };
 
   const sections = layout.nodes.filter((n) => n.kind === "section").sort(byReadingOrder) as BoxNode[];
   const pinned = layout.nodes.filter((n) => n.kind !== "section").flatMap((n) => ("children" in n && n.children ? n.children : [n]));
@@ -163,7 +163,7 @@ function Node({ n, ctx, label }: { n: LayoutNode; ctx: Ctx; label: string }) {
       // in flow (not absolute) so the section grows with it
       return (
         <div key={n.id} style={box(n)} className="desk:relative desk:ml-[var(--x)] desk:w-[var(--w)] desk:pt-[var(--y)]">
-          <ProductGallery items={ctx.gallery ?? []} sort={n.sort} pageSize={n.loadMore ? n.shown : undefined} />
+          <ProductGallery items={ctx.gallery ?? []} sort={n.sort} pageSize={n.loadMore ? n.shown : undefined} categories={ctx.categories} />
         </div>
       );
     case "audio":
